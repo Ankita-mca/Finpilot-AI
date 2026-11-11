@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FinPilot AI — Reminders</title>
+
+  <!-- Google Fonts: DM Sans & Manrope -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Design System Stylesheet -->
+  <link rel="stylesheet" href="../assets/css/style.css">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ["'DM Sans'", "sans-serif"],
+            heading: ["'Manrope'", "sans-serif"],
+            mono: ["'JetBrains Mono'", "monospace"],
+          },
+          colors: {
+            brand: {
+              50: "#edf5f1",
+              100: "#e6f2ed",
+              500: "#5a9b80",
+              600: "#287755",
+              700: "#206748",
+              800: "#172823",
+              900: "#133c2a"
+            },
+            primary: {
+              50: "#edf5f1",
+              100: "#e6f2ed",
+              500: "#5a9b80",
+              600: "#287755",
+              700: "#206748",
+              800: "#172823",
+              900: "#133c2a"
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#f5f7f6] text-[#202927] font-sans antialiased min-h-screen">
+  <div id="root">
+    <div class="app-shell">
+
+  <!-- ================= LEFT PERSISTENT SIDEBAR ================= -->
+        <!-- ================= SIDEBAR ================= -->
+      <aside class="sidebar">
+        <!-- Brand Logo Header -->
+        <div class="brand">
+          <div class="brand-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+            </svg>
+          </div>
+          <span>FinPilot <b>AI</b></span>
+        </div>
+
+        <!-- Org Switcher -->
+        <div class="org-switch">
+          <div class="org-avatar" id="sidebarOrgAvatar">T</div>
+          <span>
+            <strong id="sidebarOrgName">Test Org</strong>
+            <small id="sidebarOrgRole">owner account</small>
+          </span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #84908b;">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </div>
+
+        <!-- Navigation Section: WORKSPACE -->
+        <div class="nav-label">WORKSPACE</div>
+        <nav>
+          <!-- 1. Overview -->
+          <a href="dashboard.html" class="nav-item ">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="7" height="7"></rect>
+              <rect x="14" y="3" width="7" height="7"></rect>
+              <rect x="14" y="14" width="7" height="7"></rect>
+              <rect x="3" y="14" width="7" height="7"></rect>
+            </svg>
+            <span>Overview</span>
+          </a>
+
+          <!-- 2. Invoices -->
+          <a href="invoices.html" class="nav-item ">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+              <polyline points="10 9 9 9 8 9"></polyline>
+            </svg>
+            <span>Invoices</span>
+          </a>
+
+          <!-- 3. Customers -->
+          <a href="customers.html" class="nav-item ">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+            <span>Customers</span>
+          </a>
+
+          <!-- 4. Payments -->
+          <a href="payments.html" class="nav-item ">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="5" width="20" height="14" rx="2"></rect>
+              <line x1="2" y1="10" x2="22" y2="10"></line>
+            </svg>
+            <span>Payments</span>
+          </a>
+
+          <!-- 5. Aging Report -->
+          <a href="reports.html" class="nav-item ">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            <span>Aging report</span>
+          </a>
+
+          <!-- 6. Reminders -->
+          <a href="reminders.html" class="nav-item active">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+              <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+            </svg>
+            <span>Reminders</span>
+            <span class="soon">SOON</span>
+          </a>
+
+          <!-- 7. Reconciliation -->
+          <a href="reconciliation.html" class="nav-item ">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="6" y1="3" x2="6" y2="15"></line>
+              <circle cx="18" cy="6" r="3"></circle>
+              <circle cx="6" cy="18" r="3"></circle>
+              <path d="M18 9a9 9 0 0 1-9 9"></path>
+            </svg>
+            <span>Reconciliation</span>
+            <span class="soon">SOON</span>
+          </a>
+
+          <!-- 8. Forecast -->
+          <a href="cash-flow.html" class="nav-item ">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+              <polyline points="17 6 23 6 23 12"></polyline>
+            </svg>
+            <span>Forecast</span>
+          </a>
+
+          <!-- 9. AI Assistant -->
+          <a href="ai-assistant.html" class="nav-item ">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="11" width="18" height="10" rx="2"></rect>
+              <circle cx="12" cy="5" r="2"></circle>
+              <path d="M12 7v4"></path>
+              <line x1="8" y1="16" x2="8" y2="16"></line>
+              <line x1="16" y1="16" x2="16" y2="16"></line>
+            </svg>
+            <span>AI Assistant</span>
+          </a>
+        </nav>
+
+        <!-- Navigation Section: ACCOUNT -->
+        <div class="sidebar-bottom">
+          <div class="nav-label">ACCOUNT</div>
+          <nav>
+            <a href="notifications.html" class="nav-item ">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+              </svg>
+              <span>Notifications</span>
+            </a>
+            <a href="audit-log.html" class="nav-item ">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+              <span>Audit Log</span>
+            </a>
+            <a href="settings.html" class="nav-item ">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="4" y1="21" x2="4" y2="14"></line>
+                <line x1="4" y1="10" x2="4" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12" y2="3"></line>
+                <line x1="20" y1="21" x2="20" y2="16"></line>
+                <line x1="20" y1="12" x2="20" y2="3"></line>
+                <line x1="1" y1="14" x2="7" y2="14"></line>
+                <line x1="9" y1="8" x2="15" y2="8"></line>
+                <line x1="17" y1="16" x2="23" y2="16"></line>
+              </svg>
+              <span>Settings</span>
+            </a>
+          </nav>
+
+          <!-- User Profile Card -->
+          <div class="profile">
+            <div class="avatar" id="sidebarUserAvatar">T</div>
+            <span>
+              <strong id="sidebarUserName">Test User</strong>
+              <small id="sidebarUserEmail">test@finpilot.local</small>
+            </span>
+            <button class="logout-btn" title="Sign out" onclick="logout()">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                <polyline points="16 17 21 12 16 7"></polyline>
+                <line x1="21" y1="12" x2="9" y2="12"></line>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Bottom Full Width Sign Out Button -->
+          <button class="logout-row-btn" onclick="logout()">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+              <polyline points="16 17 21 12 16 7"></polyline>
+              <line x1="21" y1="12" x2="9" y2="12"></line>
+            </svg>
+            <span>Sign out</span>
+          </button>
+        </div>
+      </aside>
+
+  <!-- ================= MAIN VIEWPORT ================= -->
+  <main class="main">
+    
+    <!-- Top Header Bar (Matching Customer & Invoices Design) -->
+            <!-- Topbar matching Dashboard -->
+        <header class="topbar">
+          <div class="crumb">
+            FinPilot <span>/</span> <b>Reminders</b>
+          </div>
+          <div class="top-actions">
+            <div class="relative w-64 hidden sm:block">
+              <input id="headerSearchInput" type="text" placeholder="Search customer, reminder..." class="w-full pl-8 pr-3 py-1.5 text-xs bg-[#fafcfb] border border-[#e7ebe8] rounded-lg focus:outline-none focus:border-[#80ae96]">
+              <svg class="w-3.5 h-3.5 text-[#9aa39e] absolute left-2.5 top-2.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+            </div>
+            <div class="period">
+              <span class="live-dot"></span>
+              <span id="syncIndicator">MongoDB Atlas Connected</span>
+            </div>
+          </div>
+        </header>
+
+    <!-- CONTENT BODY -->
+    <div class="p-8 max-w-7xl w-full mx-auto space-y-6">
+      
+      <!-- Page Header & Main Actions -->
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div>
+          <div class="flex items-center gap-2 text-[11px] font-semibold tracking-wider uppercase text-blue-600">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            Dunning Automation • MSME Flow
+          </div>
+          <h1 class="text-2xl font-bold text-slate-900 tracking-tight mt-1">Payment Reminders</h1>
+          <p class="text-xs text-slate-500 mt-0.5">Manage and track customer payment reminders across multi-channel dispatches.</p>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <button id="autoDunningBtn" class="px-4 py-2 text-xs font-semibold text-slate-700 bg-white border border-slate-200/80 rounded-xl hover:bg-slate-50 shadow-xs flex items-center gap-2 transition-colors">
+            <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+            Auto-Dunning Rules
+          </button>
+          <button id="openCreateModalBtn" class="px-4 py-2 text-xs font-semibold text-white bg-brand-600 hover:bg-brand-700 rounded-xl shadow-sm shadow-blue-500/25 flex items-center gap-2 transition-all">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+            Create Reminder
+          </button>
+        </div>
+      </div>
+
+      <!-- 4 SUMMARY CARDS -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <!-- 1. Total Reminders -->
+        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs">
+          <div class="flex items-center justify-between">
+            <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Total Reminders</span>
+            <span class="p-2 bg-slate-50 text-slate-600 rounded-xl">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
+            </span>
+          </div>
+          <div class="mt-3 flex items-baseline justify-between">
+            <span id="kpiTotal" class="text-3xl font-extrabold text-slate-900 tracking-tight">24</span>
+            <span class="text-xs text-slate-500 font-medium">Active cycle</span>
+          </div>
+        </div>
+
+        <!-- 2. Scheduled -->
+        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs">
+          <div class="flex items-center justify-between">
+            <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Scheduled</span>
+            <span class="p-2 bg-blue-50 text-blue-600 rounded-xl">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+            </span>
+          </div>
+          <div class="mt-3 flex items-baseline justify-between">
+            <span id="kpiScheduled" class="text-3xl font-extrabold text-slate-900 tracking-tight">8</span>
+            <span class="text-xs font-semibold text-blue-700 bg-blue-50 px-2 py-0.5 rounded-full">In Queue</span>
+          </div>
+        </div>
+
+        <!-- 3. Sent -->
+        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs">
+          <div class="flex items-center justify-between">
+            <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Sent</span>
+            <span class="p-2 bg-emerald-50 text-emerald-600 rounded-xl">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+            </span>
+          </div>
+          <div class="mt-3 flex items-baseline justify-between">
+            <span id="kpiSent" class="text-3xl font-extrabold text-slate-900 tracking-tight">14</span>
+            <span class="text-xs font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full">Delivered</span>
+          </div>
+        </div>
+
+        <!-- 4. Failed -->
+        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs">
+          <div class="flex items-center justify-between">
+            <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Failed</span>
+            <span class="p-2 bg-rose-50 text-rose-600 rounded-xl">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+            </span>
+          </div>
+          <div class="mt-3 flex items-baseline justify-between">
+            <span id="kpiFailed" class="text-3xl font-extrabold text-rose-600 tracking-tight">2</span>
+            <span class="text-xs font-semibold text-rose-700 bg-rose-50 px-2 py-0.5 rounded-full">Needs Action</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- FILTER CONTROLS BAR -->
+      <div class="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-3">
+        <!-- Status Filter Pills -->
+        <div class="flex items-center gap-1.5 p-1 bg-white border border-slate-200/80 rounded-2xl shadow-xs text-xs overflow-x-auto">
+          <button class="status-filter-btn active px-3.5 py-1.5 rounded-xl font-semibold bg-brand-600 text-white shadow-xs" data-status="all">
+            All <span id="tabCountAll" class="ml-1 opacity-80 text-[11px]">24</span>
+          </button>
+          <button class="status-filter-btn px-3.5 py-1.5 rounded-xl font-medium text-slate-600 hover:bg-slate-100 transition-colors" data-status="scheduled">
+            Scheduled <span id="tabCountScheduled" class="ml-1 text-blue-600 font-bold">8</span>
+          </button>
+          <button class="status-filter-btn px-3.5 py-1.5 rounded-xl font-medium text-slate-600 hover:bg-slate-100 transition-colors" data-status="sent">
+            Sent <span id="tabCountSent" class="ml-1 text-emerald-600 font-bold">14</span>
+          </button>
+          <button class="status-filter-btn px-3.5 py-1.5 rounded-xl font-medium text-slate-600 hover:bg-slate-100 transition-colors" data-status="failed">
+            Failed <span id="tabCountFailed" class="ml-1 text-rose-600 font-bold">2</span>
+          </button>
+        </div>
+
+        <!-- Search Bar, Channel & Date Filter -->
+        <div class="flex items-center gap-2.5 flex-wrap sm:flex-nowrap">
+          <div class="relative flex-1 sm:w-72">
+            <input id="reminderSearchInput" type="text" placeholder="Search reminder or customer..." class="w-full pl-9 pr-4 py-2 text-xs bg-white border border-slate-200/80 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all shadow-xs">
+            <svg class="w-4 h-4 text-slate-400 absolute left-3 top-2.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+          </div>
+
+          <div class="relative">
+            <select id="channelSelectFilter" class="appearance-none pl-3 pr-8 py-2 text-xs bg-white border border-slate-200/80 rounded-xl font-medium text-slate-700 focus:outline-none focus:ring-2 focus:ring-brand-500 shadow-xs cursor-pointer">
+              <option value="all">All Channels</option>
+              <option value="WhatsApp">WhatsApp</option>
+              <option value="Email">Email</option>
+              <option value="SMS">SMS</option>
+            </select>
+            <svg class="w-3.5 h-3.5 text-slate-400 absolute right-2.5 top-3 pointer-events-none" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          </div>
+
+          <button id="resetFiltersBtn" class="px-3.5 py-2 text-xs font-medium text-slate-700 bg-white border border-slate-200/80 rounded-xl hover:bg-slate-50 shadow-xs flex items-center gap-2 shrink-0 transition-colors">
+            Reset Filters
+          </button>
+        </div>
+      </div>
+
+      <!-- REMINDER LEDGER TABLE -->
+      <div class="bg-white rounded-2xl border border-slate-200/80 shadow-xs overflow-hidden">
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse text-xs">
+            <thead>
+              <tr class="bg-slate-50/80 border-b border-slate-200/80 text-slate-400 font-semibold uppercase tracking-wider text-[10px]">
+                <th class="py-3 px-6">Customer</th>
+                <th class="py-3 px-4">Invoice #</th>
+                <th class="py-3 px-4">Amount Due</th>
+                <th class="py-3 px-4">Due Date</th>
+                <th class="py-3 px-4">Channel</th>
+                <th class="py-3 px-4">Status</th>
+                <th class="py-3 px-6 text-right">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="reminderTableBody" class="divide-y divide-slate-100">
+
+              <!-- ROW 1: Mahavir Precision (Scheduled, WhatsApp) -->
+              <tr class="hover:bg-slate-50/60 transition-colors reminder-row" data-status="scheduled" data-channel="WhatsApp" data-name="Mahavir Precision Ltd" data-inv="INV-1042">
+                <td class="py-4 px-6">
+                  <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-full bg-blue-50 text-blue-600 font-bold text-xs flex items-center justify-center shrink-0">
+                      MP
+                    </div>
+                    <div>
+                      <div class="font-bold text-slate-900">Mahavir Precision Ltd</div>
+                      <div class="text-[10px] font-mono text-slate-400">GST: 27AACM4829E1Z8</div>
+                    </div>
+                  </div>
+                </td>
+                <td class="py-4 px-4 font-mono font-medium text-blue-600">#INV-1042</td>
+                <td class="py-4 px-4 font-extrabold text-slate-900">₹45,000</td>
+                <td class="py-4 px-4 text-slate-600">11 Nov 2026</td>
+                <td class="py-4 px-4">
+                  <span class="inline-flex items-center gap-1.5 text-slate-700 font-medium">
+                    <svg class="w-3.5 h-3.5 text-emerald-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+                    WhatsApp
+                  </span>
+                </td>
+                <td class="py-4 px-4">
+                  <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-blue-50 text-blue-700 border border-blue-100">
+                    <span class="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
+                    Scheduled
+                  </span>
+                </td>
+                <td class="py-4 px-6 text-right">
+                  <div class="flex items-center justify-end gap-3">
+                    <button onclick="handleReschedule('Mahavir Precision Ltd', '#INV-1042')" class="text-xs font-semibold text-slate-600 hover:text-blue-600 transition-colors">Reschedule</button>
+                    <button onclick="viewReminderLog('Mahavir Precision Ltd', 'Scheduled for automated dispatch')" class="text-slate-400 hover:text-slate-600 p-1">
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"/></svg>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+
+              <!-- ROW 2: ABC Technologies (Sent, Email) -->
+              <tr class="hover:bg-slate-50/60 transition-colors reminder-row" data-status="sent" data-channel="Email" data-name="ABC Technologies" data-inv="INV-1041">
+                <td class="py-4 px-6">
+                  <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-full bg-indigo-50 text-indigo-600 font-bold text-xs flex items-center justify-center shrink-0">
+                      AT
+                    </div>
+                    <div>
+                      <div class="font-bold text-slate-900">ABC Technologies</div>
+                      <div class="text-[10px] font-mono text-slate-400">GST: 29AAACA9012F2Z1</div>
+                    </div>
+                  </div>
+                </td>
+                <td class="py-4 px-4 font-mono font-medium text-blue-600">#INV-1041</td>
+                <td class="py-4 px-4 font-extrabold text-slate-900">₹25,000</td>
+                <td class="py-4 px-4 text-slate-600">14 Nov 2026</td>
+                <td class="py-4 px-4">
+                  <span class="inline-flex items-center gap-1.5 text-slate-700 font-medium">
+                    <svg class="w-3.5 h-3.5 text-blue-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                    Email
+                  </span>
+                </td>
+                <td class="py-4 px-4">
+                  <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-100">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                    Sent
+                  </span>
+                </td>
+                <td class="py-4 px-6 text-right">
+                  <div class="flex items-center justify-end gap-3">
+                    <button onclick="viewReminderLog('ABC Technologies', 'Delivered via Email with verified SMTP delivery status 250 OK')" class="text-xs font-semibold text-slate-600 hover:text-blue-600 transition-colors">View Log</button>
+                    <button onclick="viewReminderLog('ABC Technologies', 'Delivered via Email with verified SMTP delivery status 250 OK')" class="text-slate-400 hover:text-slate-600 p-1">
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"/></svg>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+
+              <!-- ROW 3: BlueDart Logistics (Scheduled, Email) -->
+              <tr class="hover:bg-slate-50/60 transition-colors reminder-row" data-status="scheduled" data-channel="Email" data-name="BlueDart Logistics Hub" data-inv="INV-1039">
+                <td class="py-4 px-6">
+                  <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-full bg-sky-50 text-sky-600 font-bold text-xs flex items-center justify-center shrink-0">
+                      BL
+                    </div>
+                    <div>
+                      <div class="font-bold text-slate-900">BlueDart Logistics Hub</div>
+                      <div class="text-[10px] font-mono text-slate-400">GST: 27AABCB3981K1ZP</div>
+                    </div>
+                  </div>
+                </td>
+                <td class="py-4 px-4 font-mono font-medium text-blue-600">#INV-1039</td>
+                <td class="py-4 px-4 font-extrabold text-slate-900">₹38,000</td>
+                <td class="py-4 px-4 text-slate-600">18 Nov 2026</td>
+                <td class="py-4 px-4">
+                  <span class="inline-flex items-center gap-1.5 text-slate-700 font-medium">
+                    <svg class="w-3.5 h-3.5 text-blue-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                    Email
+                  </span>
+                </td>
+                <td class="py-4 px-4">
+                  <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-blue-50 text-blue-700 border border-blue-100">
+                    <span class="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
+                    Scheduled
+                  </span>
+                </td>
+                <td class="py-4 px-6 text-right">
+                  <div class="flex items-center justify-end gap-3">
+                    <button onclick="handleReschedule('BlueDart Logistics Hub', '#INV-1039')" class="text-xs font-semibold text-slate-600 hover:text-blue-600 transition-colors">Reschedule</button>
+                    <button onclick="viewReminderLog('BlueDart Logistics Hub', 'Queued in dunning scheduler')" class="text-slate-400 hover:text-slate-600 p-1">
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"/></svg>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+
+              <!-- ROW 4: Shanti Electricals (Failed, SMS) -->
+              <tr class="hover:bg-slate-50/60 transition-colors reminder-row" data-status="failed" data-channel="SMS" data-name="Shanti Electricals" data-inv="INV-1035">
+                <td class="py-4 px-6">
+                  <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-full bg-rose-50 text-rose-600 font-bold text-xs flex items-center justify-center shrink-0">
+                      SE
+                    </div>
+                    <div>
+                      <div class="font-bold text-slate-900">Shanti Electricals</div>
+                      <div class="text-[10px] font-mono text-slate-400">GST: 27AABCS2234L1ZN</div>
+                    </div>
+                  </div>
+                </td>
+                <td class="py-4 px-4 font-mono font-medium text-blue-600">#INV-1035</td>
+                <td class="py-4 px-4 font-extrabold text-slate-900">₹12,450</td>
+                <td class="py-4 px-4 text-slate-600">08 Nov 2026</td>
+                <td class="py-4 px-4">
+                  <span class="inline-flex items-center gap-1.5 text-slate-700 font-medium">
+                    <svg class="w-3.5 h-3.5 text-amber-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"/></svg>
+                    SMS
+                  </span>
+                </td>
+                <td class="py-4 px-4">
+                  <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-rose-50 text-rose-700 border border-rose-100">
+                    <span class="w-1.5 h-1.5 rounded-full bg-rose-500"></span>
+                    Failed
+                  </span>
+                </td>
+                <td class="py-4 px-6 text-right">
+                  <div class="flex items-center justify-end gap-3">
+                    <button onclick="handleRetry('Shanti Electricals', '#INV-1035')" class="text-xs font-bold text-rose-600 hover:text-rose-700 transition-colors">Retry</button>
+                    <button onclick="viewReminderLog('Shanti Electricals', 'Telecom gateway error: Handset unavailable. Recommended to switch to WhatsApp.')" class="text-slate-400 hover:text-slate-600 p-1">
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"/></svg>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+
+              <!-- ROW 5: Dynamic Steel Works (Sent, WhatsApp) -->
+              <tr class="hover:bg-slate-50/60 transition-colors reminder-row" data-status="sent" data-channel="WhatsApp" data-name="Dynamic Steel Works" data-inv="INV-1033">
+                <td class="py-4 px-6">
+                  <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-full bg-teal-50 text-teal-600 font-bold text-xs flex items-center justify-center shrink-0">
+                      DS
+                    </div>
+                    <div>
+                      <div class="font-bold text-slate-900">Dynamic Steel Works</div>
+                      <div class="text-[10px] font-mono text-slate-400">GST: 27AABCD6751M1ZQ</div>
+                    </div>
+                  </div>
+                </td>
+                <td class="py-4 px-4 font-mono font-medium text-blue-600">#INV-1033</td>
+                <td class="py-4 px-4 font-extrabold text-slate-900">₹84,200</td>
+                <td class="py-4 px-4 text-slate-600">02 Nov 2026</td>
+                <td class="py-4 px-4">
+                  <span class="inline-flex items-center gap-1.5 text-slate-700 font-medium">
+                    <svg class="w-3.5 h-3.5 text-emerald-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+                    WhatsApp
+                  </span>
+                </td>
+                <td class="py-4 px-4">
+                  <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-100">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                    Sent
+                  </span>
+                </td>
+                <td class="py-4 px-6 text-right">
+                  <div class="flex items-center justify-end gap-3">
+                    <button onclick="viewReminderLog('Dynamic Steel Works', 'Dispatched via WhatsApp Business API: Read by counterparty with blue double checkmarks')" class="text-xs font-semibold text-slate-600 hover:text-blue-600 transition-colors">View Log</button>
+                    <button onclick="viewReminderLog('Dynamic Steel Works', 'Dispatched via WhatsApp Business API: Read by counterparty with blue double checkmarks')" class="text-slate-400 hover:text-slate-600 p-1">
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"/></svg>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Table Footer / Pagination -->
+        <div class="px-6 py-4 border-t border-slate-100 bg-slate-50/40 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
+          <div>Showing <span id="showingCount" class="font-bold text-slate-800">5</span> of <span id="totalRemindersCount" class="font-bold text-slate-800">24</span> reminders</div>
+          <div class="flex items-center gap-1.5">
+            <button class="w-8 h-8 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 flex items-center justify-center text-slate-400 disabled:opacity-50">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+            </button>
+            <button class="w-8 h-8 rounded-lg bg-brand-600 text-white font-bold text-xs flex items-center justify-center shadow-xs">1</button>
+            <button class="w-8 h-8 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 text-slate-600 font-medium text-xs flex items-center justify-center">2</button>
+            <button class="w-8 h-8 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 text-slate-600 font-medium text-xs flex items-center justify-center">3</button>
+            <button class="w-8 h-8 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 flex items-center justify-center text-slate-600">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ================= MODAL: CREATE REMINDER ================= -->
+  <div id="createReminderModal" class="fixed inset-0 bg-slate-900/50 backdrop-blur-xs z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-white rounded-3xl max-w-lg w-full p-6 shadow-2xl border border-slate-100 max-h-[90vh] overflow-y-auto">
+      <div class="flex items-center justify-between pb-4 border-b border-slate-100">
+        <div>
+          <h3 class="text-base font-bold text-slate-900">Schedule Payment Reminder</h3>
+          <p class="text-xs text-slate-500 mt-0.5">Automate follow-up messages across verified Indian channels</p>
+        </div>
+        <button id="closeModalBtn" class="text-slate-400 hover:text-slate-600 p-1.5 rounded-lg hover:bg-slate-100">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <form id="createReminderForm" class="mt-4 space-y-4 text-xs">
+        <div>
+          <label class="block font-semibold text-slate-700 mb-1">Select Customer <span class="text-rose-500">*</span></label>
+          <select id="modalCustomerSelect" required class="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-500 font-medium text-slate-800">
+            <option value="">-- Choose Debtor --</option>
+            <option value="Mahavir Precision Ltd" data-inv="#INV-1042" data-due="₹45,000" data-gst="27AACM4829E1Z8">Mahavir Precision Ltd (GSTIN: 27AACM4829E1Z8)</option>
+            <option value="ABC Technologies" data-inv="#INV-1041" data-due="₹25,000" data-gst="29AAACA9012F2Z1">ABC Technologies (GSTIN: 29AAACA9012F2Z1)</option>
+            <option value="BlueDart Logistics Hub" data-inv="#INV-1039" data-due="₹38,000" data-gst="27AABCB3981K1ZP">BlueDart Logistics Hub (GSTIN: 27AABCB3981K1ZP)</option>
+            <option value="Shanti Electricals" data-inv="#INV-1035" data-due="₹12,450" data-gst="27AABCS2234L1ZN">Shanti Electricals (GSTIN: 27AABCS2234L1ZN)</option>
+            <option value="Dynamic Steel Works" data-inv="#INV-1033" data-due="₹84,200" data-gst="27AABCD6751M1ZQ">Dynamic Steel Works (GSTIN: 27AABCD6751M1ZQ)</option>
+          </select>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Select Invoice</label>
+            <input type="text" id="modalInvoiceField" placeholder="Auto-selected" readonly class="w-full px-3 py-2 bg-slate-100 border border-slate-200 rounded-xl font-mono text-slate-700 font-semibold cursor-not-allowed">
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Outstanding Balance</label>
+            <input type="text" id="modalAmountField" placeholder="₹0" readonly class="w-full px-3 py-2 bg-slate-100 border border-slate-200 rounded-xl font-extrabold text-brand-600 cursor-not-allowed">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Reminder Channel <span class="text-rose-500">*</span></label>
+            <select id="modalChannelSelect" required class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-500">
+              <option value="WhatsApp">WhatsApp (Recommended)</option>
+              <option value="Email">Official Email</option>
+              <option value="SMS">SMS Priority</option>
+            </select>
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Dispatch Date <span class="text-rose-500">*</span></label>
+            <input type="date" id="modalDispatchDate" required class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-500">
+          </div>
+        </div>
+
+        <div>
+          <label class="block font-semibold text-slate-700 mb-1">Reminder Template & Copy</label>
+          <textarea id="modalMessageCopy" rows="3" class="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-500 text-slate-700">Dear Finance Team, this is a gentle payment reminder from Kalyan Forge Engineering for invoice due. Kindly arrange clearance or click the instant UPI payment link.</textarea>
+        </div>
+
+        <div class="pt-3 flex items-center justify-end gap-3 border-t border-slate-100">
+          <button type="button" id="cancelModalBtn" class="px-4 py-2 font-medium text-slate-600 hover:bg-slate-100 rounded-xl transition-colors">Cancel</button>
+          <button type="submit" class="px-5 py-2 font-semibold text-white bg-brand-600 hover:bg-brand-700 rounded-xl shadow-sm shadow-blue-500/25 transition-all">Schedule Reminder</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ================= NOTIFICATION TOAST ================= -->
+  <div id="toastNotification" class="fixed top-5 right-5 z-50 flex items-center gap-3 px-4 py-3 rounded-2xl shadow-xl border text-xs font-semibold transform transition-all duration-300 translate-y-[-100px] opacity-0 pointer-events-none bg-emerald-50 text-emerald-800 border-emerald-200">
+    <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+    <span id="toastMessage">Action completed successfully</span>
+  </div>
+
+  <!-- ================= JAVASCRIPT ENGINE ================= -->
+  <script>
+    // Set default date to today or tomorrow
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById('modalDispatchDate').value = today;
+
+    // Toast helper
+    function showToast(msg, isSuccess = true) {
+      const toast = document.getElementById('toastNotification');
+      const text = document.getElementById('toastMessage');
+      text.textContent = msg;
+      toast.className = `fixed top-5 right-5 z-50 flex items-center gap-3 px-4 py-3 rounded-2xl shadow-xl border text-xs font-semibold transform transition-all duration-300 ${
+        isSuccess ? 'bg-emerald-50 text-emerald-800 border-emerald-200' : 'bg-rose-50 text-rose-800 border-rose-200'
+      }`;
+      toast.style.transform = 'translateY(0)';
+      toast.style.opacity = '1';
+      setTimeout(() => {
+        toast.style.transform = 'translateY(-100px)';
+        toast.style.opacity = '0';
+      }, 4000);
+    }
+
+    // 1. Modal Controls
+    const modal = document.getElementById('createReminderModal');
+    const openBtn = document.getElementById('openCreateModalBtn');
+    const closeBtn = document.getElementById('closeModalBtn');
+    const cancelBtn = document.getElementById('cancelModalBtn');
+
+    openBtn.addEventListener('click', () => modal.classList.remove('hidden'));
+    closeBtn.addEventListener('click', () => modal.classList.add('hidden'));
+    cancelBtn.addEventListener('click', () => modal.classList.add('hidden'));
+
+    // 2. Auto-filling Invoice & Amount when Customer is picked
+    const custSelect = document.getElementById('modalCustomerSelect');
+    const invField = document.getElementById('modalInvoiceField');
+    const amtField = document.getElementById('modalAmountField');
+
+    custSelect.addEventListener('change', (e) => {
+      const selected = e.target.selectedOptions[0];
+      if (selected && selected.dataset.inv) {
+        invField.value = selected.dataset.inv;
+        amtField.value = selected.dataset.due;
+      } else {
+        invField.value = '';
+        amtField.value = '₹0';
+      }
+    });
+
+    // 3. Status Filter Buttons (All, Scheduled, Sent, Failed)
+    const filterButtons = document.querySelectorAll('.status-filter-btn');
+    const searchInput = document.getElementById('reminderSearchInput');
+    const headerSearchInput = document.getElementById('headerSearchInput');
+    const channelSelect = document.getElementById('channelSelectFilter');
+    const resetBtn = document.getElementById('resetFiltersBtn');
+
+    function applyAllFilters() {
+      const rows = document.querySelectorAll('.reminder-row');
+      const activeFilterBtn = document.querySelector('.status-filter-btn.active');
+      const activeStatus = activeFilterBtn ? activeFilterBtn.dataset.status : 'all';
+      const searchQuery = (searchInput.value || headerSearchInput.value || '').toLowerCase().trim();
+      const selectedChannel = channelSelect.value;
+
+      let visibleCount = 0;
+
+      rows.forEach(row => {
+        const rowStatus = row.dataset.status;
+        const rowChannel = row.dataset.channel;
+        const rowText = row.innerText.toLowerCase();
+
+        const statusMatches = (activeStatus === 'all' || rowStatus === activeStatus);
+        const channelMatches = (selectedChannel === 'all' || rowChannel === selectedChannel);
+        const searchMatches = (searchQuery === '' || rowText.includes(searchQuery));
+
+        if (statusMatches && channelMatches && searchMatches) {
+          row.style.display = '';
+          visibleCount++;
+        } else {
+          row.style.display = 'none';
+        }
+      });
+
+      document.getElementById('showingCount').textContent = visibleCount;
+    }
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterButtons.forEach(b => {
+          b.classList.remove('active', 'bg-brand-600', 'text-white', 'shadow-xs');
+          b.classList.add('text-slate-600');
+        });
+        btn.classList.add('active', 'bg-brand-600', 'text-white', 'shadow-xs');
+        btn.classList.remove('text-slate-600');
+        applyAllFilters();
+      });
+    });
+
+    // 4. Live Search & Channel Select
+    searchInput.addEventListener('input', () => {
+      headerSearchInput.value = searchInput.value;
+      applyAllFilters();
+    });
+
+    headerSearchInput.addEventListener('input', () => {
+      searchInput.value = headerSearchInput.value;
+      applyAllFilters();
+    });
+
+    channelSelect.addEventListener('change', applyAllFilters);
+
+    resetBtn.addEventListener('click', () => {
+      searchInput.value = '';
+      headerSearchInput.value = '';
+      channelSelect.value = 'all';
+      filterButtons[0].click();
+    });
+
+    // 5. Actions Handlers
+    window.handleReschedule = function(customer, inv) {
+      const newDate = prompt(`Enter new dispatch date for ${customer} (${inv}):`, '2026-11-25');
+      if (newDate) {
+        showToast(`Reminder for ${customer} rescheduled to ${newDate}!`);
+      }
+    };
+
+    window.handleRetry = function(customer, inv) {
+      showToast(`Retrying dispatch for ${customer} (${inv}) via WhatsApp priority channel...`);
+      setTimeout(() => {
+        showToast(`Reminder for ${customer} dispatched successfully via WhatsApp!`);
+      }, 1500);
+    };
+
+    window.viewReminderLog = function(customer, details) {
+      alert(`[Reminder Audit Trail — ${customer}]\n\n${details}\n\nMulti-tenant isolation verified with Indian GSTIN audit signature.`);
+    };
+
+    document.getElementById('autoDunningBtn').addEventListener('click', () => {
+      alert('MSME Auto-Dunning Rules Active:\n• T-7 Days: Courteous reminder (Email)\n• T-2 Days: Friendly WhatsApp alert\n• Due Date: SMS & WhatsApp UPI payment link\n• Overdue T+3: Escalation notice with Section 15 MSMED interest warning.');
+    });
+
+    // 6. Form Submit -> Dynamically Append New Reminder Row & Update Counters
+    document.getElementById('createReminderForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      const selectedCust = custSelect.value;
+      const selectedOption = custSelect.selectedOptions[0];
+      const invNumber = invField.value || '#INV-' + Math.floor(1000 + Math.random() * 9000);
+      const amtDue = amtField.value || '₹25,000';
+      const channel = document.getElementById('modalChannelSelect').value;
+      const dispatchDate = document.getElementById('modalDispatchDate').value;
+      const gstin = selectedOption ? selectedOption.dataset.gst || '27AABCK1234F1Z5' : '27AABCK1234F1Z5';
+
+      const initials = selectedCust.split(' ').map(w => w[0]).slice(0, 2).join('').toUpperCase();
+
+      // Channel Icon
+      let channelIcon = '';
+      if (channel === 'WhatsApp') {
+        channelIcon = `<svg class="w-3.5 h-3.5 text-emerald-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>`;
+      } else if (channel === 'Email') {
+        channelIcon = `<svg class="w-3.5 h-3.5 text-blue-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>`;
+      } else {
+        channelIcon = `<svg class="w-3.5 h-3.5 text-amber-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"/></svg>`;
+      }
+
+      const tbody = document.getElementById('reminderTableBody');
+      const tr = document.createElement('tr');
+      tr.className = 'hover:bg-slate-50/60 transition-colors reminder-row bg-blue-50/20';
+      tr.dataset.status = 'scheduled';
+      tr.dataset.channel = channel;
+      tr.dataset.name = selectedCust;
+      tr.dataset.inv = invNumber;
+
+      tr.innerHTML = `
+        <td class="py-4 px-6">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-full bg-blue-100 text-blue-700 font-bold text-xs flex items-center justify-center shrink-0">
+              ${initials}
+            </div>
+            <div>
+              <div class="font-bold text-slate-900">${selectedCust}</div>
+              <div class="text-[10px] font-mono text-slate-400">GST: ${gstin}</div>
+            </div>
+          </div>
+        </td>
+        <td class="py-4 px-4 font-mono font-medium text-blue-600">${invNumber}</td>
+        <td class="py-4 px-4 font-extrabold text-slate-900">${amtDue}</td>
+        <td class="py-4 px-4 text-slate-600">${dispatchDate}</td>
+        <td class="py-4 px-4">
+          <span class="inline-flex items-center gap-1.5 text-slate-700 font-medium">
+            ${channelIcon}
+            ${channel}
+          </span>
+        </td>
+        <td class="py-4 px-4">
+          <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-blue-50 text-blue-700 border border-blue-100">
+            <span class="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
+            Scheduled
+          </span>
+        </td>
+        <td class="py-4 px-6 text-right">
+          <div class="flex items-center justify-end gap-3">
+            <button onclick="handleReschedule('${selectedCust.replace(/'/g, "\\'")}', '${invNumber}')" class="text-xs font-semibold text-slate-600 hover:text-blue-600 transition-colors">Reschedule</button>
+            <button onclick="viewReminderLog('${selectedCust.replace(/'/g, "\\'")}', 'Newly scheduled for ${dispatchDate} via ${channel}')" class="text-slate-400 hover:text-slate-600 p-1">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"/></svg>
+            </button>
+          </div>
+        </td>
+      `;
+
+      tbody.insertBefore(tr, tbody.firstChild);
+
+      // Increment counters
+      const kpiTotal = document.getElementById('kpiTotal');
+      const kpiScheduled = document.getElementById('kpiScheduled');
+      kpiTotal.textContent = parseInt(kpiTotal.textContent, 10) + 1;
+      kpiScheduled.textContent = parseInt(kpiScheduled.textContent, 10) + 1;
+      document.getElementById('totalRemindersCount').textContent = kpiTotal.textContent;
+      document.getElementById('tabCountAll').textContent = kpiTotal.textContent;
+      document.getElementById('tabCountScheduled').textContent = kpiScheduled.textContent;
+
+      modal.classList.add('hidden');
+      document.getElementById('createReminderForm').reset();
+      invField.value = '';
+      amtField.value = '₹0';
+      document.getElementById('modalDispatchDate').value = today;
+
+      showToast(`Reminder scheduled successfully for ${selectedCust} via ${channel}!`);
+      applyAllFilters();
+    });
+
+    // Populate live customers if available from backend
+    async function loadLiveCustomersIntoModal() {
+      try {
+        const res = await fetch('http://localhost:5000/api/customers?limit=100', {
+          headers: { 'x-organization-id': '65f1a2b3c4d5e6f7a8b9c0d1' }
+        });
+        if (res.ok) {
+          const json = await res.json();
+          if (json.success && json.data.customers && json.data.customers.length > 0) {
+            const select = document.getElementById('modalCustomerSelect');
+            json.data.customers.forEach(c => {
+              const opt = document.createElement('option');
+              const name = c.companyName || c.customerName;
+              opt.value = name;
+              opt.textContent = `${name} (${c.GSTIN ? 'GSTIN: ' + c.GSTIN : 'Unregistered'})`;
+              opt.dataset.inv = `#INV-${Math.floor(1000 + Math.random() * 9000)}`;
+              opt.dataset.due = c.outstanding || '₹45,000';
+              opt.dataset.gst = c.GSTIN || 'Unregistered';
+              select.appendChild(opt);
+            });
+          }
+        }
+      } catch (e) {
+        // Fallback to static predefined customers
+      }
+    }
+    loadLiveCustomersIntoModal();
+  </script>
+  <!-- Global Layout Script -->
+  <script src="../assets/js/nav.js"></script>
+      </main>
+    </div>
+  </div>
+</body>
+</html>

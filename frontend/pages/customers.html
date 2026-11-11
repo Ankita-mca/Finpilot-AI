@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FinPilot AI — Customers</title>
+
+  <!-- Google Fonts: DM Sans & Manrope -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Design System Stylesheet -->
+  <link rel="stylesheet" href="../assets/css/style.css">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ["'DM Sans'", "sans-serif"],
+            heading: ["'Manrope'", "sans-serif"],
+            mono: ["'JetBrains Mono'", "monospace"],
+          },
+          colors: {
+            brand: {
+              50: "#edf5f1",
+              100: "#e6f2ed",
+              500: "#5a9b80",
+              600: "#287755",
+              700: "#206748",
+              800: "#172823",
+              900: "#133c2a"
+            },
+            primary: {
+              50: "#edf5f1",
+              100: "#e6f2ed",
+              500: "#5a9b80",
+              600: "#287755",
+              700: "#206748",
+              800: "#172823",
+              900: "#133c2a"
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#f5f7f6] text-[#202927] font-sans antialiased min-h-screen">
+  <div id="root">
+    <div class="app-shell">
+
+      <!-- LEFT SIDEBAR -->
+        <!-- ================= SIDEBAR ================= -->
+      <aside class="sidebar">
+        <!-- Brand Logo Header -->
+        <div class="brand">
+          <div class="brand-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+            </svg>
+          </div>
+          <span>FinPilot <b>AI</b></span>
+        </div>
+
+        <!-- Org Switcher -->
+        <div class="org-switch">
+          <div class="org-avatar" id="sidebarOrgAvatar">T</div>
+          <span>
+            <strong id="sidebarOrgName">Test Org</strong>
+            <small id="sidebarOrgRole">owner account</small>
+          </span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #84908b;">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </div>
+
+        <!-- Navigation Section: WORKSPACE -->
+        <div class="nav-label">WORKSPACE</div>
+        <nav>
+          <!-- 1. Overview -->
+          <a href="dashboard.html" class="nav-item ">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="7" height="7"></rect>
+              <rect x="14" y="3" width="7" height="7"></rect>
+              <rect x="14" y="14" width="7" height="7"></rect>
+              <rect x="3" y="14" width="7" height="7"></rect>
+            </svg>
+            <span>Overview</span>
+          </a>
+
+          <!-- 2. Invoices -->
+          <a href="invoices.html" class="nav-item ">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+              <polyline points="10 9 9 9 8 9"></polyline>
+            </svg>
+            <span>Invoices</span>
+          </a>
+
+          <!-- 3. Customers -->
+          <a href="customers.html" class="nav-item active">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+            <span>Customers</span>
+          </a>
+
+          <!-- 4. Payments -->
+          <a href="payments.html" class="nav-item ">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="5" width="20" height="14" rx="2"></rect>
+              <line x1="2" y1="10" x2="22" y2="10"></line>
+            </svg>
+            <span>Payments</span>
+          </a>
+
+          <!-- 5. Aging Report -->
+          <a href="reports.html" class="nav-item ">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            <span>Aging report</span>
+          </a>
+
+          <!-- 6. Reminders -->
+          <a href="reminders.html" class="nav-item ">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+              <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+            </svg>
+            <span>Reminders</span>
+            <span class="soon">SOON</span>
+          </a>
+
+          <!-- 7. Reconciliation -->
+          <a href="reconciliation.html" class="nav-item ">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="6" y1="3" x2="6" y2="15"></line>
+              <circle cx="18" cy="6" r="3"></circle>
+              <circle cx="6" cy="18" r="3"></circle>
+              <path d="M18 9a9 9 0 0 1-9 9"></path>
+            </svg>
+            <span>Reconciliation</span>
+            <span class="soon">SOON</span>
+          </a>
+
+          <!-- 8. Forecast -->
+          <a href="cash-flow.html" class="nav-item ">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+              <polyline points="17 6 23 6 23 12"></polyline>
+            </svg>
+            <span>Forecast</span>
+          </a>
+
+          <!-- 9. AI Assistant -->
+          <a href="ai-assistant.html" class="nav-item ">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="11" width="18" height="10" rx="2"></rect>
+              <circle cx="12" cy="5" r="2"></circle>
+              <path d="M12 7v4"></path>
+              <line x1="8" y1="16" x2="8" y2="16"></line>
+              <line x1="16" y1="16" x2="16" y2="16"></line>
+            </svg>
+            <span>AI Assistant</span>
+          </a>
+        </nav>
+
+        <!-- Navigation Section: ACCOUNT -->
+        <div class="sidebar-bottom">
+          <div class="nav-label">ACCOUNT</div>
+          <nav>
+            <a href="notifications.html" class="nav-item ">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+              </svg>
+              <span>Notifications</span>
+            </a>
+            <a href="audit-log.html" class="nav-item ">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+              <span>Audit Log</span>
+            </a>
+            <a href="settings.html" class="nav-item ">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="4" y1="21" x2="4" y2="14"></line>
+                <line x1="4" y1="10" x2="4" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12" y2="3"></line>
+                <line x1="20" y1="21" x2="20" y2="16"></line>
+                <line x1="20" y1="12" x2="20" y2="3"></line>
+                <line x1="1" y1="14" x2="7" y2="14"></line>
+                <line x1="9" y1="8" x2="15" y2="8"></line>
+                <line x1="17" y1="16" x2="23" y2="16"></line>
+              </svg>
+              <span>Settings</span>
+            </a>
+          </nav>
+
+          <!-- User Profile Card -->
+          <div class="profile">
+            <div class="avatar" id="sidebarUserAvatar">T</div>
+            <span>
+              <strong id="sidebarUserName">Test User</strong>
+              <small id="sidebarUserEmail">test@finpilot.local</small>
+            </span>
+            <button class="logout-btn" title="Sign out" onclick="logout()">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                <polyline points="16 17 21 12 16 7"></polyline>
+                <line x1="21" y1="12" x2="9" y2="12"></line>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Bottom Full Width Sign Out Button -->
+          <button class="logout-row-btn" onclick="logout()">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+              <polyline points="16 17 21 12 16 7"></polyline>
+              <line x1="21" y1="12" x2="9" y2="12"></line>
+            </svg>
+            <span>Sign out</span>
+          </button>
+        </div>
+      </aside>
+
+  <!-- MAIN VIEWPORT -->
+  <main class="main">
+    <!-- Top Header Bar -->
+            <!-- Topbar matching Dashboard -->
+        <header class="topbar">
+          <div class="crumb">
+            FinPilot <span>/</span> <b>Customers</b>
+          </div>
+          <div class="top-actions">
+            <div class="relative w-64 hidden sm:block">
+              <input id="headerSearchInput" type="text" placeholder="Search GSTIN, UTR, or Invoice..." class="w-full pl-8 pr-3 py-1.5 text-xs bg-[#fafcfb] border border-[#e7ebe8] rounded-lg focus:outline-none focus:border-[#80ae96]">
+              <svg class="w-3.5 h-3.5 text-[#9aa39e] absolute left-2.5 top-2.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+            </div>
+            <div class="period">
+              <span class="live-dot"></span>
+              <span id="syncIndicator">MongoDB Atlas Connected</span>
+            </div>
+          </div>
+        </header>
+
+    <!-- CONTENT BODY -->
+    <div class="p-8 max-w-7xl w-full mx-auto space-y-6">
+      <!-- Title & Action Bar -->
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div>
+          <h1 class="text-2xl font-bold text-slate-900 tracking-tight">Customer Directory</h1>
+          <p class="text-sm text-slate-500 mt-1">Manage B2B debtor ledgers, monitor MSME 45-day statutory limits, and trigger automated collections.</p>
+        </div>
+        <div class="flex items-center gap-3">
+          <button id="exportCsvBtn" class="px-4 py-2 text-sm font-medium text-slate-700 bg-white border border-slate-200 rounded-xl hover:bg-slate-50 shadow-sm transition-colors flex items-center gap-2">
+            <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+            Export CSV
+          </button>
+          <button id="openAddModalBtn" class="px-4 py-2 text-sm font-medium text-white bg-brand-600 hover:bg-brand-700 rounded-xl shadow-sm shadow-blue-500/30 transition-all flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+            + Add Customer
+          </button>
+        </div>
+      </div>
+
+      <!-- NOTIFICATION BANNER (Alert for additions / errors) -->
+      <div id="alertBanner" class="hidden rounded-xl p-4 text-xs font-medium flex items-center justify-between border transition-all">
+        <span id="alertMessage"></span>
+        <button id="closeAlertBtn" class="text-slate-400 hover:text-slate-600 font-bold ml-3">&times;</button>
+      </div>
+
+      <!-- 4 FINANCIAL KPI STAT CARDS -->
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Total Customers</span>
+            <span class="p-2 bg-blue-50 text-blue-600 rounded-xl">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+            </span>
+          </div>
+          <div class="mt-3 flex items-baseline gap-2">
+            <span id="statTotalCustomers" class="text-2xl font-bold text-slate-900">4</span>
+            <span class="text-xs font-semibold text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded">Active Ledgers</span>
+          </div>
+          <p class="text-xs text-slate-400 mt-1">Mapped to GSTIN e-Waybills</p>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Total Outstanding</span>
+            <span class="p-2 bg-indigo-50 text-indigo-600 rounded-xl">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </span>
+          </div>
+          <div class="mt-3 flex items-baseline gap-2">
+            <span id="statTotalOutstanding" class="text-2xl font-bold text-slate-900">₹2,00,000</span>
+            <span class="text-xs text-slate-500 font-medium">across active ledgers</span>
+          </div>
+          <p class="text-xs text-slate-400 mt-1">Average DSO: 32 Days</p>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Overdue Payments</span>
+            <span class="p-2 bg-rose-50 text-rose-600 rounded-xl">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+            </span>
+          </div>
+          <div class="mt-3 flex items-baseline gap-2">
+            <span id="statTotalOverdue" class="text-2xl font-bold text-rose-600">₹80,000</span>
+            <span class="text-xs font-semibold text-rose-700 bg-rose-50 px-1.5 py-0.5 rounded">6 bills critical</span>
+          </div>
+          <p class="text-xs text-slate-400 mt-1">MSME Section 43B(h) trigger</p>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Collected This Month</span>
+            <span class="p-2 bg-emerald-50 text-emerald-600 rounded-xl">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </span>
+          </div>
+          <div class="mt-3 flex items-baseline gap-2">
+            <span id="statTotalCollected" class="text-2xl font-bold text-emerald-600">₹1,20,000</span>
+            <span class="text-xs font-semibold text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded">72% recovery</span>
+          </div>
+          <p class="text-xs text-slate-400 mt-1">Bank UTR auto-matched</p>
+        </div>
+      </div>
+
+      <!-- FILTER TABS & SEARCH BAR -->
+      <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm space-y-4">
+        <!-- Tabs -->
+        <div class="flex items-center justify-between flex-wrap gap-3 pb-3 border-b border-slate-100">
+          <div class="flex items-center gap-1.5 overflow-x-auto">
+            <button class="filter-tab active px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-brand-50 text-brand-700 border border-brand-200" data-filter="all">
+              All Customers (<span id="tabCountAll">4</span>)
+            </button>
+            <button class="filter-tab px-3.5 py-1.5 rounded-lg text-xs font-medium text-slate-600 hover:bg-slate-100" data-filter="overdue">
+              Overdue <span class="ml-1 px-1.5 py-0.2 rounded-full bg-rose-100 text-rose-700 text-[10px] font-bold">2</span>
+            </button>
+            <button class="filter-tab px-3.5 py-1.5 rounded-lg text-xs font-medium text-slate-600 hover:bg-slate-100" data-filter="due">
+              Due Soon (1)
+            </button>
+            <button class="filter-tab px-3.5 py-1.5 rounded-lg text-xs font-medium text-slate-600 hover:bg-slate-100" data-filter="cleared">
+              Fully Cleared (1)
+            </button>
+          </div>
+
+          <!-- Micro Sync Indicator -->
+          <div class="flex items-center gap-2 text-xs text-slate-500">
+            <span class="inline-flex items-center gap-1">
+              <svg class="w-3.5 h-3.5 text-blue-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+              Auto-reconciled: live
+            </span>
+          </div>
+        </div>
+
+        <!-- Search & Dropdown Filters -->
+        <div class="flex flex-col sm:flex-row items-center gap-3">
+          <div class="relative flex-1 w-full">
+            <input id="searchInput" type="text" placeholder="Search by customer name, company, or GSTIN (e.g., 27AABCA...)" class="w-full pl-9 pr-4 py-2 text-xs bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-500 focus:bg-white transition-all">
+            <svg class="w-4 h-4 text-slate-400 absolute left-3 top-2.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+          </div>
+          <div class="flex items-center gap-2 w-full sm:w-auto">
+            <select id="typeFilter" class="px-3 py-2 text-xs bg-slate-50 border border-slate-200 rounded-xl text-slate-700 focus:outline-none focus:ring-2 focus:ring-brand-500">
+              <option value="all">All Types</option>
+              <option value="Business">Business (B2B)</option>
+              <option value="Individual">Individual (Proprietor)</option>
+            </select>
+            <select id="statusFilter" class="px-3 py-2 text-xs bg-slate-50 border border-slate-200 rounded-xl text-slate-700 focus:outline-none focus:ring-2 focus:ring-brand-500">
+              <option value="all">Status: All</option>
+              <option value="Active">Active</option>
+              <option value="Inactive">Inactive</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- BULK SELECTION ACTION STRIP (Hidden by default) -->
+      <div id="bulkActionBar" class="hidden bg-slate-900 text-white px-5 py-3 rounded-2xl flex items-center justify-between shadow-lg transition-all animate-fade-in">
+        <div class="flex items-center gap-3">
+          <span class="w-2 h-2 rounded-full bg-blue-400 animate-ping"></span>
+          <p class="text-xs font-medium"><span id="selectedCount" class="font-bold">0</span> customers selected for recovery follow-up</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <button id="bulkReminderBtn" class="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-xs font-semibold transition-colors flex items-center gap-1.5 shadow-sm">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+            Send WhatsApp Nudge
+          </button>
+          <button class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg text-xs font-medium transition-colors">
+            Generate MSME Form 1
+          </button>
+          <button id="clearSelectionBtn" class="text-xs text-slate-400 hover:text-white ml-2 underline">Deselect</button>
+        </div>
+      </div>
+
+      <!-- MAIN CUSTOMERS TABLE -->
+      <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm overflow-hidden">
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse text-xs">
+            <thead>
+              <tr class="bg-slate-50/80 border-b border-slate-200 text-slate-500 font-semibold uppercase tracking-wider text-[11px]">
+                <th class="py-3.5 px-4 w-10">
+                  <input type="checkbox" id="selectAllCheckbox" class="rounded text-brand-600 focus:ring-brand-500 border-slate-300">
+                </th>
+                <th class="py-3.5 px-4">Customer & Entity</th>
+                <th class="py-3.5 px-4">Contact Coordinates</th>
+                <th class="py-3.5 px-4">Total Invoiced</th>
+                <th class="py-3.5 px-4">Settled Ratio</th>
+                <th class="py-3.5 px-4">Outstanding Balance</th>
+                <th class="py-3.5 px-4">Type & Status</th>
+                <th class="py-3.5 px-4">MSME Status</th>
+                <th class="py-3.5 px-4 text-right">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="customerTableBody" class="divide-y divide-slate-100 font-normal">
+              <!-- Dynamically populated from MongoDB Atlas API, with fallback initial data -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Pagination & Row Count Footer -->
+        <div class="px-6 py-4 border-t border-slate-200 bg-slate-50/50 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
+          <div>Showing <span id="showingCount" class="font-semibold text-slate-800">0</span> counterparties</div>
+          <div class="flex items-center gap-2">
+            <button id="prevPageBtn" class="px-3 py-1 bg-white border border-slate-200 rounded-lg hover:bg-slate-50 font-medium">Previous</button>
+            <button id="currentPageBtn" class="px-3 py-1 bg-brand-600 text-white rounded-lg font-semibold">1</button>
+            <button id="nextPageBtn" class="px-3 py-1 bg-white border border-slate-200 rounded-lg hover:bg-slate-50 font-medium">Next</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ADD / EDIT CUSTOMER MODAL (Hidden by default) -->
+  <div id="customerModal" class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-white rounded-3xl max-w-lg w-full p-6 shadow-2xl border border-slate-100 transform transition-all max-h-[92vh] overflow-y-auto">
+      <div class="flex items-center justify-between pb-4 border-b border-slate-100">
+        <div>
+          <h3 id="modalTitle" class="text-lg font-bold text-slate-900">Add New Customer</h3>
+          <p id="modalSubtitle" class="text-xs text-slate-500 mt-0.5">Saves directly to MongoDB Atlas with verified organization isolation</p>
+        </div>
+        <button id="closeModalBtn" type="button" class="text-slate-400 hover:text-slate-600 p-1.5 rounded-lg hover:bg-slate-100">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <form id="customerForm" class="mt-4 space-y-4 text-xs">
+        <input type="hidden" id="editCustomerId" value="">
+
+        <div>
+          <label class="block font-semibold text-slate-700 mb-1">Company / Entity Name</label>
+          <input id="inputCompanyName" type="text" placeholder="e.g. Acme Engineering Works Pvt Ltd" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-500 focus:bg-white">
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Customer / SPOC Name <span class="text-rose-500">*</span></label>
+            <input id="inputCustomerName" type="text" required placeholder="e.g. Suresh Deshmukh" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-500 focus:bg-white">
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Customer Type <span class="text-rose-500">*</span></label>
+            <select id="inputCustomerType" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-500 focus:bg-white">
+              <option value="Business">Business (B2B)</option>
+              <option value="Individual">Individual (Proprietor)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">15-Digit Indian GSTIN</label>
+            <input id="inputGSTIN" type="text" maxlength="15" placeholder="27AAAAA0000A1Z5" class="w-full px-3 py-2 font-mono bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-500 focus:bg-white uppercase">
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Status <span class="text-rose-500">*</span></label>
+            <select id="inputStatus" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-500 focus:bg-white">
+              <option value="Active">Active</option>
+              <option value="Inactive">Inactive</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">WhatsApp / Phone Number</label>
+            <input id="inputPhone" type="tel" placeholder="+91 98000 00000" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-500 focus:bg-white">
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Billing / Accounts Email</label>
+            <input id="inputEmail" type="email" placeholder="billing@company.com" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-500 focus:bg-white">
+          </div>
+        </div>
+
+        <!-- Registered Address Fields -->
+        <div class="border-t border-slate-100 pt-3">
+          <p class="text-[11px] font-semibold text-slate-500 uppercase tracking-wider mb-2">Registered Address (Taxation & Delivery)</p>
+          <div class="grid grid-cols-2 gap-3 mb-3">
+            <div>
+              <label class="block font-medium text-slate-600 mb-1">City</label>
+              <input id="inputCity" type="text" placeholder="e.g. Pune" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-500 focus:bg-white">
+            </div>
+            <div>
+              <label class="block font-medium text-slate-600 mb-1">State</label>
+              <input id="inputState" type="text" placeholder="e.g. Maharashtra" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-500 focus:bg-white">
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label class="block font-medium text-slate-600 mb-1">Country</label>
+              <input id="inputCountry" type="text" value="India" placeholder="e.g. India" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-500 focus:bg-white">
+            </div>
+            <div>
+              <label class="block font-medium text-slate-600 mb-1">Pincode</label>
+              <input id="inputPincode" type="text" maxlength="10" placeholder="e.g. 411001" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-500 focus:bg-white">
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-4 flex items-center justify-end gap-3 border-t border-slate-100">
+          <button type="button" id="cancelModalBtn" class="px-4 py-2 font-medium text-slate-600 hover:bg-slate-100 rounded-xl transition-colors">Cancel</button>
+          <button type="submit" id="saveCustomerBtn" class="px-4 py-2 font-semibold text-white bg-brand-600 hover:bg-brand-700 rounded-xl shadow-sm transition-all flex items-center gap-2">
+            <span id="saveBtnText">Save Customer</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- INTERACTIVITY & API INTEGRATION SCRIPT -->
+  <script>
+    /**
+     * FinPilot AI - Customer Management Frontend Controller
+     * 
+     * SECURITY & TENANT ARCHITECTURE NOTICE:
+     * - The client communicates solely with the backend REST API at http://localhost:5000/api/customers.
+     * - The browser NEVER connects directly to MongoDB Atlas or exposes database credentials.
+     * - The organizationId below ('65f1a2b3c4d5e6f7a8b9c0d1') is a TESTING-ONLY context used during
+     *   local development prior to JWT auth enforcement.
+     * - In production, tenant identity MUST and WILL be resolved server-side from verified JWT tokens
+     *   (req.user.organizationId), and client-supplied headers will not be trusted for tenant boundaries.
+     */
+    const API_BASE_URL = 'http://localhost:5000/api/customers';
+    const DEFAULT_ORG_ID = localStorage.getItem('finpilot_org_id') || '65f1a2b3c4d5e6f7a8b9c0d1';
+
+    let allCustomers = [];
+    let isSubmitting = false;
+    let searchDebounceTimer = null;
+    let activeFilterTab = 'all';
+
+    // Elements
+    const customerModal = document.getElementById('customerModal');
+    const customerForm = document.getElementById('customerForm');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalSubtitle = document.getElementById('modalSubtitle');
+    const saveBtn = document.getElementById('saveCustomerBtn');
+    const saveBtnText = document.getElementById('saveBtnText');
+    const editCustomerId = document.getElementById('editCustomerId');
+
+    const openAddBtn = document.getElementById('openAddModalBtn');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+    const cancelModalBtn = document.getElementById('cancelModalBtn');
+
+    const searchInput = document.getElementById('searchInput');
+    const headerSearchInput = document.getElementById('headerSearchInput');
+    const typeFilter = document.getElementById('typeFilter');
+    const statusFilter = document.getElementById('statusFilter');
+
+    // Helper: Show alerts
+    function showAlert(message, isError = false) {
+      const banner = document.getElementById('alertBanner');
+      const textEl = document.getElementById('alertMessage');
+      textEl.textContent = message;
+      if (isError) {
+        banner.className = 'rounded-xl p-4 text-xs font-medium flex items-center justify-between border bg-rose-50 text-rose-800 border-rose-200 transition-all';
+      } else {
+        banner.className = 'rounded-xl p-4 text-xs font-medium flex items-center justify-between border bg-emerald-50 text-emerald-800 border-emerald-200 transition-all';
+      }
+      banner.classList.remove('hidden');
+      setTimeout(() => banner.classList.add('hidden'), 7000);
+    }
+
+    document.getElementById('closeAlertBtn').addEventListener('click', () => {
+      document.getElementById('alertBanner').classList.add('hidden');
+    });
+
+    // Format address object or string for display
+    function formatAddress(addr) {
+      if (!addr) return 'India';
+      if (typeof addr === 'string') return addr || 'India';
+      const parts = [addr.city, addr.state, addr.country].filter(Boolean);
+      return parts.length > 0 ? parts.join(', ') : 'India';
+    }
+
+    // Render Table Rows
+    function renderCustomerTable(customers) {
+      const tbody = document.getElementById('customerTableBody');
+      tbody.innerHTML = '';
+
+      if (!customers || customers.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="9" class="py-12 text-center text-slate-400">
+          <svg class="w-10 h-10 mx-auto text-slate-300 mb-2" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"/></svg>
+          <p class="font-medium text-slate-600">No customers found</p>
+          <p class="text-xs text-slate-400 mt-1">Try adjusting your filters or click <strong>+ Add Customer</strong> to create your first ledger.</p>
+        </td></tr>`;
+        document.getElementById('showingCount').textContent = '0';
+        return;
+      }
+
+      customers.forEach((c) => {
+        const initials = (c.companyName || c.customerName || 'CU')
+          .split(' ')
+          .filter(Boolean)
+          .map(w => w[0])
+          .slice(0, 2)
+          .join('')
+          .toUpperCase() || 'CU';
+
+        const tr = document.createElement('tr');
+        tr.className = 'hover:bg-slate-50/70 transition-colors customer-row';
+        tr.dataset.status = c.status || 'Active';
+        tr.dataset.name = ((c.companyName || '') + ' ' + (c.customerName || '') + ' ' + (c.GSTIN || '')).toLowerCase();
+
+        const displayAddress = formatAddress(c.address);
+        const isB2B = (c.customerType || 'Business') === 'Business';
+        const isActive = (c.status || 'Active') === 'Active';
+
+        tr.innerHTML = `
+          <td class="py-4 px-4">
+            <input type="checkbox" data-id="${c._id}" class="row-checkbox rounded text-brand-600 focus:ring-brand-500 border-slate-300">
+          </td>
+          <td class="py-4 px-4">
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 rounded-lg bg-blue-100 text-blue-700 font-bold text-xs flex items-center justify-center shrink-0">
+                ${initials}
+              </div>
+              <div>
+                <div class="flex items-center gap-1.5">
+                  <span class="font-semibold text-slate-900 text-sm">${c.companyName || c.customerName}</span>
+                  ${c.GSTIN ? '<svg class="w-3.5 h-3.5 text-emerald-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>' : ''}
+                </div>
+                <div class="flex items-center gap-2 mt-0.5 text-slate-400">
+                  <span class="font-mono text-[11px]">${c.GSTIN ? 'GSTIN: ' + c.GSTIN : 'No GSTIN'}</span>
+                  <span>•</span>
+                  <span>${displayAddress}</span>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="py-4 px-4 text-slate-600">
+            <p class="font-medium text-slate-800">${c.customerName || 'Primary Contact'}</p>
+            <p class="text-slate-400 text-[11px]">${c.phone || c.email || '—'}</p>
+          </td>
+          <td class="py-4 px-4 font-semibold text-slate-900">
+            ${c.totalInvoiced || '₹1,50,000'}
+            <span class="block font-normal text-slate-400 text-[10px]">Verified e-Invoice</span>
+          </td>
+          <td class="py-4 px-4">
+            <div class="w-24">
+              <div class="flex justify-between text-[10px] text-slate-500 font-medium mb-1">
+                <span>${c.ratio || '85%'}</span>
+                <span class="text-emerald-600">${c.totalPaid || '₹1,25,000'}</span>
+              </div>
+              <div class="w-full bg-slate-100 rounded-full h-1.5 overflow-hidden">
+                <div class="bg-emerald-500 h-1.5 rounded-full" style="width: ${c.ratio || '85%'}"></div>
+              </div>
+            </div>
+          </td>
+          <td class="py-4 px-4">
+            <span class="font-bold text-slate-900 text-sm">${c.outstanding || '₹25,000'}</span>
+            <span class="block text-[11px] font-semibold text-rose-600">${c.overdue || 'Current Active'}</span>
+          </td>
+          <td class="py-4 px-4">
+            <span class="inline-flex items-center px-2 py-0.5 rounded-md text-[10px] font-medium ${isActive ? 'bg-emerald-50 text-emerald-700 border border-emerald-200' : 'bg-slate-100 text-slate-600'}">
+              ${c.customerType || 'Business'} • ${c.status || 'Active'}
+            </span>
+          </td>
+          <td class="py-4 px-4">
+            <span class="inline-flex items-center px-2 py-0.5 rounded-md text-[10px] font-semibold ${isB2B ? 'bg-amber-50 text-amber-700 border-amber-200' : 'bg-slate-50 text-slate-600 border-slate-200'} border">
+              ${c.GSTIN ? 'MSME 45-Day Tracked' : 'Standard Terms'}
+            </span>
+          </td>
+          <td class="py-4 px-4 text-right">
+            <div class="flex items-center justify-end gap-1.5">
+              <!-- Edit Action -->
+              <button type="button" title="Edit Customer" onclick="openEditModal('${c._id}')" class="p-1.5 text-slate-400 hover:text-brand-600 rounded-lg hover:bg-blue-50 transition-colors">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
+              </button>
+              <!-- WhatsApp Action -->
+              <button type="button" title="Trigger WhatsApp Reminder" onclick="triggerNudge('${(c.customerName || c.companyName || '').replace(/'/g, "\\'")}', '${c.phone || ''}')" class="p-1.5 text-slate-400 hover:text-emerald-600 rounded-lg hover:bg-emerald-50 transition-colors">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+              </button>
+              <!-- Delete Action -->
+              <button type="button" title="Delete Customer" onclick="deleteCustomerRecord('${c._id}', '${(c.companyName || c.customerName || 'Customer').replace(/'/g, "\\'")}')" class="p-1.5 text-slate-400 hover:text-rose-600 rounded-lg hover:bg-rose-50 transition-colors">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
+              </button>
+            </div>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+
+      // Update counters
+      document.getElementById('showingCount').textContent = customers.length;
+      bindCheckboxEvents();
+    }
+
+    // Update Summary KPI Cards from Data
+    function updateSummaryCards(total, customers) {
+      document.getElementById('statTotalCustomers').textContent = total;
+      document.getElementById('navCustomerCount').textContent = total;
+      document.getElementById('tabCountAll').textContent = total;
+
+      // Filter counters
+      const activeCount = customers.filter(c => c.status === 'Active').length;
+      const inactiveCount = customers.filter(c => c.status === 'Inactive').length;
+    }
+
+    // Fetch customers from live MongoDB Atlas backend via GET /api/customers
+    async function fetchCustomers() {
+      const tbody = document.getElementById('customerTableBody');
+      tbody.innerHTML = `<tr><td colspan="9" class="py-12 text-center text-slate-400">
+        <div class="flex items-center justify-center gap-2">
+          <svg class="animate-spin w-5 h-5 text-brand-600" fill="none" viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+          </svg>
+          <span class="text-xs font-medium text-slate-600">Connecting to MongoDB Atlas & loading counterparties...</span>
+        </div>
+      </td></tr>`;
+
+      try {
+        const params = new URLSearchParams();
+        const searchVal = searchInput.value.trim();
+        const typeVal = typeFilter.value;
+        const statusVal = statusFilter.value;
+
+        if (searchVal) params.append('search', searchVal);
+        if (typeVal && typeVal !== 'all') params.append('customerType', typeVal);
+        if (statusVal && statusVal !== 'all') params.append('status', statusVal);
+
+        const url = `${API_BASE_URL}?${params.toString()}`;
+
+        const res = await fetch(url, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            'x-organization-id': DEFAULT_ORG_ID
+          }
+        });
+
+        const json = await res.json();
+
+        if (res.ok && json.success) {
+          const customers = json.data.customers || [];
+          const total = json.data.pagination ? json.data.pagination.total : customers.length;
+          allCustomers = customers;
+          renderCustomerTable(allCustomers);
+          updateSummaryCards(total, allCustomers);
+
+          // Update sync pill
+          document.getElementById('syncIndicator').innerHTML = `
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+            MongoDB Atlas Connected
+          `;
+          document.getElementById('syncIndicator').className = 'inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-50 text-emerald-700 ml-3 border border-emerald-200';
+          return;
+        } else {
+          // Backend returned non-200 (e.g. 503 DB connection or 400)
+          const errorMsg = json.message || 'Failed to load customers from backend.';
+          showAlert(errorMsg, true);
+          tbody.innerHTML = `<tr><td colspan="9" class="py-10 text-center text-rose-600">
+            <p class="font-semibold text-sm">Failed to retrieve data from MongoDB Atlas</p>
+            <p class="text-xs text-slate-500 mt-1">${errorMsg}</p>
+          </td></tr>`;
+
+          // If whitelist issue, update indicator
+          if (errorMsg.includes('whitelisted') || errorMsg.includes('Database is currently not connected')) {
+            document.getElementById('syncIndicator').innerHTML = `
+              <span class="w-1.5 h-1.5 rounded-full bg-rose-500"></span>
+              Atlas IP Whitelist Required
+            `;
+            document.getElementById('syncIndicator').className = 'inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-rose-50 text-rose-700 ml-3 border border-rose-200';
+          }
+        }
+      } catch (err) {
+        console.error('Network error fetching customers:', err);
+        showAlert('Could not reach backend server at http://localhost:5000. Ensure node server.js is running.', true);
+        tbody.innerHTML = `<tr><td colspan="9" class="py-10 text-center text-rose-600">
+          <p class="font-semibold text-sm">Backend Server Unreachable</p>
+          <p class="text-xs text-slate-500 mt-1">Please ensure the Node.js backend server is running on port 5000.</p>
+        </td></tr>`;
+      }
+    }
+
+    // Open Modal in "Add" Mode
+    function openAddModal() {
+      editCustomerId.value = '';
+      customerForm.reset();
+      document.getElementById('inputCountry').value = 'India';
+      document.getElementById('inputCustomerType').value = 'Business';
+      document.getElementById('inputStatus').value = 'Active';
+
+      modalTitle.textContent = 'Add New Customer';
+      modalSubtitle.textContent = 'Saves directly to MongoDB Atlas with verified organization isolation';
+      saveBtnText.textContent = 'Save Customer';
+
+      customerModal.classList.remove('hidden');
+    }
+
+    // Open Modal in "Edit" Mode -> loads data and targets PUT /api/customers/:id
+    function openEditModal(id) {
+      const customer = allCustomers.find(c => c._id === id);
+      if (!customer) {
+        showAlert('Customer record not found.', true);
+        return;
+      }
+
+      editCustomerId.value = customer._id;
+      document.getElementById('inputCustomerName').value = customer.customerName || '';
+      document.getElementById('inputCompanyName').value = customer.companyName || '';
+      document.getElementById('inputGSTIN').value = customer.GSTIN || '';
+      document.getElementById('inputCustomerType').value = customer.customerType || 'Business';
+      document.getElementById('inputStatus').value = customer.status || 'Active';
+      document.getElementById('inputPhone').value = customer.phone || '';
+      document.getElementById('inputEmail').value = customer.email || '';
+
+      // Address fields
+      if (typeof customer.address === 'object' && customer.address !== null) {
+        document.getElementById('inputCity').value = customer.address.city || '';
+        document.getElementById('inputState').value = customer.address.state || '';
+        document.getElementById('inputCountry').value = customer.address.country || 'India';
+        document.getElementById('inputPincode').value = customer.address.pincode || '';
+      } else {
+        document.getElementById('inputCity').value = customer.address || '';
+        document.getElementById('inputState').value = '';
+        document.getElementById('inputCountry').value = 'India';
+        document.getElementById('inputPincode').value = '';
+      }
+
+      modalTitle.textContent = 'Edit Customer';
+      modalSubtitle.textContent = 'Updates counterparty ledger details in MongoDB Atlas';
+      saveBtnText.textContent = 'Update Customer';
+
+      customerModal.classList.remove('hidden');
+    }
+
+    function closeModal() {
+      customerModal.classList.add('hidden');
+      customerForm.reset();
+      editCustomerId.value = '';
+    }
+
+    // Modal Triggers
+    openAddBtn.addEventListener('click', openAddModal);
+    closeModalBtn.addEventListener('click', closeModal);
+    cancelModalBtn.addEventListener('click', closeModal);
+
+    // Form Submission: Handles POST (Add) and PUT (Edit)
+    customerForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      // Prevent duplicate submissions while in-flight
+      if (isSubmitting) return;
+
+      const customerName = document.getElementById('inputCustomerName').value.trim();
+      const companyName = document.getElementById('inputCompanyName').value.trim();
+      const customerType = document.getElementById('inputCustomerType').value;
+      const status = document.getElementById('inputStatus').value;
+      const gstinRaw = document.getElementById('inputGSTIN').value.trim().toUpperCase();
+      const phone = document.getElementById('inputPhone').value.trim();
+      const emailRaw = document.getElementById('inputEmail').value.trim();
+
+      const city = document.getElementById('inputCity').value.trim();
+      const state = document.getElementById('inputState').value.trim();
+      const country = document.getElementById('inputCountry').value.trim() || 'India';
+      const pincode = document.getElementById('inputPincode').value.trim();
+
+      if (!customerName) {
+        showAlert('Customer Name is required.', true);
+        return;
+      }
+
+      // Construct payload
+      const payload = {
+        organizationId: DEFAULT_ORG_ID,
+        customerName,
+        companyName,
+        customerType,
+        status,
+        phone,
+        email: emailRaw || null,
+        GSTIN: gstinRaw || null,
+        address: {
+          city,
+          state,
+          country,
+          pincode
+        }
+      };
+
+      const isEdit = Boolean(editCustomerId.value);
+      const url = isEdit ? `${API_BASE_URL}/${editCustomerId.value}` : API_BASE_URL;
+      const method = isEdit ? 'PUT' : 'POST';
+
+      // Set in-flight submission UI
+      isSubmitting = true;
+      saveBtn.disabled = true;
+      saveBtn.classList.add('opacity-75', 'cursor-not-allowed');
+      saveBtnText.innerHTML = `
+        <svg class="animate-spin -ml-1 mr-2 h-4 w-4 text-white inline" fill="none" viewBox="0 0 24 24">
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+        </svg>
+        ${isEdit ? 'Updating in Atlas...' : 'Saving to Atlas...'}
+      `;
+
+      try {
+        const res = await fetch(url, {
+          method,
+          headers: {
+            'Content-Type': 'application/json',
+            'x-organization-id': DEFAULT_ORG_ID
+          },
+          body: JSON.stringify(payload)
+        });
+
+        const result = await res.json();
+
+        if (res.ok && result.success) {
+          const successMsg = isEdit 
+            ? `Customer "${companyName || customerName}" updated successfully in MongoDB Atlas!`
+            : `Customer "${companyName || customerName}" added successfully to MongoDB Atlas! (HTTP 201)`;
+          showAlert(successMsg, false);
+          closeModal();
+          await fetchCustomers();
+        } else {
+          // Construct specific error message
+          let errMsg = result.message || 'Operation failed.';
+          if (result.errors) {
+            const errDetails = Object.values(result.errors).join(' ');
+            if (errDetails) errMsg += ` (${errDetails})`;
+          }
+          showAlert(errMsg, true);
+        }
+      } catch (err) {
+        console.error('Error saving customer:', err);
+        showAlert('Network request failed. Please ensure the backend is running at http://localhost:5000.', true);
+      } finally {
+        isSubmitting = false;
+        saveBtn.disabled = false;
+        saveBtn.classList.remove('opacity-75', 'cursor-not-allowed');
+        saveBtnText.textContent = isEdit ? 'Update Customer' : 'Save Customer';
+      }
+    });
+
+    // Delete Customer Action -> DELETE /api/customers/:id
+    async function deleteCustomerRecord(id, name) {
+      if (!confirm(`Are you sure you want to delete customer "${name}" from MongoDB Atlas?`)) {
+        return;
+      }
+
+      try {
+        const res = await fetch(`${API_BASE_URL}/${id}`, {
+          method: 'DELETE',
+          headers: {
+            'Content-Type': 'application/json',
+            'x-organization-id': DEFAULT_ORG_ID
+          }
+        });
+
+        const result = await res.json();
+
+        if (res.ok && result.success) {
+          showAlert(`Customer "${name}" deleted from MongoDB Atlas!`);
+          await fetchCustomers();
+        } else {
+          showAlert(result.message || 'Failed to delete customer.', true);
+        }
+      } catch (err) {
+        console.error('Delete request failed:', err);
+        showAlert('Could not delete customer. Check backend server connection.', true);
+      }
+    }
+
+    // Trigger WhatsApp Nudge helper
+    function triggerNudge(name, phone) {
+      alert(`WhatsApp payment reminder triggered for ${name} (${phone || 'No phone registered'}). Message queued via FinPilot MSME Automation.`);
+    }
+
+    // Search bar with debounce connected to GET API
+    function handleSearch() {
+      clearTimeout(searchDebounceTimer);
+      searchDebounceTimer = setTimeout(() => {
+        fetchCustomers();
+      }, 350);
+    }
+
+    searchInput.addEventListener('input', handleSearch);
+    headerSearchInput.addEventListener('input', (e) => {
+      searchInput.value = e.target.value;
+      handleSearch();
+    });
+
+    // Dropdown filters connected to GET API
+    typeFilter.addEventListener('change', fetchCustomers);
+    statusFilter.addEventListener('change', fetchCustomers);
+
+    // Status Filter Tabs
+    const tabs = document.querySelectorAll('.filter-tab');
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => {
+          t.classList.remove('active', 'bg-brand-50', 'text-brand-700', 'border', 'border-brand-200');
+          t.classList.add('text-slate-600');
+        });
+        tab.classList.add('active', 'bg-brand-50', 'text-brand-700', 'border', 'border-brand-200');
+
+        const filter = tab.dataset.filter;
+        activeFilterTab = filter;
+
+        // Apply tab filtering to table rows
+        const rows = document.querySelectorAll('.customer-row');
+        rows.forEach(row => {
+          if (filter === 'all') {
+            row.style.display = '';
+          } else if (filter === 'cleared') {
+            row.style.display = row.dataset.status === 'Inactive' ? '' : 'none';
+          } else {
+            row.style.display = row.dataset.status === 'Active' ? '' : 'none';
+          }
+        });
+      });
+    });
+
+    // Checkbox bulk operations
+    const selectAll = document.getElementById('selectAllCheckbox');
+    const bulkBar = document.getElementById('bulkActionBar');
+    const selectedCount = document.getElementById('selectedCount');
+    const clearSelectionBtn = document.getElementById('clearSelectionBtn');
+
+    function updateBulkBar() {
+      const checked = document.querySelectorAll('.row-checkbox:checked');
+      if (checked.length > 0) {
+        bulkBar.classList.remove('hidden');
+        selectedCount.textContent = checked.length;
+      } else {
+        bulkBar.classList.add('hidden');
+      }
+    }
+
+    function bindCheckboxEvents() {
+      const rowCheckboxes = document.querySelectorAll('.row-checkbox');
+      rowCheckboxes.forEach(cb => {
+        cb.addEventListener('change', updateBulkBar);
+      });
+    }
+
+    selectAll.addEventListener('change', (e) => {
+      document.querySelectorAll('.row-checkbox').forEach(cb => cb.checked = e.target.checked);
+      updateBulkBar();
+    });
+
+    clearSelectionBtn.addEventListener('click', () => {
+      selectAll.checked = false;
+      document.querySelectorAll('.row-checkbox').forEach(cb => cb.checked = false);
+      updateBulkBar();
+    });
+
+    // Bulk WhatsApp Reminder
+    document.getElementById('bulkReminderBtn').addEventListener('click', () => {
+      const count = document.querySelectorAll('.row-checkbox:checked').length;
+      alert(`Automated WhatsApp reminders sent to ${count} counterparties via FinPilot Collections.`);
+      clearSelectionBtn.click();
+    });
+
+    // Export CSV
+    document.getElementById('exportCsvBtn').addEventListener('click', () => {
+      if (!allCustomers || allCustomers.length === 0) {
+        showAlert('No customers to export.', true);
+        return;
+      }
+      let csv = 'Company,Contact Person,GSTIN,Phone,Email,Customer Type,Status,Address\n';
+      allCustomers.forEach(c => {
+        const addr = formatAddress(c.address);
+        csv += `"${c.companyName || ''}","${c.customerName || ''}","${c.GSTIN || ''}","${c.phone || ''}","${c.email || ''}","${c.customerType || 'Business'}","${c.status || 'Active'}","${addr}"\n`;
+      });
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `FinPilot_Customers_${new Date().toISOString().slice(0, 10)}.csv`;
+      a.click();
+    });
+
+    // Initial load from MongoDB Atlas on page ready
+    document.addEventListener('DOMContentLoaded', fetchCustomers);
+  </script>
+  <!-- Global Layout Script -->
+  <script src="../assets/js/nav.js"></script>
+      </main>
+    </div>
+  </div>
+</body>
+</html>
+

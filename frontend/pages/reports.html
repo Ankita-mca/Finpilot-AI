@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FinPilot AI — Aging Report</title>
+
+  <!-- Google Fonts: DM Sans & Manrope -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Design System Stylesheet -->
+  <link rel="stylesheet" href="../assets/css/style.css">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ["'DM Sans'", "sans-serif"],
+            heading: ["'Manrope'", "sans-serif"],
+            mono: ["'JetBrains Mono'", "monospace"],
+          },
+          colors: {
+            brand: {
+              50: "#edf5f1",
+              100: "#e6f2ed",
+              500: "#5a9b80",
+              600: "#287755",
+              700: "#206748",
+              800: "#172823",
+              900: "#133c2a"
+            },
+            primary: {
+              50: "#edf5f1",
+              100: "#e6f2ed",
+              500: "#5a9b80",
+              600: "#287755",
+              700: "#206748",
+              800: "#172823",
+              900: "#133c2a"
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#f5f7f6] text-[#202927] font-sans antialiased min-h-screen">
+  <div id="root">
+    <div class="app-shell">
+
+  <!-- ================= LEFT PERSISTENT SIDEBAR ================= -->
+        <!-- ================= SIDEBAR ================= -->
+      <aside class="sidebar">
+        <!-- Brand Logo Header -->
+        <div class="brand">
+          <div class="brand-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+            </svg>
+          </div>
+          <span>FinPilot <b>AI</b></span>
+        </div>
+
+        <!-- Org Switcher -->
+        <div class="org-switch">
+          <div class="org-avatar" id="sidebarOrgAvatar">T</div>
+          <span>
+            <strong id="sidebarOrgName">Test Org</strong>
+            <small id="sidebarOrgRole">owner account</small>
+          </span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #84908b;">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </div>
+
+        <!-- Navigation Section: WORKSPACE -->
+        <div class="nav-label">WORKSPACE</div>
+        <nav>
+          <!-- 1. Overview -->
+          <a href="dashboard.html" class="nav-item ">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="7" height="7"></rect>
+              <rect x="14" y="3" width="7" height="7"></rect>
+              <rect x="14" y="14" width="7" height="7"></rect>
+              <rect x="3" y="14" width="7" height="7"></rect>
+            </svg>
+            <span>Overview</span>
+          </a>
+
+          <!-- 2. Invoices -->
+          <a href="invoices.html" class="nav-item ">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+              <polyline points="10 9 9 9 8 9"></polyline>
+            </svg>
+            <span>Invoices</span>
+          </a>
+
+          <!-- 3. Customers -->
+          <a href="customers.html" class="nav-item ">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+            <span>Customers</span>
+          </a>
+
+          <!-- 4. Payments -->
+          <a href="payments.html" class="nav-item ">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="5" width="20" height="14" rx="2"></rect>
+              <line x1="2" y1="10" x2="22" y2="10"></line>
+            </svg>
+            <span>Payments</span>
+          </a>
+
+          <!-- 5. Aging Report -->
+          <a href="reports.html" class="nav-item active">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            <span>Aging report</span>
+          </a>
+
+          <!-- 6. Reminders -->
+          <a href="reminders.html" class="nav-item ">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+              <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+            </svg>
+            <span>Reminders</span>
+            <span class="soon">SOON</span>
+          </a>
+
+          <!-- 7. Reconciliation -->
+          <a href="reconciliation.html" class="nav-item ">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="6" y1="3" x2="6" y2="15"></line>
+              <circle cx="18" cy="6" r="3"></circle>
+              <circle cx="6" cy="18" r="3"></circle>
+              <path d="M18 9a9 9 0 0 1-9 9"></path>
+            </svg>
+            <span>Reconciliation</span>
+            <span class="soon">SOON</span>
+          </a>
+
+          <!-- 8. Forecast -->
+          <a href="cash-flow.html" class="nav-item ">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+              <polyline points="17 6 23 6 23 12"></polyline>
+            </svg>
+            <span>Forecast</span>
+          </a>
+
+          <!-- 9. AI Assistant -->
+          <a href="ai-assistant.html" class="nav-item ">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="11" width="18" height="10" rx="2"></rect>
+              <circle cx="12" cy="5" r="2"></circle>
+              <path d="M12 7v4"></path>
+              <line x1="8" y1="16" x2="8" y2="16"></line>
+              <line x1="16" y1="16" x2="16" y2="16"></line>
+            </svg>
+            <span>AI Assistant</span>
+          </a>
+        </nav>
+
+        <!-- Navigation Section: ACCOUNT -->
+        <div class="sidebar-bottom">
+          <div class="nav-label">ACCOUNT</div>
+          <nav>
+            <a href="notifications.html" class="nav-item ">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+              </svg>
+              <span>Notifications</span>
+            </a>
+            <a href="audit-log.html" class="nav-item ">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+              <span>Audit Log</span>
+            </a>
+            <a href="settings.html" class="nav-item ">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="4" y1="21" x2="4" y2="14"></line>
+                <line x1="4" y1="10" x2="4" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12" y2="3"></line>
+                <line x1="20" y1="21" x2="20" y2="16"></line>
+                <line x1="20" y1="12" x2="20" y2="3"></line>
+                <line x1="1" y1="14" x2="7" y2="14"></line>
+                <line x1="9" y1="8" x2="15" y2="8"></line>
+                <line x1="17" y1="16" x2="23" y2="16"></line>
+              </svg>
+              <span>Settings</span>
+            </a>
+          </nav>
+
+          <!-- User Profile Card -->
+          <div class="profile">
+            <div class="avatar" id="sidebarUserAvatar">T</div>
+            <span>
+              <strong id="sidebarUserName">Test User</strong>
+              <small id="sidebarUserEmail">test@finpilot.local</small>
+            </span>
+            <button class="logout-btn" title="Sign out" onclick="logout()">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                <polyline points="16 17 21 12 16 7"></polyline>
+                <line x1="21" y1="12" x2="9" y2="12"></line>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Bottom Full Width Sign Out Button -->
+          <button class="logout-row-btn" onclick="logout()">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+              <polyline points="16 17 21 12 16 7"></polyline>
+              <line x1="21" y1="12" x2="9" y2="12"></line>
+            </svg>
+            <span>Sign out</span>
+          </button>
+        </div>
+      </aside>
+
+  <!-- ================= MAIN CONTENT AREA ================= -->
+  <main class="main">
+
+    <!-- Top Organization Header -->
+            <!-- Topbar matching Dashboard -->
+        <header class="topbar">
+          <div class="crumb">
+            FinPilot <span>/</span> <b>Aging Report</b>
+          </div>
+          <div class="top-actions">
+            <div class="period">
+              <span class="live-dot"></span>
+              <span id="syncIndicator">MongoDB Atlas Connected</span>
+            </div>
+          </div>
+        </header>
+
+    <!-- Page Body -->
+    <div class="p-6 md:p-8 max-w-7xl w-full mx-auto space-y-6">
+
+      <!-- ================= 1. PAGE HEADER & FILTERS ================= -->
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+        <div>
+          <h1 class="text-2xl md:text-3xl font-extrabold text-slate-900 tracking-tight">Accounts Receivable Overview</h1>
+          <p class="text-xs md:text-sm text-slate-500 mt-1">Monitor outstanding payments, overdue invoices, and customer collection performance.</p>
+        </div>
+
+        <div class="flex items-center gap-3 flex-wrap">
+          <!-- Date Filter Pills -->
+          <div class="inline-flex p-1 bg-white border border-slate-200 rounded-xl shadow-xs text-xs font-medium">
+            <button class="date-btn px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 transition-all">This Month</button>
+            <button class="date-btn px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 transition-all">Last Month</button>
+            <button class="date-btn active px-3.5 py-1.5 rounded-lg bg-blue-50 text-blue-700 font-semibold border border-blue-200 transition-all">Last 3 Months</button>
+            <button class="date-btn px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 flex items-center gap-1.5 transition-all">
+              <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+              Custom Date Range
+            </button>
+          </div>
+
+          <!-- Export Report Button -->
+          <button id="exportReportBtn" class="px-4 py-2 text-xs font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-xl shadow-sm shadow-blue-500/25 flex items-center gap-2 transition-all">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+            Export Report
+          </button>
+        </div>
+      </div>
+
+      <!-- ================= 2. MAIN TWO-COLUMN DASHBOARD SECTION ================= -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        
+        <!-- LEFT COLUMN: Aged Receivables (7 cols) -->
+        <div class="lg:col-span-7 bg-white rounded-2xl border border-slate-200/90 p-6 shadow-xs flex flex-col justify-between">
+          <div>
+            <!-- Card Header -->
+            <div class="flex items-start justify-between pb-4 border-b border-slate-100">
+              <div>
+                <div class="flex items-center gap-2.5">
+                  <h2 class="text-lg font-bold text-slate-900 tracking-tight">Aged Receivables</h2>
+                  <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-blue-50 text-blue-700 border border-blue-100">
+                    Total ₹18,45,000
+                  </span>
+                </div>
+                <p class="text-xs text-slate-400 mt-1">Aging breakdown categorized by payment default window</p>
+              </div>
+
+              <!-- Value vs Invoices Toggle -->
+              <div class="inline-flex p-1 bg-slate-100 rounded-lg text-xs font-medium">
+                <button id="toggleValueBtn" class="px-3 py-1 rounded-md bg-white text-slate-900 font-semibold shadow-xs transition-all">Value</button>
+                <button id="toggleInvoicesBtn" class="px-3 py-1 rounded-md text-slate-500 hover:text-slate-900 transition-all">Invoices</button>
+              </div>
+            </div>
+
+            <!-- Bar Chart Visualization -->
+            <div class="pt-6 pb-2">
+              <div class="relative h-60 w-full flex items-end">
+                <!-- Y-Axis Labels & Subtle Grid Lines -->
+                <div class="absolute inset-0 flex flex-col justify-between pointer-events-none text-[11px] font-mono text-slate-400">
+                  <div class="flex items-center w-full">
+                    <span class="w-10">₹8L</span>
+                    <div class="flex-1 border-b border-dashed border-slate-100"></div>
+                  </div>
+                  <div class="flex items-center w-full">
+                    <span class="w-10">₹6L</span>
+                    <div class="flex-1 border-b border-dashed border-slate-100"></div>
+                  </div>
+                  <div class="flex items-center w-full">
+                    <span class="w-10">₹4L</span>
+                    <div class="flex-1 border-b border-dashed border-slate-100"></div>
+                  </div>
+                  <div class="flex items-center w-full">
+                    <span class="w-10">₹2L</span>
+                    <div class="flex-1 border-b border-dashed border-slate-100"></div>
+                  </div>
+                  <div class="flex items-center w-full">
+                    <span class="w-10">₹0</span>
+                    <div class="flex-1 border-b border-slate-200"></div>
+                  </div>
+                </div>
+
+                <!-- Bars Container -->
+                <div class="relative w-full h-full pl-12 pr-2 flex items-end justify-between gap-3 z-10">
+                  
+                  <!-- Bar 1: Not Due (₹7.25L -> 90.6%) -->
+                  <div class="flex-1 flex flex-col items-center justify-end h-full group cursor-pointer" onclick="filterByBucket('Not Due')">
+                    <div class="w-full max-w-[56px] rounded-t-lg bg-emerald-400 hover:bg-emerald-500 transition-all shadow-xs" style="height: 90.6%;" title="Not Due: ₹7.25L (39.3%)"></div>
+                  </div>
+
+                  <!-- Bar 2: 1-30 Days (₹5.00L -> 62.5%) -->
+                  <div class="flex-1 flex flex-col items-center justify-end h-full group cursor-pointer" onclick="filterByBucket('1-30 Days')">
+                    <div class="w-full max-w-[56px] rounded-t-lg bg-teal-600 hover:bg-teal-700 transition-all shadow-xs" style="height: 62.5%;" title="1-30 Days: ₹5.00L (27.1%)"></div>
+                  </div>
+
+                  <!-- Bar 3: 31-60 Days (₹3.10L -> 38.75%) -->
+                  <div class="flex-1 flex flex-col items-center justify-end h-full group cursor-pointer" onclick="filterByBucket('31-60 Days')">
+                    <div class="w-full max-w-[56px] rounded-t-lg bg-[#0f766e] hover:bg-[#115e59] transition-all shadow-xs" style="height: 38.75%;" title="31-60 Days: ₹3.10L (16.8%)"></div>
+                  </div>
+
+                  <!-- Bar 4: 61-90 Days (₹1.70L -> 21.25%) -->
+                  <div class="flex-1 flex flex-col items-center justify-end h-full group cursor-pointer" onclick="filterByBucket('61-90 Days')">
+                    <div class="w-full max-w-[56px] rounded-t-lg bg-[#1e3a47] hover:bg-[#162a34] transition-all shadow-xs" style="height: 21.25%;" title="61-90 Days: ₹1.70L (9.2%)"></div>
+                  </div>
+
+                  <!-- Bar 5: 90+ Days (₹1.40L -> 17.5%) -->
+                  <div class="flex-1 flex flex-col items-center justify-end h-full group cursor-pointer" onclick="filterByBucket('90+ Days')">
+                    <div class="w-full max-w-[56px] rounded-t-lg bg-[#0f172a] hover:bg-black transition-all shadow-xs" style="height: 17.5%;" title="90+ Days: ₹1.40L (7.6%)"></div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom 5 Age Category Cards -->
+          <div class="grid grid-cols-5 gap-2 pt-4 border-t border-slate-100 mt-2">
+            
+            <!-- Category 1 -->
+            <div class="bg-slate-50/70 p-2.5 rounded-xl border border-slate-100/80 cursor-pointer hover:bg-emerald-50/50 transition-colors" onclick="filterByBucket('Not Due')">
+              <div class="flex items-center gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-sm bg-emerald-400 shrink-0"></span>
+                <span class="text-[11px] font-semibold text-slate-700 truncate">Not Due</span>
+              </div>
+              <div class="mt-1 text-sm font-bold text-slate-900">₹7.25L</div>
+              <div class="text-[10px] text-slate-400 font-medium">39.3%</div>
+            </div>
+
+            <!-- Category 2 -->
+            <div class="bg-slate-50/70 p-2.5 rounded-xl border border-slate-100/80 cursor-pointer hover:bg-teal-50/50 transition-colors" onclick="filterByBucket('1-30 Days')">
+              <div class="flex items-center gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-sm bg-teal-600 shrink-0"></span>
+                <span class="text-[11px] font-semibold text-slate-700 truncate">1-30 Days</span>
+              </div>
+              <div class="mt-1 text-sm font-bold text-slate-900">₹5.00L</div>
+              <div class="text-[10px] text-slate-400 font-medium">27.1%</div>
+            </div>
+
+            <!-- Category 3 -->
+            <div class="bg-slate-50/70 p-2.5 rounded-xl border border-slate-100/80 cursor-pointer hover:bg-teal-50/70 transition-colors" onclick="filterByBucket('31-60 Days')">
+              <div class="flex items-center gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-sm bg-[#0f766e] shrink-0"></span>
+                <span class="text-[11px] font-semibold text-slate-700 truncate">31-60 D...</span>
+              </div>
+              <div class="mt-1 text-sm font-bold text-slate-900">₹3.10L</div>
+              <div class="text-[10px] text-slate-400 font-medium">16.8%</div>
+            </div>
+
+            <!-- Category 4 -->
+            <div class="bg-slate-50/70 p-2.5 rounded-xl border border-slate-100/80 cursor-pointer hover:bg-slate-100 transition-colors" onclick="filterByBucket('61-90 Days')">
+              <div class="flex items-center gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-sm bg-[#1e3a47] shrink-0"></span>
+                <span class="text-[11px] font-semibold text-slate-700 truncate">61-90 D...</span>
+              </div>
+              <div class="mt-1 text-sm font-bold text-slate-900">₹1.70L</div>
+              <div class="text-[10px] text-slate-400 font-medium">9.2%</div>
+            </div>
+
+            <!-- Category 5 -->
+            <div class="bg-slate-50/70 p-2.5 rounded-xl border border-slate-100/80 cursor-pointer hover:bg-rose-50/60 transition-colors" onclick="filterByBucket('90+ Days')">
+              <div class="flex items-center gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-sm bg-[#0f172a] shrink-0"></span>
+                <span class="text-[11px] font-semibold text-slate-700 truncate">90+ Days</span>
+              </div>
+              <div class="mt-1 text-sm font-bold text-rose-600">₹1.40L</div>
+              <div class="text-[10px] text-rose-500 font-medium">7.6%</div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- RIGHT COLUMN: Top Debtors (5 cols) -->
+        <div class="lg:col-span-5 bg-white rounded-2xl border border-slate-200/90 p-6 shadow-xs flex flex-col justify-between">
+          <div>
+            <!-- Card Header -->
+            <div class="flex items-start justify-between pb-3 border-b border-slate-100">
+              <div>
+                <div class="flex items-center gap-2">
+                  <h2 class="text-lg font-bold text-slate-900 tracking-tight">Top Debtors</h2>
+                  <span class="text-xs font-semibold px-2 py-0.5 rounded-full bg-slate-100 text-slate-600">
+                    6 of 28 Accounts
+                  </span>
+                </div>
+                <p class="text-xs text-slate-400 mt-0.5">Highest outstanding exposure ledgers</p>
+              </div>
+
+              <div class="relative">
+                <button id="sortRiskBtn" class="text-xs font-semibold text-blue-600 hover:text-blue-700 flex items-center gap-1">
+                  Sort by Risk
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- Debtors List -->
+            <div id="debtorsList" class="divide-y divide-slate-100 mt-2">
+              
+              <!-- Debtor 1 -->
+              <div class="py-3 flex items-center justify-between hover:bg-slate-50/80 px-2 rounded-xl transition-colors cursor-pointer group" onclick="openQuickNudgeModal('ABC Technologies Pvt Ltd', '₹3,80,000', '₹1,90,000', '#INV-2024-1041', 'Net 45')">
+                <div class="flex items-center gap-3 min-w-0">
+                  <div class="w-7 h-7 rounded-lg bg-blue-600 text-white font-bold text-xs flex items-center justify-center shrink-0 shadow-xs">
+                    1
+                  </div>
+                  <div class="min-w-0">
+                    <div class="text-xs font-bold text-slate-900 truncate group-hover:text-blue-600 transition-colors">ABC Technologies ...</div>
+                    <div class="text-[11px] text-slate-400 font-medium">Terms: Net 45</div>
+                  </div>
+                </div>
+                <div class="text-right shrink-0">
+                  <div class="text-xs font-bold text-slate-900">₹3,80,000</div>
+                  <div class="text-[11px] font-semibold text-rose-600">Overdue: ₹1,90,000</div>
+                </div>
+              </div>
+
+              <!-- Debtor 2 -->
+              <div class="py-3 flex items-center justify-between hover:bg-slate-50/80 px-2 rounded-xl transition-colors cursor-pointer group" onclick="openQuickNudgeModal('Mahavir Precision Ltd', '₹3,10,000', '₹1,45,000', '#INV-2024-1042', 'Net 30')">
+                <div class="flex items-center gap-3 min-w-0">
+                  <div class="w-7 h-7 rounded-lg bg-blue-100 text-blue-700 font-bold text-xs flex items-center justify-center shrink-0">
+                    2
+                  </div>
+                  <div class="min-w-0">
+                    <div class="text-xs font-bold text-slate-900 truncate group-hover:text-blue-600 transition-colors">Mahavir Precision ...</div>
+                    <div class="text-[11px] text-slate-400 font-medium">Terms: Net 30</div>
+                  </div>
+                </div>
+                <div class="text-right shrink-0">
+                  <div class="text-xs font-bold text-slate-900">₹3,10,000</div>
+                  <div class="text-[11px] font-semibold text-rose-600">Overdue: ₹1,45,000</div>
+                </div>
+              </div>
+
+              <!-- Debtor 3 -->
+              <div class="py-3 flex items-center justify-between hover:bg-slate-50/80 px-2 rounded-xl transition-colors cursor-pointer group" onclick="openQuickNudgeModal('Dynamic Steel Fabricators', '₹2,60,000', '₹1,10,000', '#INV-2024-1037', 'Net 60')">
+                <div class="flex items-center gap-3 min-w-0">
+                  <div class="w-7 h-7 rounded-lg bg-blue-100 text-blue-700 font-bold text-xs flex items-center justify-center shrink-0">
+                    3
+                  </div>
+                  <div class="min-w-0">
+                    <div class="text-xs font-bold text-slate-900 truncate group-hover:text-blue-600 transition-colors">Dynamic Steel Fabr...</div>
+                    <div class="text-[11px] text-slate-400 font-medium">Terms: Net 60</div>
+                  </div>
+                </div>
+                <div class="text-right shrink-0">
+                  <div class="text-xs font-bold text-slate-900">₹2,60,000</div>
+                  <div class="text-[11px] font-semibold text-rose-600">Overdue: ₹1,10,000</div>
+                </div>
+              </div>
+
+              <!-- Debtor 4 -->
+              <div class="py-3 flex items-center justify-between hover:bg-slate-50/80 px-2 rounded-xl transition-colors cursor-pointer group" onclick="openQuickNudgeModal('BlueDart Hub Logistics', '₹1,95,000', '₹75,000', '#INV-2024-1039', 'Net 30')">
+                <div class="flex items-center gap-3 min-w-0">
+                  <div class="w-7 h-7 rounded-lg bg-blue-100 text-blue-700 font-bold text-xs flex items-center justify-center shrink-0">
+                    4
+                  </div>
+                  <div class="min-w-0">
+                    <div class="text-xs font-bold text-slate-900 truncate group-hover:text-blue-600 transition-colors">BlueDart Hub Logist...</div>
+                    <div class="text-[11px] text-slate-400 font-medium">Terms: Net 30</div>
+                  </div>
+                </div>
+                <div class="text-right shrink-0">
+                  <div class="text-xs font-bold text-slate-900">₹1,95,000</div>
+                  <div class="text-[11px] font-semibold text-rose-600">Overdue: ₹75,000</div>
+                </div>
+              </div>
+
+              <!-- Debtor 5 -->
+              <div class="py-3 flex items-center justify-between hover:bg-slate-50/80 px-2 rounded-xl transition-colors cursor-pointer group" onclick="openQuickNudgeModal('Pune Auto Components', '₹1,40,000', '₹80,000', '#INV-2024-1035', 'Net 45')">
+                <div class="flex items-center gap-3 min-w-0">
+                  <div class="w-7 h-7 rounded-lg bg-blue-100 text-blue-700 font-bold text-xs flex items-center justify-center shrink-0">
+                    5
+                  </div>
+                  <div class="min-w-0">
+                    <div class="text-xs font-bold text-slate-900 truncate group-hover:text-blue-600 transition-colors">Pune Auto Compon...</div>
+                    <div class="text-[11px] text-slate-400 font-medium">Terms: Net 45</div>
+                  </div>
+                </div>
+                <div class="text-right shrink-0">
+                  <div class="text-xs font-bold text-slate-900">₹1,40,000</div>
+                  <div class="text-[11px] font-semibold text-rose-600">Overdue: ₹80,000</div>
+                </div>
+              </div>
+
+              <!-- Debtor 6 -->
+              <div class="py-3 flex items-center justify-between hover:bg-slate-50/80 px-2 rounded-xl transition-colors cursor-pointer group" onclick="openQuickNudgeModal('Omkar Engineering Works', '₹95,000', '₹40,000', '#INV-2024-1033', 'Net 30')">
+                <div class="flex items-center gap-3 min-w-0">
+                  <div class="w-7 h-7 rounded-lg bg-blue-100 text-blue-700 font-bold text-xs flex items-center justify-center shrink-0">
+                    6
+                  </div>
+                  <div class="min-w-0">
+                    <div class="text-xs font-bold text-slate-900 truncate group-hover:text-blue-600 transition-colors">Omkar Engineering ...</div>
+                    <div class="text-[11px] text-slate-400 font-medium">Terms: Net 30</div>
+                  </div>
+                </div>
+                <div class="text-right shrink-0">
+                  <div class="text-xs font-bold text-slate-900">₹95,000</div>
+                  <div class="text-[11px] font-semibold text-rose-600">Overdue: ₹40,000</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Card Footer -->
+          <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs mt-1">
+            <button id="viewAllLedgersBtn" class="font-semibold text-blue-600 hover:text-blue-800 flex items-center gap-1">
+              View All 24 Ledgers
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </button>
+            <span class="text-slate-400 text-[11px] font-medium">Top 6 represent 64.2% of debt</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ================= 3. COLLECTION PERFORMANCE (FULL-WIDTH BOTTOM CARD) ================= -->
+      <div class="bg-white rounded-2xl border border-slate-200/90 p-6 shadow-xs">
+        
+        <!-- Header -->
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-5 border-b border-slate-100 gap-3">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-xl bg-blue-50 text-blue-600 border border-blue-100 flex items-center justify-center shrink-0">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+              </svg>
+            </div>
+            <div>
+              <h2 class="text-base font-bold text-slate-900 tracking-tight">Collection Performance</h2>
+              <p class="text-xs text-slate-400 mt-0.5">Working capital inflow velocity and cycle benchmarks</p>
+            </div>
+          </div>
+
+          <!-- Top-Right Performance Badges -->
+          <div class="flex items-center gap-2">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-blue-50 text-blue-700 rounded-lg text-xs font-semibold border border-blue-100">
+              <svg class="w-3.5 h-3.5 text-blue-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+              Velocity: +14.2% MoM
+            </span>
+            <span class="inline-flex items-center gap-1 px-3 py-1 bg-slate-100 text-slate-700 rounded-lg text-xs font-semibold">
+              DSO: 41.2 Days
+            </span>
+          </div>
+        </div>
+
+        <!-- 4 Metrics Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pt-5">
+          
+          <!-- Metric 1: Total Payments Collected -->
+          <div class="space-y-1">
+            <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">TOTAL PAYMENTS COLLECTED</span>
+            <div class="text-2xl font-extrabold text-slate-900 tracking-tight">₹12,25,000</div>
+            <div class="flex items-center gap-1 text-xs text-emerald-600 font-semibold">
+              <span>↑ 18.2% vs last month</span>
+            </div>
+          </div>
+
+          <!-- Metric 2: Collection Rate -->
+          <div class="space-y-1 sm:border-l sm:border-slate-100 sm:pl-6">
+            <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">COLLECTION RATE</span>
+            <div class="text-2xl font-extrabold text-slate-900 tracking-tight">78.4%</div>
+            <div class="text-xs text-slate-500 font-medium">
+              Target: 80% • <span class="text-emerald-600 font-semibold">MSME Avg: 65%</span>
+            </div>
+          </div>
+
+          <!-- Metric 3: Invoices Paid -->
+          <div class="space-y-1 lg:border-l lg:border-slate-100 lg:pl-6">
+            <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">INVOICES PAID</span>
+            <div class="text-2xl font-extrabold text-slate-900 tracking-tight">42 Invoices</div>
+            <div class="flex items-center gap-1.5 text-xs text-slate-500 font-medium">
+              <svg class="w-3.5 h-3.5 text-blue-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              Avg realization: 28.4 days
+            </div>
+          </div>
+
+          <!-- Metric 4: Overdue Invoices & Action CTA -->
+          <div class="space-y-1 lg:border-l lg:border-slate-100 lg:pl-6 bg-rose-50/40 p-3 rounded-xl border border-rose-100/60">
+            <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">OVERDUE INVOICES</span>
+            <div class="text-2xl font-extrabold text-rose-600 tracking-tight">9 Invoices</div>
+            <button id="nudgePendingBtn" class="flex items-center gap-1 text-xs font-bold text-rose-600 hover:text-rose-700 transition-colors">
+              <svg class="w-3.5 h-3.5 text-rose-500 animate-pulse fill-rose-500" viewBox="0 0 24 24"><path d="M5 3l14 9-14 9V3z"/></svg>
+              WhatsApp nudges pending
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ================= MODAL: QUICK WHATSAPP / MULTI-CHANNEL NUDGE ================= -->
+  <div id="quickNudgeModal" class="fixed inset-0 bg-slate-900/50 backdrop-blur-xs z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl border border-slate-100">
+      <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+        <div>
+          <h3 class="text-base font-bold text-slate-900">Send Payment Reminder</h3>
+          <p class="text-xs text-slate-400 mt-0.5">Automated WhatsApp & Email nudge</p>
+        </div>
+        <button id="closeNudgeModalBtn" class="text-slate-400 hover:text-slate-600 p-1 rounded-lg">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <div class="mt-4 space-y-3 text-xs">
+        <div class="p-3 bg-slate-50 rounded-xl space-y-1 border border-slate-100">
+          <div class="flex justify-between">
+            <span class="text-slate-500">Debtor Account:</span>
+            <span id="nudgeCustomer" class="font-bold text-slate-900">ABC Technologies</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-slate-500">Invoice Reference:</span>
+            <span id="nudgeInv" class="font-mono text-slate-700">#INV-2024-1041</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-slate-500">Total Outstanding:</span>
+            <span id="nudgeTotal" class="font-bold text-slate-900">₹3,80,000</span>
+          </div>
+          <div class="flex justify-between pt-1 border-t border-slate-200">
+            <span class="font-semibold text-rose-600">Overdue Amount:</span>
+            <span id="nudgeOverdue" class="font-bold text-rose-600 text-sm">₹1,90,000</span>
+          </div>
+        </div>
+
+        <div>
+          <label class="block font-semibold text-slate-700 mb-1">Dispatch Channel</label>
+          <div class="grid grid-cols-3 gap-2">
+            <label class="flex items-center justify-center gap-1.5 p-2 bg-emerald-50 text-emerald-700 rounded-lg border border-emerald-200 font-semibold cursor-pointer">
+              <input type="radio" name="nudgeChannel" value="WhatsApp" checked class="accent-emerald-600">
+              WhatsApp
+            </label>
+            <label class="flex items-center justify-center gap-1.5 p-2 bg-slate-50 text-slate-700 rounded-lg border border-slate-200 font-medium cursor-pointer">
+              <input type="radio" name="nudgeChannel" value="Email" class="accent-blue-600">
+              Email
+            </label>
+            <label class="flex items-center justify-center gap-1.5 p-2 bg-slate-50 text-slate-700 rounded-lg border border-slate-200 font-medium cursor-pointer">
+              <input type="radio" name="nudgeChannel" value="SMS" class="accent-purple-600">
+              SMS
+            </label>
+          </div>
+        </div>
+
+        <div>
+          <label class="block font-semibold text-slate-700 mb-1">Reminder Tone</label>
+          <select id="nudgeTone" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl font-medium text-slate-700 focus:outline-none focus:ring-2 focus:ring-brand-500">
+            <option value="polite">Gentle Follow-up (Polite payment nudge)</option>
+            <option value="firm" selected>Firm Notice (Overdue notice with payment link)</option>
+            <option value="urgent">Urgent Escalation (Final settlement warning)</option>
+          </select>
+        </div>
+
+        <div class="pt-3 flex gap-2">
+          <button id="cancelNudgeBtn" class="flex-1 py-2 rounded-xl border border-slate-200 text-slate-600 font-semibold hover:bg-slate-50 transition-colors">Cancel</button>
+          <button id="sendNudgeActionBtn" class="flex-1 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold transition-all shadow-sm shadow-blue-500/25 flex items-center justify-center gap-1.5">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
+            Send Nudge Now
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= MODAL: ALL 24 LEDGERS DRAWER ================= -->
+  <div id="allLedgersModal" class="fixed inset-0 bg-slate-900/50 backdrop-blur-xs z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-white rounded-3xl max-w-4xl w-full p-6 shadow-2xl border border-slate-100 max-h-[85vh] flex flex-col">
+      <div class="flex items-center justify-between pb-4 border-b border-slate-100 shrink-0">
+        <div>
+          <h3 class="text-base font-bold text-slate-900">All 24 Accounts Receivable Ledgers</h3>
+          <p class="text-xs text-slate-500 mt-0.5">Full customer aging exposure and automated reminder status</p>
+        </div>
+        <button id="closeAllLedgersBtn" class="text-slate-400 hover:text-slate-600 p-1 rounded-lg">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <div class="overflow-y-auto flex-1 mt-4">
+        <table class="w-full text-left text-xs border-collapse">
+          <thead>
+            <tr class="bg-slate-50 border-b border-slate-200 text-slate-400 font-semibold uppercase text-[10px] tracking-wider sticky top-0">
+              <th class="py-2.5 px-3">Debtor</th>
+              <th class="py-2.5 px-3">Terms</th>
+              <th class="py-2.5 px-3">Aging Bracket</th>
+              <th class="py-2.5 px-3 text-right">Total Outstanding</th>
+              <th class="py-2.5 px-3 text-right">Overdue</th>
+              <th class="py-2.5 px-3 text-center">Action</th>
+            </tr>
+          </thead>
+          <tbody id="allLedgersTableBody" class="divide-y divide-slate-100 font-medium">
+            <!-- Dynamically populated or rendered -->
+          </tbody>
+        </table>
+      </div>
+
+      <div class="pt-4 border-t border-slate-100 flex justify-between items-center text-xs text-slate-500 shrink-0">
+        <span>Displaying 24 counterparties • Total Overdue: <strong class="text-rose-600">₹7,40,000</strong></span>
+        <button id="batchNudgeAllBtn" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl shadow-xs transition-colors flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          Batch Send WhatsApp to Overdue (9)
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toastNotification" class="fixed bottom-6 right-6 bg-slate-900 text-white px-4 py-3 rounded-2xl shadow-2xl text-xs flex items-center gap-2 transform translate-y-20 opacity-0 transition-all duration-300 z-50">
+    <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+    <span id="toastMsg">Report updated successfully!</span>
+  </div>
+
+  <!-- ================= CLIENT-SIDE INTERACTION JAVASCRIPT ================= -->
+  <script>
+    // 1. Toast helper
+    function showToast(msg) {
+      const toast = document.getElementById('toastNotification');
+      document.getElementById('toastMsg').textContent = msg;
+      toast.classList.remove('translate-y-20', 'opacity-0');
+      setTimeout(() => {
+        toast.classList.add('translate-y-20', 'opacity-0');
+      }, 3500);
+    }
+
+    // 2. Date buttons active toggle
+    const dateBtns = document.querySelectorAll('.date-btn');
+    dateBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        dateBtns.forEach(b => {
+          b.classList.remove('active', 'bg-blue-50', 'text-blue-700', 'font-semibold', 'border', 'border-blue-200');
+          b.classList.add('text-slate-600');
+        });
+        btn.classList.add('active', 'bg-blue-50', 'text-blue-700', 'font-semibold', 'border', 'border-blue-200');
+        btn.classList.remove('text-slate-600');
+        showToast(`Filtered report for ${btn.innerText.trim()}`);
+      });
+    });
+
+    // 3. Value vs Invoices Toggle
+    const valBtn = document.getElementById('toggleValueBtn');
+    const invBtn = document.getElementById('toggleInvoicesBtn');
+    let isValue = true;
+
+    valBtn.addEventListener('click', () => {
+      if (isValue) return;
+      isValue = true;
+      valBtn.classList.add('bg-white', 'text-slate-900', 'font-semibold', 'shadow-xs');
+      valBtn.classList.remove('text-slate-500');
+      invBtn.classList.remove('bg-white', 'text-slate-900', 'font-semibold', 'shadow-xs');
+      invBtn.classList.add('text-slate-500');
+      showToast('Switched to Aging Breakdown by Monetary Value');
+    });
+
+    invBtn.addEventListener('click', () => {
+      if (!isValue) return;
+      isValue = false;
+      invBtn.classList.add('bg-white', 'text-slate-900', 'font-semibold', 'shadow-xs');
+      invBtn.classList.remove('text-slate-500');
+      valBtn.classList.remove('bg-white', 'text-slate-900', 'font-semibold', 'shadow-xs');
+      valBtn.classList.add('text-slate-500');
+      showToast('Switched to Aging Breakdown by Invoice Counts (18, 12, 8, 4, 3 invoices)');
+    });
+
+    // 4. Quick Nudge Modal Logic
+    const nudgeModal = document.getElementById('quickNudgeModal');
+    const closeNudgeBtn = document.getElementById('closeNudgeModalBtn');
+    const cancelNudgeBtn = document.getElementById('cancelNudgeBtn');
+    const sendNudgeBtn = document.getElementById('sendNudgeActionBtn');
+
+    function openQuickNudgeModal(customer, total, overdue, inv, terms) {
+      document.getElementById('nudgeCustomer').textContent = customer;
+      document.getElementById('nudgeTotal').textContent = total;
+      document.getElementById('nudgeOverdue').textContent = overdue;
+      document.getElementById('nudgeInv').textContent = inv;
+      nudgeModal.classList.remove('hidden');
+    }
+
+    closeNudgeBtn.addEventListener('click', () => nudgeModal.classList.add('hidden'));
+    cancelNudgeBtn.addEventListener('click', () => nudgeModal.classList.add('hidden'));
+    nudgeModal.addEventListener('click', (e) => {
+      if (e.target === nudgeModal) nudgeModal.classList.add('hidden');
+    });
+
+    sendNudgeBtn.addEventListener('click', () => {
+      const channel = document.querySelector('input[name="nudgeChannel"]:checked').value;
+      const cust = document.getElementById('nudgeCustomer').textContent;
+      nudgeModal.classList.add('hidden');
+      showToast(`Automated ${channel} reminder dispatched to ${cust}!`);
+    });
+
+    document.getElementById('nudgePendingBtn').addEventListener('click', () => {
+      openQuickNudgeModal('ABC Technologies & 8 Others', '₹11,20,000', '₹7,40,000', '9 Pending Overdue Invoices', 'Overdue 30+ Days');
+    });
+
+    // 5. All 24 Ledgers Drawer Logic
+    const allLedgersModal = document.getElementById('allLedgersModal');
+    const viewAllBtn = document.getElementById('viewAllLedgersBtn');
+    const closeAllLedgersBtn = document.getElementById('closeAllLedgersBtn');
+    const tableBody = document.getElementById('allLedgersTableBody');
+
+    const sampleLedgers = [
+      { name: "ABC Technologies Pvt Ltd", terms: "Net 45", bracket: "90+ Days", total: "₹3,80,000", overdue: "₹1,90,000" },
+      { name: "Mahavir Precision Ltd", terms: "Net 30", bracket: "61-90 Days", total: "₹3,10,000", overdue: "₹1,45,000" },
+      { name: "Dynamic Steel Fabricators", terms: "Net 60", bracket: "31-60 Days", total: "₹2,60,000", overdue: "₹1,10,000" },
+      { name: "BlueDart Hub Logistics", terms: "Net 30", bracket: "1-30 Days", total: "₹1,95,000", overdue: "₹75,000" },
+      { name: "Pune Auto Components", terms: "Net 45", bracket: "61-90 Days", total: "₹1,40,000", overdue: "₹80,000" },
+      { name: "Omkar Engineering Works", terms: "Net 30", bracket: "31-60 Days", total: "₹95,000", overdue: "₹40,000" },
+      { name: "Shanti Electricals Ltd", terms: "Net 30", bracket: "1-30 Days", total: "₹85,000", overdue: "₹35,000" },
+      { name: "Tata Power Distribution", terms: "Net 15", bracket: "Not Due", total: "₹1,15,000", overdue: "₹0" },
+      { name: "L&T Heavy Engineering", terms: "Net 45", bracket: "Not Due", total: "₹2,40,000", overdue: "₹0" },
+      { name: "Kirloskar Oil Engines", terms: "Net 30", bracket: "31-60 Days", total: "₹65,000", overdue: "₹25,000" },
+      { name: "Apex Tooling Systems", terms: "Net 30", bracket: "90+ Days", total: "₹45,000", overdue: "₹40,000" },
+      { name: "Reliance Retail Logistics", terms: "Net 60", bracket: "Not Due", total: "₹3,70,000", overdue: "₹0" }
+    ];
+
+    function renderLedgers() {
+      tableBody.innerHTML = sampleLedgers.map((l, i) => `
+        <tr class="hover:bg-slate-50 transition-colors">
+          <td class="py-2.5 px-3">
+            <span class="font-bold text-slate-800">${l.name}</span>
+          </td>
+          <td class="py-2.5 px-3 text-slate-500">${l.terms}</td>
+          <td class="py-2.5 px-3">
+            <span class="px-2 py-0.5 rounded-full text-[10px] font-semibold ${
+              l.bracket === '90+ Days' ? 'bg-slate-900 text-white' :
+              l.bracket === '61-90 Days' ? 'bg-slate-700 text-white' :
+              l.bracket === '31-60 Days' ? 'bg-teal-700 text-white' :
+              l.bracket === '1-30 Days' ? 'bg-teal-500 text-white' : 'bg-emerald-100 text-emerald-800'
+            }">${l.bracket}</span>
+          </td>
+          <td class="py-2.5 px-3 text-right font-bold text-slate-900">${l.total}</td>
+          <td class="py-2.5 px-3 text-right font-bold ${l.overdue !== '₹0' ? 'text-rose-600' : 'text-slate-400'}">${l.overdue}</td>
+          <td class="py-2.5 px-3 text-center">
+            ${l.overdue !== '₹0' ? 
+              `<button onclick="openQuickNudgeModal('${l.name}', '${l.total}', '${l.overdue}', '#INV-${1000+i}', '${l.terms}')" class="px-2.5 py-1 bg-blue-50 hover:bg-blue-600 hover:text-white text-blue-600 font-semibold rounded-lg border border-blue-200 transition-all text-[11px]">Send Nudge</button>` :
+              `<span class="text-slate-400 text-[11px]">Current</span>`
+            }
+          </td>
+        </tr>
+      `).join('');
+    }
+
+    viewAllBtn.addEventListener('click', () => {
+      renderLedgers();
+      allLedgersModal.classList.remove('hidden');
+    });
+
+    closeAllLedgersBtn.addEventListener('click', () => allLedgersModal.classList.add('hidden'));
+    allLedgersModal.addEventListener('click', (e) => {
+      if (e.target === allLedgersModal) allLedgersModal.classList.add('hidden');
+    });
+
+    document.getElementById('batchNudgeAllBtn').addEventListener('click', () => {
+      allLedgersModal.classList.add('hidden');
+      showToast('Automated WhatsApp payment reminders sent to all 9 overdue counterparties!');
+    });
+
+    // 6. Filter by Aging Bucket
+    function filterByBucket(bucket) {
+      showToast(`Showing ledgers categorized under: ${bucket}`);
+      renderLedgers();
+      allLedgersModal.classList.remove('hidden');
+    }
+
+    // 7. Export CSV
+    document.getElementById('exportReportBtn').addEventListener('click', () => {
+      const csvRows = [
+        ['Debtor Account', 'Credit Terms', 'Aging Window', 'Total Outstanding', 'Overdue Amount'],
+        ...sampleLedgers.map(l => [l.name, l.terms, l.bracket, l.total, l.overdue])
+      ];
+      const csvString = 'data:text/csv;charset=utf-8,' + csvRows.map(r => r.map(x => `"${x}"`).join(',')).join('\n');
+      const encodedUri = encodeURI(csvString);
+      const link = document.createElement('a');
+      link.setAttribute('href', encodedUri);
+      link.setAttribute('download', `FinPilot_Accounts_Receivable_Aging_${new Date().toISOString().slice(0,10)}.csv`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    });
+
+    // 8. Auto-load Live Customers & Invoices Count for Sidebar Badges
+    async function updateSidebarCounts() {
+      try {
+        const [cRes, iRes] = await Promise.all([
+          fetch('http://localhost:5000/api/customers?limit=1', { headers: { 'x-organization-id': '65f1a2b3c4d5e6f7a8b9c0d1' } }),
+          fetch('http://localhost:5000/api/invoices/summary', { headers: { 'x-organization-id': '65f1a2b3c4d5e6f7a8b9c0d1' } })
+        ]);
+        if (cRes.ok) {
+          const cData = await cRes.json();
+          if (cData.data && cData.data.pagination) {
+            const countEl = document.getElementById('navCustomerCount');
+            if (countEl) countEl.textContent = cData.data.pagination.total;
+          }
+        }
+        if (iRes.ok) {
+          const iData = await iRes.json();
+          if (iData.data && iData.data.totalInvoices !== undefined) {
+            const countEl = document.getElementById('navInvoiceCount');
+            if (countEl) countEl.textContent = iData.data.totalInvoices;
+          }
+        }
+      } catch (err) {
+        // Fallback default counters
+      }
+    }
+    updateSidebarCounts();
+  </script>
+  <!-- Global Layout Script -->
+  <script src="../assets/js/nav.js"></script>
+      </main>
+    </div>
+  </div>
+</body>
+</html>
+

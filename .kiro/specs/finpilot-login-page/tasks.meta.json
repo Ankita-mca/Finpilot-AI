@@ -1,0 +1,630 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1.1 Create `login.html` at the workspace root with valid HTML5 boilerplate (`<!DOCTYPE html>`, `<html lang=\"en\">`, `<head>`, `<body>`).": [
+      {
+        "executionId": "9e23e6af-8d51-4aff-9c3d-9e667b24eaaa",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793261048790
+      },
+      {
+        "executionId": "9e23e6af-8d51-4aff-9c3d-9e667b24eaaa",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793261060152
+      },
+      {
+        "executionId": "9e23e6af-8d51-4aff-9c3d-9e667b24eaaa",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793261364489
+      }
+    ],
+    "1.2 Add the Google Fonts `<link>` tag loading Inter with weights 300, 400, 500, 600, 700 and `display=swap`.": [
+      {
+        "executionId": "9e23e6af-8d51-4aff-9c3d-9e667b24eaaa",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793261049123
+      },
+      {
+        "executionId": "9e23e6af-8d51-4aff-9c3d-9e667b24eaaa",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793261368089
+      },
+      {
+        "executionId": "9e23e6af-8d51-4aff-9c3d-9e667b24eaaa",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793261386991
+      }
+    ],
+    "1.3 Add the Tailwind CSS CDN `<script>` tag and a following `<script>` block that extends `tailwind.config` with `brandNavy` (950, 900, 800, 700) and `royalBlue` (500, 400, 300) color tokens using the exact hex values from the design document.": [
+      {
+        "executionId": "9e23e6af-8d51-4aff-9c3d-9e667b24eaaa",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793261049281
+      },
+      {
+        "executionId": "9e23e6af-8d51-4aff-9c3d-9e667b24eaaa",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793261405655
+      },
+      {
+        "executionId": "9e23e6af-8d51-4aff-9c3d-9e667b24eaaa",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793261440334
+      }
+    ],
+    "1.4 Apply Inter as the default `font-family` on `<body>` via a Tailwind utility class or a `<style>` block.": [
+      {
+        "executionId": "9e23e6af-8d51-4aff-9c3d-9e667b24eaaa",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793261049450
+      },
+      {
+        "executionId": "9e23e6af-8d51-4aff-9c3d-9e667b24eaaa",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793261443690
+      },
+      {
+        "executionId": "9e23e6af-8d51-4aff-9c3d-9e667b24eaaa",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793261462130
+      }
+    ],
+    "1.5 Set `<body>` to `min-h-screen flex` so the split-panel layout fills the full viewport height.": [
+      {
+        "executionId": "9e23e6af-8d51-4aff-9c3d-9e667b24eaaa",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793261049602
+      },
+      {
+        "executionId": "9e23e6af-8d51-4aff-9c3d-9e667b24eaaa",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793261527981
+      },
+      {
+        "executionId": "9e23e6af-8d51-4aff-9c3d-9e667b24eaaa",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793261640002
+      }
+    ],
+    "2.1 Create the `<aside id=\"brand-panel\">` element with `hidden lg:flex flex-col` classes, `brandNavy-800` background gradient, and occupying ~55% of the desktop layout (`lg:w-[55%]`).": [
+      {
+        "executionId": "9e23e6af-8d51-4aff-9c3d-9e667b24eaaa",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793261049675
+      },
+      {
+        "executionId": "9e23e6af-8d51-4aff-9c3d-9e667b24eaaa",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793261646701
+      },
+      {
+        "executionId": "9e23e6af-8d51-4aff-9c3d-9e667b24eaaa",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793261682478
+      }
+    ],
+    "2.2 Add three ambient glow `<div>` elements (absolutely-positioned, blurred blue/indigo circles) and a dot-grid background pattern using a CSS `background-image` radial gradient or SVG data URI.": [
+      {
+        "executionId": "9e23e6af-8d51-4aff-9c3d-9e667b24eaaa",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793261049750
+      },
+      {
+        "executionId": "9e23e6af-8d51-4aff-9c3d-9e667b24eaaa",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793261752317
+      },
+      {
+        "executionId": "9e23e6af-8d51-4aff-9c3d-9e667b24eaaa",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793261815111
+      }
+    ],
+    "2.3 Implement the logo header: wallet/flow SVG icon + \"FinPilot AI\" wordmark + \"Autonomous Cashflow\" subtitle, followed by the \"Enterprise Cashflow Engine for Indian MSMEs\" badge with a green pulsing dot (`animate-pulse`).": [
+      {
+        "executionId": "9e23e6af-8d51-4aff-9c3d-9e667b24eaaa",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793261049816
+      },
+      {
+        "executionId": "9e23e6af-8d51-4aff-9c3d-9e667b24eaaa",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793261819464
+      },
+      {
+        "executionId": "9e23e6af-8d51-4aff-9c3d-9e667b24eaaa",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793261854044
+      }
+    ],
+    "2.4 Implement the hero headline `<h1>` \"Take Control of Your Cash Flow.\" with gradient text (`bg-gradient-to-r bg-clip-text text-transparent`).": [
+      {
+        "executionId": "9e23e6af-8d51-4aff-9c3d-9e667b24eaaa",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793261049896
+      },
+      {
+        "executionId": "9e23e6af-8d51-4aff-9c3d-9e667b24eaaa",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793261875043
+      },
+      {
+        "executionId": "9e23e6af-8d51-4aff-9c3d-9e667b24eaaa",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793262026491
+      }
+    ],
+    "2.5 Implement the three telemetry cards with `bg-white/5 border border-white/10 rounded-2xl` styling:": [
+      {
+        "executionId": "9e23e6af-8d51-4aff-9c3d-9e667b24eaaa",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793261049972
+      },
+      {
+        "executionId": "9e23e6af-8d51-4aff-9c3d-9e667b24eaaa",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793262030089
+      },
+      {
+        "executionId": "9e23e6af-8d51-4aff-9c3d-9e667b24eaaa",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793262080935
+      }
+    ],
+    "2.6 Implement the three feature pillars list with icons: \"Track invoices\", \"Payment follow-ups\", \"Forecast liquidity\".": [
+      {
+        "executionId": "9e23e6af-8d51-4aff-9c3d-9e667b24eaaa",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793261050048
+      },
+      {
+        "executionId": "9e23e6af-8d51-4aff-9c3d-9e667b24eaaa",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793262130372
+      },
+      {
+        "executionId": "9e23e6af-8d51-4aff-9c3d-9e667b24eaaa",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793262212221
+      }
+    ],
+    "2.7 Implement the trust badges footer with three pill badges: \"256-bit encryption\", \"RBI Compliant\", \"SOC2 Type II\", each with a small icon.": [
+      {
+        "executionId": "9e23e6af-8d51-4aff-9c3d-9e667b24eaaa",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793261050145
+      },
+      {
+        "executionId": "9e23e6af-8d51-4aff-9c3d-9e667b24eaaa",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793262215946
+      },
+      {
+        "executionId": "9e23e6af-8d51-4aff-9c3d-9e667b24eaaa",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793262244875
+      }
+    ],
+    "3.1 Create the `<main id=\"auth-panel\">` element with `flex flex-col justify-center` and ~45% desktop width (`lg:w-[45%]`), white or very light background.": [
+      {
+        "executionId": "9e23e6af-8d51-4aff-9c3d-9e667b24eaaa",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793261050238
+      },
+      {
+        "executionId": "9e23e6af-8d51-4aff-9c3d-9e667b24eaaa",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793264902758
+      },
+      {
+        "executionId": "9e23e6af-8d51-4aff-9c3d-9e667b24eaaa",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793265697393
+      }
+    ],
+    "3.2 Implement the state inspector toggle bar `<div id=\"state-inspector\">` at the top of the panel with four styled buttons labelled \"Default\", \"Focused\", \"Error\", \"Submitting\" wired to `setUIState` / `triggerSubmit` via `onclick`. Style it as a small, muted pill group.": [
+      {
+        "executionId": "9e23e6af-8d51-4aff-9c3d-9e667b24eaaa",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793261050381
+      },
+      {
+        "executionId": "9e23e6af-8d51-4aff-9c3d-9e667b24eaaa",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793265701185
+      },
+      {
+        "executionId": "9e23e6af-8d51-4aff-9c3d-9e667b24eaaa",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793265736228
+      }
+    ],
+    "3.3 Add the \"Welcome back\" `<h2>` heading and a subtitle (e.g., \"Sign in to your FinPilot AI workspace\").": [
+      {
+        "executionId": "9e23e6af-8d51-4aff-9c3d-9e667b24eaaa",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793261050586
+      },
+      {
+        "executionId": "9e23e6af-8d51-4aff-9c3d-9e667b24eaaa",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793265742651
+      },
+      {
+        "executionId": "9e23e6af-8d51-4aff-9c3d-9e667b24eaaa",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793265834861
+      }
+    ],
+    "3.4 Implement the error banner `<div id=\"error-banner\" role=\"alert\" aria-live=\"assertive\">` with rose background styling and the message \"Invalid email address or password.\" Add the `hidden` class so it is not visible in the default state.": [
+      {
+        "executionId": "9e23e6af-8d51-4aff-9c3d-9e667b24eaaa",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793261050761
+      },
+      {
+        "executionId": "9e23e6af-8d51-4aff-9c3d-9e667b24eaaa",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793265838832
+      },
+      {
+        "executionId": "9e23e6af-8d51-4aff-9c3d-9e667b24eaaa",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793265842461
+      }
+    ],
+    "3.5 Implement the email field:": [
+      {
+        "executionId": "9e23e6af-8d51-4aff-9c3d-9e667b24eaaa",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793261050882
+      },
+      {
+        "executionId": "9e23e6af-8d51-4aff-9c3d-9e667b24eaaa",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793265845902
+      },
+      {
+        "executionId": "9e23e6af-8d51-4aff-9c3d-9e667b24eaaa",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793265849377
+      }
+    ],
+    "3.6 Implement the password field:": [
+      {
+        "executionId": "9e23e6af-8d51-4aff-9c3d-9e667b24eaaa",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793261050999
+      },
+      {
+        "executionId": "9e23e6af-8d51-4aff-9c3d-9e667b24eaaa",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793265852793
+      },
+      {
+        "executionId": "9e23e6af-8d51-4aff-9c3d-9e667b24eaaa",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793265856295
+      }
+    ],
+    "3.7 Implement the Remember Me checkbox: `<input id=\"remember-me\" type=\"checkbox\">` with `<label for=\"remember-me\">Remember this trusted workspace</label>`.": [
+      {
+        "executionId": "9e23e6af-8d51-4aff-9c3d-9e667b24eaaa",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793261051075
+      },
+      {
+        "executionId": "9e23e6af-8d51-4aff-9c3d-9e667b24eaaa",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793265860010
+      },
+      {
+        "executionId": "9e23e6af-8d51-4aff-9c3d-9e667b24eaaa",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793265863723
+      }
+    ],
+    "3.8 Implement the submit button `<button id=\"submit-btn\" type=\"submit\">` with full-width styling, `royalBlue-500` background, \"Sign In to Dashboard\" label, and a right-arrow SVG icon. Wrap the label and a hidden spinner `<span id=\"btn-spinner\" class=\"hidden animate-spin\">` inside the button.": [
+      {
+        "executionId": "9e23e6af-8d51-4aff-9c3d-9e667b24eaaa",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793261051146
+      },
+      {
+        "executionId": "9e23e6af-8d51-4aff-9c3d-9e667b24eaaa",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793265867603
+      },
+      {
+        "executionId": "c2c27cc6-9c7c-4e00-9b02-90006a6464b4",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793266125161
+      }
+    ],
+    "3.9 Implement the sign-up link paragraph: \"New to FinPilot AI? `<a href=\"#\">Create an organization account</a>`\".": [
+      {
+        "executionId": "9e23e6af-8d51-4aff-9c3d-9e667b24eaaa",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793261051254
+      },
+      {
+        "executionId": "c2c27cc6-9c7c-4e00-9b02-90006a6464b4",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793266128921
+      }
+    ],
+    "3.10 Implement the multi-tenant callout `<aside role=\"note\">` with indigo-tinted border/background listing: Founders, CFOs, CAs, Billing Operators.": [
+      {
+        "executionId": "9e23e6af-8d51-4aff-9c3d-9e667b24eaaa",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793261051365
+      },
+      {
+        "executionId": "c2c27cc6-9c7c-4e00-9b02-90006a6464b4",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793266133075
+      }
+    ],
+    "3.11 Implement the auth footer with a lock icon SVG and text \"Protected by 256-bit SSL encryption\" in small, muted styling.": [
+      {
+        "executionId": "9e23e6af-8d51-4aff-9c3d-9e667b24eaaa",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793261051473
+      },
+      {
+        "executionId": "c2c27cc6-9c7c-4e00-9b02-90006a6464b4",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793266137154
+      }
+    ],
+    "4.1 Implement `togglePasswordVisibility()`:": [
+      {
+        "executionId": "9e23e6af-8d51-4aff-9c3d-9e667b24eaaa",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793261051573
+      },
+      {
+        "executionId": "c2c27cc6-9c7c-4e00-9b02-90006a6464b4",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793266141017
+      }
+    ],
+    "4.2 Implement `setUIState(state)`:": [
+      {
+        "executionId": "9e23e6af-8d51-4aff-9c3d-9e667b24eaaa",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793261051679
+      },
+      {
+        "executionId": "c2c27cc6-9c7c-4e00-9b02-90006a6464b4",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793266144366
+      }
+    ],
+    "4.3 Implement `triggerSubmit()`:": [
+      {
+        "executionId": "9e23e6af-8d51-4aff-9c3d-9e667b24eaaa",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793261051766
+      },
+      {
+        "executionId": "c2c27cc6-9c7c-4e00-9b02-90006a6464b4",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793266147900
+      }
+    ],
+    "4.4 Wire the login form's `onsubmit` to call `event.preventDefault(); triggerSubmit();`.": [
+      {
+        "executionId": "9e23e6af-8d51-4aff-9c3d-9e667b24eaaa",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793261051840
+      },
+      {
+        "executionId": "c2c27cc6-9c7c-4e00-9b02-90006a6464b4",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793266151854
+      }
+    ],
+    "4.5 Call `setUIState('default')` on `DOMContentLoaded` to ensure the initial state is correctly applied.": [
+      {
+        "executionId": "9e23e6af-8d51-4aff-9c3d-9e667b24eaaa",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793261051916
+      },
+      {
+        "executionId": "c2c27cc6-9c7c-4e00-9b02-90006a6464b4",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793266155597
+      }
+    ],
+    "5.1 Verify all `<input>` elements have a programmatically associated `<label>` (either via `for`/`id` pairing or `aria-label`).": [
+      {
+        "executionId": "9e23e6af-8d51-4aff-9c3d-9e667b24eaaa",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793261051994
+      },
+      {
+        "executionId": "c2c27cc6-9c7c-4e00-9b02-90006a6464b4",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793266159442
+      }
+    ],
+    "5.2 Confirm that in the `error` state, `aria-invalid=\"true\"` and `aria-describedby` are set on both inputs and that the referenced error message elements are visible and contain meaningful text.": [
+      {
+        "executionId": "9e23e6af-8d51-4aff-9c3d-9e667b24eaaa",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793261052095
+      },
+      {
+        "executionId": "c2c27cc6-9c7c-4e00-9b02-90006a6464b4",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793266163347
+      }
+    ],
+    "5.3 Confirm that `role=\"alert\"` and `aria-live=\"assertive\"` are present on the error banner `<div>`.": [
+      {
+        "executionId": "9e23e6af-8d51-4aff-9c3d-9e667b24eaaa",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793261052195
+      },
+      {
+        "executionId": "c2c27cc6-9c7c-4e00-9b02-90006a6464b4",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793266167107
+      }
+    ],
+    "5.4 Confirm the submit button has `aria-busy=\"true\"` in the submitting state and `aria-busy=\"false\"` (or the attribute is removed) in all other states.": [
+      {
+        "executionId": "9e23e6af-8d51-4aff-9c3d-9e667b24eaaa",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793261052283
+      },
+      {
+        "executionId": "c2c27cc6-9c7c-4e00-9b02-90006a6464b4",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793266171119
+      }
+    ],
+    "5.5 Confirm the password toggle button has `type=\"button\"` (not `type=\"submit\"`) and a correct `aria-label` in both visibility states.": [
+      {
+        "executionId": "9e23e6af-8d51-4aff-9c3d-9e667b24eaaa",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793261052367
+      },
+      {
+        "executionId": "c2c27cc6-9c7c-4e00-9b02-90006a6464b4",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793266174881
+      }
+    ],
+    "5.6 Manually tab through the form and verify the focus order: email → password → eye toggle → remember me → submit → forgot password → sign-up link.": [
+      {
+        "executionId": "9e23e6af-8d51-4aff-9c3d-9e667b24eaaa",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793261052478
+      },
+      {
+        "executionId": "c2c27cc6-9c7c-4e00-9b02-90006a6464b4",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793266178577
+      },
+      {
+        "executionId": "a4661e5c-9062-47b0-92e7-59b449fc5a35",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793271395699
+      },
+      {
+        "executionId": "9ba2b1c5-e896-47fb-ae14-d85afc88a99f",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793354073992
+      },
+      {
+        "executionId": "9ba2b1c5-e896-47fb-ae14-d85afc88a99f",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793354686783
+      }
+    ],
+    "5.7 Verify all text meets WCAG AA color contrast requirements (minimum 4.5:1 for normal text, 3:1 for large text) against their respective backgrounds.": [
+      {
+        "executionId": "9e23e6af-8d51-4aff-9c3d-9e667b24eaaa",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793261052615
+      },
+      {
+        "executionId": "83a61c0a-81ed-4b1b-8a4c-9f6daa998327",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793266456519
+      }
+    ],
+    "6.1 Open the page and resize the browser to 375px wide; confirm the left brand panel is not rendered (CSS `hidden`) and the auth form fills the full width.": [
+      {
+        "executionId": "9e23e6af-8d51-4aff-9c3d-9e667b24eaaa",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793261052756
+      },
+      {
+        "executionId": "83a61c0a-81ed-4b1b-8a4c-9f6daa998327",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793266461110
+      }
+    ],
+    "6.2 Resize to 1280px wide; confirm the split-panel layout renders with the brand panel visible on the left and the auth form on the right.": [
+      {
+        "executionId": "9e23e6af-8d51-4aff-9c3d-9e667b24eaaa",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793261052891
+      },
+      {
+        "executionId": "83a61c0a-81ed-4b1b-8a4c-9f6daa998327",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793266464916
+      }
+    ],
+    "6.3 Verify all auth form elements remain visible, clickable, and correctly styled at 375px viewport width with no horizontal overflow.": [
+      {
+        "executionId": "9e23e6af-8d51-4aff-9c3d-9e667b24eaaa",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793261053046
+      },
+      {
+        "executionId": "83a61c0a-81ed-4b1b-8a4c-9f6daa998327",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793266470657
+      }
+    ],
+    "6.4 Verify the page opens correctly via `file://` protocol with no build step (open the HTML file directly in a browser).": [
+      {
+        "executionId": "9e23e6af-8d51-4aff-9c3d-9e667b24eaaa",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793261053350
+      },
+      {
+        "executionId": "83a61c0a-81ed-4b1b-8a4c-9f6daa998327",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793266474726
+      }
+    ],
+    "1. Project scaffold and Tailwind/font setup": [
+      {
+        "executionId": "9e23e6af-8d51-4aff-9c3d-9e667b24eaaa",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793261640122
+      }
+    ],
+    "2. Left brand panel — structure and styling": [
+      {
+        "executionId": "9e23e6af-8d51-4aff-9c3d-9e667b24eaaa",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793262244938
+      }
+    ],
+    "3. Right auth form panel — structure and styling": [
+      {
+        "executionId": "c2c27cc6-9c7c-4e00-9b02-90006a6464b4",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793266137223
+      }
+    ],
+    "4. JavaScript state machine and interactivity": [
+      {
+        "executionId": "c2c27cc6-9c7c-4e00-9b02-90006a6464b4",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793266155688
+      }
+    ],
+    "6. Responsive layout verification": [
+      {
+        "executionId": "83a61c0a-81ed-4b1b-8a4c-9f6daa998327",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793266474791
+      }
+    ],
+    "5. Accessibility audit and hardening": [
+      {
+        "executionId": "a4661e5c-9062-47b0-92e7-59b449fc5a35",
+        "chatSessionId": "sess_a1f54a11-730f-4ad0-af50-423d65ab6839",
+        "timestamp": 1793271396110
+      }
+    ]
+  }
+}

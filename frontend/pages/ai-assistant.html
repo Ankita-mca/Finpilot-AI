@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FinPilot AI — AI Assistant</title>
+
+  <!-- Google Fonts: DM Sans & Manrope -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Design System Stylesheet -->
+  <link rel="stylesheet" href="../assets/css/style.css">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ["'DM Sans'", "sans-serif"],
+            heading: ["'Manrope'", "sans-serif"],
+            mono: ["'JetBrains Mono'", "monospace"],
+          },
+          colors: {
+            brand: {
+              50: "#edf5f1",
+              100: "#e6f2ed",
+              500: "#5a9b80",
+              600: "#287755",
+              700: "#206748",
+              800: "#172823",
+              900: "#133c2a"
+            },
+            primary: {
+              50: "#edf5f1",
+              100: "#e6f2ed",
+              500: "#5a9b80",
+              600: "#287755",
+              700: "#206748",
+              800: "#172823",
+              900: "#133c2a"
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#f5f7f6] text-[#202927] font-sans antialiased min-h-screen">
+  <div id="root">
+    <div class="app-shell">
+
+      <!-- LEFT SIDEBAR -->
+        <!-- ================= SIDEBAR ================= -->
+      <aside class="sidebar">
+        <!-- Brand Logo Header -->
+        <div class="brand">
+          <div class="brand-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+            </svg>
+          </div>
+          <span>FinPilot <b>AI</b></span>
+        </div>
+
+        <!-- Org Switcher -->
+        <div class="org-switch">
+          <div class="org-avatar" id="sidebarOrgAvatar">T</div>
+          <span>
+            <strong id="sidebarOrgName">Test Org</strong>
+            <small id="sidebarOrgRole">owner account</small>
+          </span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #84908b;">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </div>
+
+        <!-- Navigation Section: WORKSPACE -->
+        <div class="nav-label">WORKSPACE</div>
+        <nav>
+          <!-- 1. Overview -->
+          <a href="dashboard.html" class="nav-item ">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="7" height="7"></rect>
+              <rect x="14" y="3" width="7" height="7"></rect>
+              <rect x="14" y="14" width="7" height="7"></rect>
+              <rect x="3" y="14" width="7" height="7"></rect>
+            </svg>
+            <span>Overview</span>
+          </a>
+
+          <!-- 2. Invoices -->
+          <a href="invoices.html" class="nav-item ">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+              <polyline points="10 9 9 9 8 9"></polyline>
+            </svg>
+            <span>Invoices</span>
+          </a>
+
+          <!-- 3. Customers -->
+          <a href="customers.html" class="nav-item ">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+            <span>Customers</span>
+          </a>
+
+          <!-- 4. Payments -->
+          <a href="payments.html" class="nav-item ">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="5" width="20" height="14" rx="2"></rect>
+              <line x1="2" y1="10" x2="22" y2="10"></line>
+            </svg>
+            <span>Payments</span>
+          </a>
+
+          <!-- 5. Aging Report -->
+          <a href="reports.html" class="nav-item ">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            <span>Aging report</span>
+          </a>
+
+          <!-- 6. Reminders -->
+          <a href="reminders.html" class="nav-item ">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+              <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+            </svg>
+            <span>Reminders</span>
+            <span class="soon">SOON</span>
+          </a>
+
+          <!-- 7. Reconciliation -->
+          <a href="reconciliation.html" class="nav-item ">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="6" y1="3" x2="6" y2="15"></line>
+              <circle cx="18" cy="6" r="3"></circle>
+              <circle cx="6" cy="18" r="3"></circle>
+              <path d="M18 9a9 9 0 0 1-9 9"></path>
+            </svg>
+            <span>Reconciliation</span>
+            <span class="soon">SOON</span>
+          </a>
+
+          <!-- 8. Forecast -->
+          <a href="cash-flow.html" class="nav-item ">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+              <polyline points="17 6 23 6 23 12"></polyline>
+            </svg>
+            <span>Forecast</span>
+          </a>
+
+          <!-- 9. AI Assistant -->
+          <a href="ai-assistant.html" class="nav-item active">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="11" width="18" height="10" rx="2"></rect>
+              <circle cx="12" cy="5" r="2"></circle>
+              <path d="M12 7v4"></path>
+              <line x1="8" y1="16" x2="8" y2="16"></line>
+              <line x1="16" y1="16" x2="16" y2="16"></line>
+            </svg>
+            <span>AI Assistant</span>
+          </a>
+        </nav>
+
+        <!-- Navigation Section: ACCOUNT -->
+        <div class="sidebar-bottom">
+          <div class="nav-label">ACCOUNT</div>
+          <nav>
+            <a href="notifications.html" class="nav-item ">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+              </svg>
+              <span>Notifications</span>
+            </a>
+            <a href="audit-log.html" class="nav-item ">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+              <span>Audit Log</span>
+            </a>
+            <a href="settings.html" class="nav-item ">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="4" y1="21" x2="4" y2="14"></line>
+                <line x1="4" y1="10" x2="4" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12" y2="3"></line>
+                <line x1="20" y1="21" x2="20" y2="16"></line>
+                <line x1="20" y1="12" x2="20" y2="3"></line>
+                <line x1="1" y1="14" x2="7" y2="14"></line>
+                <line x1="9" y1="8" x2="15" y2="8"></line>
+                <line x1="17" y1="16" x2="23" y2="16"></line>
+              </svg>
+              <span>Settings</span>
+            </a>
+          </nav>
+
+          <!-- User Profile Card -->
+          <div class="profile">
+            <div class="avatar" id="sidebarUserAvatar">T</div>
+            <span>
+              <strong id="sidebarUserName">Test User</strong>
+              <small id="sidebarUserEmail">test@finpilot.local</small>
+            </span>
+            <button class="logout-btn" title="Sign out" onclick="logout()">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                <polyline points="16 17 21 12 16 7"></polyline>
+                <line x1="21" y1="12" x2="9" y2="12"></line>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Bottom Full Width Sign Out Button -->
+          <button class="logout-row-btn" onclick="logout()">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+              <polyline points="16 17 21 12 16 7"></polyline>
+              <line x1="21" y1="12" x2="9" y2="12"></line>
+            </svg>
+            <span>Sign out</span>
+          </button>
+        </div>
+      </aside>
+  <!-- ========================================================= -->
+  <!-- 2. MAIN WORKSPACE -->
+  <!-- ========================================================= -->
+  <main class="main">
+
+    <!-- Top Header -->
+            <!-- Topbar matching Dashboard -->
+        <header class="topbar">
+          <div class="crumb">
+            FinPilot <span>/</span> <b>AI Assistant</b>
+          </div>
+          <div class="top-actions">
+            <div class="period">
+              <span class="live-dot"></span>
+              <span>Copilot Ready</span>
+            </div>
+          </div>
+        </header>
+
+    <!-- Page Body -->
+    <div class="flex-1 flex flex-col xl:flex-row overflow-hidden p-6 gap-6">
+
+      <!-- Center Chat -->
+      <section class="flex-1 flex flex-col min-w-0">
+
+        <!-- Title -->
+        <div class="mb-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div>
+            <div class="flex items-center gap-2 mb-1">
+              <span class="px-2 py-0.5 bg-blue-100 text-blue-800 rounded font-semibold text-[10px] tracking-wide uppercase">Copilot Engine v2.4</span>
+              <span class="text-xs text-slate-400">&#8226; Realtime Ledger Context</span>
+            </div>
+            <h1 class="text-2xl font-bold text-slate-900 tracking-tight">AI Assistant</h1>
+            <p class="text-sm text-slate-500 mt-0.5">Ask anything about your customers, invoices, and working capital collections.</p>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-50 text-emerald-700 text-xs font-medium border border-emerald-200/60">
+              <span class="w-2 h-2 rounded-full bg-emerald-500"></span>TallyPrime ERP Connected
+            </span>
+            <button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-200 text-xs font-medium text-slate-600 hover:bg-white transition-colors">
+              <i class="ph ph-sliders"></i>Context Filter
+            </button>
+          </div>
+        </div>
+
+        <!-- Chat Frame -->
+        <div class="flex-1 bg-white rounded-2xl border border-slate-200 shadow-sm flex flex-col overflow-hidden min-h-[520px]">
+
+          <!-- Chat Header -->
+          <div class="px-6 py-4 border-b border-slate-100 flex items-center justify-between bg-white shrink-0">
+            <div class="flex items-center gap-3">
+              <div class="relative">
+                <div class="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center shadow-sm"><i class="ph-bold ph-robot text-xl"></i></div>
+                <span class="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-emerald-500 border-2 border-white rounded-full"></span>
+              </div>
+              <div>
+                <div class="flex items-center gap-2"><h2 class="text-sm font-bold text-slate-900">FinPilot Copilot</h2><span class="px-2 py-0.5 bg-blue-50 text-blue-700 border border-blue-100 rounded text-[10px] font-bold uppercase">Online</span></div>
+                <p class="text-xs text-slate-400">Instant Indian B2B Reconciliation Agent</p>
+              </div>
+            </div>
+            <button id="clearChatBtn" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-500 hover:text-rose-600 hover:bg-rose-50 border border-slate-200 transition-colors">
+              <i class="ph ph-trash"></i><span>Clear Chat</span>
+            </button>
+          </div>
+
+          <!-- Messages -->
+          <div id="messagesContainer" class="flex-1 overflow-y-auto p-6 space-y-6">
+
+            <div class="flex items-start gap-3 max-w-2xl">
+              <div class="w-8 h-8 rounded-lg bg-blue-600 text-white flex items-center justify-center shrink-0 text-sm mt-0.5"><i class="ph-bold ph-sparkle"></i></div>
+              <div class="bg-blue-50/70 border border-blue-100/80 rounded-2xl rounded-tl-sm p-4 text-sm text-slate-700 leading-relaxed">
+                <p class="font-medium text-slate-900 mb-1">Namaste! I am your FinPilot assistant.</p>
+                <p>How can I assist with your receivables, cash flow, or overdue accounts today?</p>
+              </div>
+            </div>
+
+            <div class="pl-11">
+              <p class="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-2">Live MongoDB Database Queries:</p>
+              <div class="flex flex-wrap gap-2">
+                <button class="query-chip inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-white border border-blue-200 text-blue-700 hover:bg-blue-50 text-xs font-semibold transition-colors shadow-2xs"><i class="ph ph-user"></i><span>What is the status of customer Vikram Joshi?</span></button>
+                <button class="query-chip inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-white border border-blue-200 text-blue-700 hover:bg-blue-50 text-xs font-semibold transition-colors shadow-2xs"><i class="ph ph-receipt"></i><span>Show all overdue invoices</span></button>
+                <button class="query-chip inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-white border border-blue-200 text-blue-700 hover:bg-blue-50 text-xs font-semibold transition-colors shadow-2xs"><i class="ph ph-coins"></i><span>What is the total receivable amount?</span></button>
+                <button class="query-chip inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-white border border-blue-200 text-blue-700 hover:bg-blue-50 text-xs font-semibold transition-colors shadow-2xs"><i class="ph ph-question"></i><span>What is the status of customer Satish?</span></button>
+                <button class="query-chip inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-white border border-blue-200 text-blue-700 hover:bg-blue-50 text-xs font-semibold transition-colors shadow-2xs"><i class="ph ph-credit-card"></i><span>When was the last payment received?</span></button>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Input Bar -->
+          <div class="p-4 bg-slate-50/80 border-t border-slate-100 shrink-0">
+            <form id="chatForm" class="flex items-center gap-3 bg-white border border-slate-200 rounded-xl px-4 py-2.5 shadow-sm focus-within:ring-2 focus-within:ring-blue-500/20 focus-within:border-blue-500 transition-all">
+              <button type="button" class="text-slate-400 hover:text-slate-600 transition-colors p-1" title="Attach file"><i class="ph ph-paperclip text-lg"></i></button>
+              <input id="messageInput" type="text" placeholder="Ask FinPilot: e.g. 'Show aging summary for top 5 debtors'..." class="flex-1 bg-transparent border-0 text-sm text-slate-800 placeholder-slate-400 focus:outline-none"/>
+              <button type="submit" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-sm font-semibold flex items-center gap-1.5 shadow-sm transition-colors">
+                <span>Ask</span><i class="ph-bold ph-paper-plane-right"></i>
+              </button>
+            </form>
+            <div class="flex items-center justify-between text-[11px] text-slate-400 px-2 mt-2">
+              <div class="flex items-center gap-1"><i class="ph-fill ph-check-circle text-emerald-500 text-xs"></i><span>Press <kbd class="px-1.5 py-0.5 bg-slate-200/80 rounded text-[10px] font-mono text-slate-600">Enter</kbd> to send &#8226; Verified with accounting ledger</span></div>
+              <span>Section 15/16 MSME Compliant</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+      <!-- ========================================================= -->
+      <!-- 3. RIGHT SIDEBAR -->
+      <!-- ========================================================= -->
+      <aside class="w-full xl:w-80 shrink-0 space-y-6">
+
+        <!-- Quick Actions -->
+        <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-sm font-bold text-slate-900 flex items-center gap-2"><i class="ph-bold ph-lightning text-amber-500"></i>Quick Actions</h3>
+            <span class="text-[11px] text-slate-400 font-medium">Direct Access</span>
+          </div>
+          <div class="space-y-2">
+            <a href="#" class="flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 border border-transparent hover:border-slate-100 transition-all text-slate-700 group">
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-slate-100 group-hover:bg-blue-50 group-hover:text-blue-600 flex items-center justify-center text-slate-500 transition-colors"><i class="ph ph-address-book"></i></div>
+                <span class="text-xs font-semibold">View All Customers</span>
+              </div>
+              <div class="flex items-center gap-1.5"><span class="text-xs font-bold bg-slate-100 px-2 py-0.5 rounded text-slate-600">18</span><i class="ph ph-caret-right text-slate-300 group-hover:text-blue-500 text-xs transition-colors"></i></div>
+            </a>
+            <a href="#" class="flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 border border-transparent hover:border-slate-100 transition-all text-slate-700 group">
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-slate-100 group-hover:bg-blue-50 group-hover:text-blue-600 flex items-center justify-center text-slate-500 transition-colors"><i class="ph ph-receipt"></i></div>
+                <span class="text-xs font-semibold">View Invoices</span>
+              </div>
+              <div class="flex items-center gap-1.5"><span class="text-xs font-bold bg-slate-100 px-2 py-0.5 rounded text-slate-600">42</span><i class="ph ph-caret-right text-slate-300 group-hover:text-blue-500 text-xs transition-colors"></i></div>
+            </a>
+            <a href="#" class="flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 border border-transparent hover:border-slate-100 transition-all text-slate-700 group">
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-slate-100 group-hover:bg-blue-50 group-hover:text-blue-600 flex items-center justify-center text-slate-500 transition-colors"><i class="ph ph-credit-card"></i></div>
+                <span class="text-xs font-semibold">View Payments</span>
+              </div>
+              <i class="ph ph-caret-right text-slate-300 group-hover:text-blue-500 text-xs transition-colors"></i>
+            </a>
+            <a href="#" class="flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 border border-transparent hover:border-slate-100 transition-all text-slate-700 group">
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-slate-100 group-hover:bg-blue-50 group-hover:text-blue-600 flex items-center justify-center text-slate-500 transition-colors"><i class="ph ph-chart-pie-slice"></i></div>
+                <span class="text-xs font-semibold">View Reports</span>
+              </div>
+              <i class="ph ph-caret-right text-slate-300 group-hover:text-blue-500 text-xs transition-colors"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Recent Questions -->
+        <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-sm font-bold text-slate-900 flex items-center gap-2"><i class="ph ph-clock-counter-clockwise text-blue-600"></i>Recent Questions</h3>
+            <button class="text-[11px] text-blue-600 hover:underline font-semibold">Clear</button>
+          </div>
+          <div class="space-y-2.5">
+            <button class="recent-q-btn w-full text-left p-3 rounded-xl bg-slate-50/70 hover:bg-blue-50/60 border border-slate-100 hover:border-blue-100 transition-all group">
+              <div class="flex items-start gap-2.5"><i class="ph ph-chat-circle text-slate-400 group-hover:text-blue-600 text-sm mt-0.5"></i>
+                <div class="flex-1"><p class="text-xs font-medium text-slate-700 group-hover:text-slate-900 leading-snug">What is the status of customer Vikram Joshi?</p><span class="text-[10px] text-slate-400 block mt-1">Live MongoDB Record</span></div>
+              </div>
+            </button>
+            <button class="recent-q-btn w-full text-left p-3 rounded-xl bg-slate-50/70 hover:bg-blue-50/60 border border-slate-100 hover:border-blue-100 transition-all group">
+              <div class="flex items-start gap-2.5"><i class="ph ph-chat-circle text-slate-400 group-hover:text-blue-600 text-sm mt-0.5"></i>
+                <div class="flex-1"><p class="text-xs font-medium text-slate-700 group-hover:text-slate-900 leading-snug">Show all overdue invoices</p><span class="text-[10px] text-slate-400 block mt-1">Invoices Collection</span></div>
+              </div>
+            </button>
+            <button class="recent-q-btn w-full text-left p-3 rounded-xl bg-slate-50/70 hover:bg-blue-50/60 border border-slate-100 hover:border-blue-100 transition-all group">
+              <div class="flex items-start gap-2.5"><i class="ph ph-chat-circle text-slate-400 group-hover:text-blue-600 text-sm mt-0.5"></i>
+                <div class="flex-1"><p class="text-xs font-medium text-slate-700 group-hover:text-slate-900 leading-snug">What is the total receivable amount?</p><span class="text-[10px] text-slate-400 block mt-1">Receivables Calculation</span></div>
+              </div>
+            </button>
+            <button class="recent-q-btn w-full text-left p-3 rounded-xl bg-slate-50/70 hover:bg-blue-50/60 border border-slate-100 hover:border-blue-100 transition-all group">
+              <div class="flex items-start gap-2.5"><i class="ph ph-chat-circle text-slate-400 group-hover:text-blue-600 text-sm mt-0.5"></i>
+                <div class="flex-1"><p class="text-xs font-medium text-slate-700 group-hover:text-slate-900 leading-snug">What is the status of customer Satish?</p><span class="text-[10px] text-slate-400 block mt-1">Unregistered Debtor Test</span></div>
+              </div>
+            </button>
+          </div>
+        </div>
+
+        <!-- Security -->
+        <div class="p-4 rounded-xl bg-emerald-50/60 border border-emerald-200/80 flex items-start gap-3">
+          <div class="w-8 h-8 rounded-lg bg-emerald-500 text-white flex items-center justify-center shrink-0"><i class="ph-bold ph-lock-key"></i></div>
+          <div>
+            <h4 class="text-xs font-bold text-emerald-950">Bank-Grade 256-bit Encryption</h4>
+            <p class="text-[11px] text-emerald-800 mt-0.5 leading-relaxed">Tally &amp; GST Synchronized &#8226; RBI-Compliant</p>
+          </div>
+        </div>
+
+      </aside>
+
+    </div>
+  </main>
+  <!-- ========================================================= -->
+  <!-- 4. JAVASCRIPT -->
+  <!-- ========================================================= -->
+  <script>
+    const API_BASE_URL = "http://localhost:5000/api/ai";
+    const messagesContainer = document.getElementById("messagesContainer");
+    const chatForm = document.getElementById("chatForm");
+    const messageInput = document.getElementById("messageInput");
+    const clearChatBtn = document.getElementById("clearChatBtn");
+
+    let currentSessionId = localStorage.getItem("finpilot_ai_session_id") || null;
+
+    function formatINR(val) {
+      const num = Number(val) || 0;
+      return "₹" + num.toLocaleString("en-IN", { maximumFractionDigits: 2 });
+    }
+
+    function addMessage(sender, text, isCard, cardData) {
+      const msgDiv = document.createElement("div");
+      if (sender === "user") {
+        msgDiv.className = "flex justify-end";
+        msgDiv.innerHTML = "<div class=\"bg-blue-600 text-white px-4 py-3 rounded-2xl rounded-tr-sm text-sm max-w-md shadow-sm\"><p>" + text + "</p></div>";
+      } else {
+        msgDiv.className = "flex items-start gap-3 max-w-2xl";
+        msgDiv.innerHTML = "<div class=\"w-8 h-8 rounded-lg bg-blue-600 text-white flex items-center justify-center shrink-0 text-sm mt-0.5\"><i class=\"ph-bold ph-sparkle\"></i></div><div class=\"bg-blue-50/70 border border-blue-100/80 rounded-2xl rounded-tl-sm p-4 text-sm text-slate-700 leading-relaxed w-full\"><p class=\"whitespace-pre-line\">" + text + "</p>" + (isCard && cardData ? getCustomerCardHtml(cardData) : "") + "</div>";
+      }
+      messagesContainer.appendChild(msgDiv);
+      messagesContainer.scrollTop = messagesContainer.scrollHeight;
+      return msgDiv;
+    }
+
+    function addLoadingIndicator() {
+      const loaderDiv = document.createElement("div");
+      loaderDiv.id = "ai-typing-indicator";
+      loaderDiv.className = "flex items-start gap-3 max-w-2xl";
+      loaderDiv.innerHTML = "<div class=\"w-8 h-8 rounded-lg bg-blue-600 text-white flex items-center justify-center shrink-0 text-sm mt-0.5\"><i class=\"ph-bold ph-sparkle animate-spin\"></i></div><div class=\"bg-blue-50/70 border border-blue-100/80 rounded-2xl rounded-tl-sm px-4 py-3 text-xs text-blue-700 font-medium flex items-center gap-2\"><span class=\"w-2 h-2 rounded-full bg-blue-600 animate-ping\"></span>Querying MongoDB Atlas financial records...</div>";
+      messagesContainer.appendChild(loaderDiv);
+      messagesContainer.scrollTop = messagesContainer.scrollHeight;
+      return loaderDiv;
+    }
+
+    function removeLoadingIndicator() {
+      const loader = document.getElementById("ai-typing-indicator");
+      if (loader) loader.remove();
+    }
+
+    function getCustomerCardHtml(cardData) {
+      if (!cardData) return "";
+      const customerName = cardData.customerName || "Customer Record";
+      const company = cardData.companyName || customerName;
+      const gstin = cardData.gstin || "Unregistered";
+      const city = cardData.city || "India";
+      const totalInvoiced = formatINR(cardData.totalInvoiced || 0);
+      const totalPaid = formatINR(cardData.totalPaid || 0);
+      const outstanding = formatINR(cardData.outstanding || 0);
+      const overdue = formatINR(cardData.overdue || 0);
+      const status = cardData.status || "Active";
+
+      return "<div class=\"mt-4 bg-white rounded-xl border border-slate-200 p-4 shadow-sm\">" +
+        "<div class=\"flex items-center justify-between pb-3 border-b border-slate-100\">" +
+        "<div><div class=\"flex items-center gap-1.5\"><h4 class=\"font-bold text-slate-900 text-sm\">" + company + "</h4><i class=\"ph-fill ph-check-circle text-emerald-500 text-sm\"></i></div>" +
+        "<p class=\"text-xs text-slate-400 font-mono mt-0.5\">GSTIN: " + gstin + " &#8226; " + city + "</p></div>" +
+        "<span class=\"px-2 py-1 bg-emerald-50 text-emerald-700 border border-emerald-200 rounded text-[11px] font-semibold\">Status: " + status + "</span></div>" +
+        "<div class=\"grid grid-cols-2 sm:grid-cols-4 gap-3 py-3 border-b border-slate-100\">" +
+        "<div><span class=\"text-[10px] font-bold text-slate-400 uppercase\">Total Invoiced</span><p class=\"text-sm font-extrabold text-slate-900 mt-0.5\">" + totalInvoiced + "</p><span class=\"text-[10px] text-slate-500\">Ledger Record</span></div>" +
+        "<div><span class=\"text-[10px] font-bold text-slate-400 uppercase\">Total Paid</span><p class=\"text-sm font-extrabold text-emerald-600 mt-0.5\">" + totalPaid + "</p><span class=\"text-[10px] text-emerald-600 font-medium\">Settled</span></div>" +
+        "<div><span class=\"text-[10px] font-bold text-slate-400 uppercase\">Outstanding</span><p class=\"text-sm font-extrabold text-blue-600 mt-0.5\">" + outstanding + "</p><span class=\"text-[10px] text-blue-500 font-medium\">Current Balance</span></div>" +
+        "<div><span class=\"text-[10px] font-bold text-slate-400 uppercase\">Overdue Amount</span><p class=\"text-sm font-extrabold text-rose-600 mt-0.5\">" + overdue + "</p><span class=\"text-[10px] text-rose-500 font-medium\">Past Terms</span></div>" +
+        "</div>" +
+        "<div class=\"pt-3 flex flex-col sm:flex-row sm:items-center justify-between text-xs text-slate-500 gap-2\">" +
+        "<div><span>Contact: <strong class=\"text-slate-700 font-medium\">" + customerName + "</strong></span></div>" +
+        "<div class=\"sm:text-right shrink-0\"><span class=\"text-emerald-600 text-xs font-semibold flex items-center gap-1\"><i class=\"ph-bold ph-database\"></i>MongoDB Atlas Verified</span></div>" +
+        "</div></div>";
+    }
+
+    // Load message history from backend if active session exists
+    async function loadSessionHistory() {
+      if (!currentSessionId) return;
+      try {
+        const res = await fetch(API_BASE_URL + "/sessions/" + currentSessionId + "/messages");
+        if (res.status === 404 || res.status === 400) {
+          localStorage.removeItem("finpilot_ai_session_id");
+          currentSessionId = null;
+          return;
+        }
+        if (!res.ok) return;
+        const data = await res.json();
+        if (data.success && data.data.messages && data.data.messages.length > 0) {
+          // Clear default welcome message before loading history
+          messagesContainer.innerHTML = "";
+          data.data.messages.forEach(function(msg) {
+            if (msg.sender === "user") {
+              addMessage("user", msg.content || msg.queryText);
+            } else if (msg.sender === "assistant") {
+              addMessage("ai", msg.content || msg.responseText, msg.isCard, msg.cardData || msg.responseData);
+            } else if (msg.queryText && msg.responseText) {
+              addMessage("user", msg.queryText);
+              addMessage("ai", msg.responseText, msg.isCard, msg.cardData || msg.responseData);
+            }
+          });
+        }
+      } catch (err) {
+        console.warn("FinPilot: Backend not reachable yet, session history not loaded");
+      }
+    }
+
+    function addErrorMessage(text) {
+      const errDiv = document.createElement("div");
+      errDiv.className = "flex items-start gap-3 max-w-2xl";
+      errDiv.innerHTML = "<div class=\"w-8 h-8 rounded-lg bg-rose-600 text-white flex items-center justify-center shrink-0 text-sm mt-0.5\"><i class=\"ph-bold ph-warning-circle\"></i></div><div class=\"bg-rose-50 border border-rose-200 rounded-2xl rounded-tl-sm p-4 text-sm text-rose-800 leading-relaxed\"><p class=\"font-medium\">Unable to reach FinPilot Assistant</p><p class=\"text-xs text-rose-600 mt-1\">" + text + "</p></div>";
+      messagesContainer.appendChild(errDiv);
+      messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    }
+
+    let isSubmitting = false;
+
+    chatForm.addEventListener("submit", async function(e) {
+      e.preventDefault();
+      var val = messageInput.value.trim();
+      if (!val || isSubmitting) return;
+
+      isSubmitting = true;
+      addMessage("user", val);
+      messageInput.value = "";
+      messageInput.disabled = true;
+      addLoadingIndicator();
+
+      try {
+        const response = await fetch(API_BASE_URL + "/query", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "x-organization-id": localStorage.getItem("finpilot_org_id") || "65f1a2b3c4d5e6f7a8b9c0d1"
+          },
+          body: JSON.stringify({
+            queryText: val,
+            sessionId: currentSessionId
+          })
+        });
+
+        removeLoadingIndicator();
+        messageInput.disabled = false;
+        messageInput.focus();
+        isSubmitting = false;
+
+        const result = await response.json();
+
+        if (response.ok && result.success && result.data) {
+          if (result.data.session && result.data.session.id) {
+            currentSessionId = result.data.session.id;
+            localStorage.setItem("finpilot_ai_session_id", currentSessionId);
+          }
+          const msg = result.data.assistantMessage || result.data.message;
+          const replyText = msg.content || msg.responseText;
+          addMessage("ai", replyText, msg.isCard, msg.cardData || msg.responseData);
+          return;
+        }
+
+        // Backend returned handled error
+        const errMsg = result.message || "Failed to process query.";
+        addErrorMessage(errMsg);
+      } catch (err) {
+        removeLoadingIndicator();
+        messageInput.disabled = false;
+        messageInput.focus();
+        isSubmitting = false;
+
+        // Fallback with friendly explanation
+        addErrorMessage("Could not connect to the backend server at " + API_BASE_URL + ". Please ensure your Node.js server is running (`npm start` or `npm run dev` in backend/).");
+      }
+    });
+
+    document.querySelectorAll(".query-chip, .recent-q-btn").forEach(function(btn) {
+      btn.addEventListener("click", function() {
+        var el = btn.querySelector("span, p");
+        if (el) {
+          messageInput.value = el.innerText.trim();
+          chatForm.dispatchEvent(new Event("submit"));
+        }
+      });
+    });
+
+    clearChatBtn.addEventListener("click", async function() {
+      if (currentSessionId) {
+        try {
+          await fetch(API_BASE_URL + "/sessions/" + currentSessionId + "/messages", {
+            method: "DELETE"
+          });
+        } catch (e) {}
+        localStorage.removeItem("finpilot_ai_session_id");
+        currentSessionId = null;
+      }
+
+      messagesContainer.innerHTML = "<div class=\"flex items-start gap-3 max-w-2xl\"><div class=\"w-8 h-8 rounded-lg bg-blue-600 text-white flex items-center justify-center shrink-0 text-sm mt-0.5\"><i class=\"ph-bold ph-sparkle\"></i></div><div class=\"bg-blue-50/70 border border-blue-100/80 rounded-2xl rounded-tl-sm p-4 text-sm text-slate-700 leading-relaxed\"><p class=\"font-medium text-slate-900 mb-1\">Namaste! I am your FinPilot assistant.</p><p>How can I assist with your receivables, cash flow, or overdue accounts today?</p></div></div>";
+    });
+
+    // Check existing session on page load
+    document.addEventListener("DOMContentLoaded", function() {
+      loadSessionHistory();
+    });
+  </script>
+  <!-- Global Layout Script -->
+  <script src="../assets/js/nav.js"></script>
+      </main>
+    </div>
+  </div>
+</body>
+</html>

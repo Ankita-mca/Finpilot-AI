@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FinPilot AI — Platform Directory</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ["'DM Sans'", "sans-serif"],
+            heading: ["'Manrope'", "sans-serif"]
+          },
+          colors: {
+            brand: {
+              50: "#edf5f1",
+              100: "#e6f2ed",
+              500: "#5a9b80",
+              600: "#287755",
+              700: "#206748",
+              800: "#172823",
+              900: "#133c2a"
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <!-- Automatic User Flow Router: Sign In -> Org Setup -> Dashboard -->
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    if (!urlParams.has('view')) {
+      const token = localStorage.getItem('finpilot_token');
+      const org = localStorage.getItem('finpilot_org_name');
+      if (token && org) {
+        window.location.replace('dashboard.html');
+      } else if (token && !org) {
+        window.location.replace('org-setup.html');
+      } else {
+        window.location.replace('login.html');
+      }
+    }
+  </script>
+</head>
+
+<body class="min-h-screen bg-[#f5f7f6] text-[#202927] font-sans antialiased">
+
+  <!-- Header -->
+  <div class="bg-white border-b border-[#eaeeec] px-8 py-4 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <div class="w-9 h-9 rounded-[11px] bg-[#e6f2ed] text-[#348163] flex items-center justify-center">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+        </svg>
+      </div>
+      <div>
+        <h1 class="text-base font-extrabold font-heading text-[#172823] leading-none">FinPilot <span class="text-[#5a9b80]">AI</span></h1>
+        <p class="text-xs text-[#98a29d] font-medium mt-0.5">Platform Navigation Directory</p>
+      </div>
+    </div>
+    <div class="flex items-center gap-3">
+      <div class="flex items-center gap-2 px-3 py-1 bg-[#edf5f1] text-[#347d61] border border-[#d9ebe0] rounded-full text-xs font-semibold">
+        <span class="w-2 h-2 rounded-full bg-[#64ad86] animate-pulse"></span>
+        12 Connected Modules
+      </div>
+      <a href="dashboard.html" class="primary" style="padding: 6px 14px; font-size: 11px;">
+        Open Dashboard &rarr;
+      </a>
+    </div>
+  </div>
+
+  <!-- Cards Grid -->
+  <div class="max-w-6xl mx-auto px-6 py-8">
+    <div class="mb-6">
+      <h2 class="text-xl font-bold font-heading text-[#172823]">FinPilot AI Workspace Modules</h2>
+      <p class="text-xs text-[#78827e] mt-1">Select any module below to launch directly with consistent SaaS styling.</p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      <!-- 1. Dashboard -->
+      <a href="dashboard.html" class="panel p-5 hover:border-[#80ae96] hover:shadow-md transition-all group block">
+        <div class="flex items-center justify-between mb-3">
+          <span class="p-2.5 rounded-xl bg-[#edf5f1] text-[#347d61] group-hover:scale-105 transition-transform">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+          </span>
+          <span class="text-xs text-[#347d61] font-semibold">Primary &rarr;</span>
+        </div>
+        <h3 class="font-bold font-heading text-base text-[#172823]">Overview / Dashboard</h3>
+        <p class="text-xs text-[#78827e] mt-1">Total receivables, overdue balances, outstanding invoices table, and aging summary.</p>
+      </a>
+
+      <!-- 2. Invoices -->
+      <a href="invoices.html" class="panel p-5 hover:border-[#80ae96] hover:shadow-md transition-all group block">
+        <div class="flex items-center justify-between mb-3">
+          <span class="p-2.5 rounded-xl bg-[#edf5f1] text-[#347d61] group-hover:scale-105 transition-transform">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+          </span>
+          <span class="text-xs text-[#347d61] font-semibold">Active &rarr;</span>
+        </div>
+        <h3 class="font-bold font-heading text-base text-[#172823]">Invoices</h3>
+        <p class="text-xs text-[#78827e] mt-1">GST invoice creation modal, status tabs, audit drawer, and multi-tenant ledger.</p>
+      </a>
+
+      <!-- 3. Customers -->
+      <a href="customers.html" class="panel p-5 hover:border-[#80ae96] hover:shadow-md transition-all group block">
+        <div class="flex items-center justify-between mb-3">
+          <span class="p-2.5 rounded-xl bg-[#edf5f1] text-[#347d61] group-hover:scale-105 transition-transform">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path></svg>
+          </span>
+          <span class="text-xs text-[#347d61] font-semibold">Active &rarr;</span>
+        </div>
+        <h3 class="font-bold font-heading text-base text-[#172823]">Customers</h3>
+        <p class="text-xs text-[#78827e] mt-1">Debtor directories, MSME 45-day statutory limits, and counterparty management.</p>
+      </a>
+
+      <!-- 4. Payments -->
+      <a href="payments.html" class="panel p-5 hover:border-[#80ae96] hover:shadow-md transition-all group block">
+        <div class="flex items-center justify-between mb-3">
+          <span class="p-2.5 rounded-xl bg-[#edf5f1] text-[#347d61] group-hover:scale-105 transition-transform">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg>
+          </span>
+          <span class="text-xs text-[#347d61] font-semibold">Active &rarr;</span>
+        </div>
+        <h3 class="font-bold font-heading text-base text-[#172823]">Payments</h3>
+        <p class="text-xs text-[#78827e] mt-1">Inbound collections, RTGS/NEFT UTR verifications, and settlement history.</p>
+      </a>
+
+      <!-- 5. Aging Report -->
+      <a href="reports.html" class="panel p-5 hover:border-[#80ae96] hover:shadow-md transition-all group block">
+        <div class="flex items-center justify-between mb-3">
+          <span class="p-2.5 rounded-xl bg-[#edf5f1] text-[#347d61] group-hover:scale-105 transition-transform">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          </span>
+          <span class="text-xs text-[#347d61] font-semibold">Active &rarr;</span>
+        </div>
+        <h3 class="font-bold font-heading text-base text-[#172823]">Aging Report</h3>
+        <p class="text-xs text-[#78827e] mt-1">Aged receivables breakdown, top debtors exposure, and collection performance.</p>
+      </a>
+
+      <!-- 6. Reminders -->
+      <a href="reminders.html" class="panel p-5 hover:border-[#80ae96] hover:shadow-md transition-all group block">
+        <div class="flex items-center justify-between mb-3">
+          <span class="p-2.5 rounded-xl bg-[#edf5f1] text-[#347d61] group-hover:scale-105 transition-transform">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+          </span>
+          <span class="text-xs text-[#347d61] font-semibold">Active &rarr;</span>
+        </div>
+        <h3 class="font-bold font-heading text-base text-[#172823]">Reminders</h3>
+        <p class="text-xs text-[#78827e] mt-1">Automated WhatsApp and email nudges for overdue B2B receivables.</p>
+      </a>
+
+      <!-- 7. Reminders completed above -->
+
+
+      <!-- 9. AI Assistant -->
+      <a href="ai-assistant.html" class="panel p-5 hover:border-[#80ae96] hover:shadow-md transition-all group block">
+        <div class="flex items-center justify-between mb-3">
+          <span class="p-2.5 rounded-xl bg-[#edf5f1] text-[#347d61] group-hover:scale-105 transition-transform">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="2"></rect><circle cx="12" cy="5" r="2"></circle><path d="M12 7v4"></path></svg>
+          </span>
+          <span class="text-xs text-[#347d61] font-semibold">Copilot &rarr;</span>
+        </div>
+        <h3 class="font-bold font-heading text-base text-[#172823]">AI Assistant</h3>
+        <p class="text-xs text-[#78827e] mt-1">Conversational copilot querying live receivables, debtor risk, and working capital.</p>
+      </a>
+
+      <!-- 10. Notifications -->
+      <a href="notifications.html" class="panel p-5 hover:border-[#80ae96] hover:shadow-md transition-all group block">
+        <div class="flex items-center justify-between mb-3">
+          <span class="p-2.5 rounded-xl bg-[#edf5f1] text-[#347d61] group-hover:scale-105 transition-transform">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+          </span>
+          <span class="text-xs text-[#347d61] font-semibold">Active &rarr;</span>
+        </div>
+        <h3 class="font-bold font-heading text-base text-[#172823]">Notifications</h3>
+        <p class="text-xs text-[#78827e] mt-1">Real-time alerts, payment receipts, and statutory compliance warnings.</p>
+      </a>
+
+
+      <!-- 12. Settings -->
+      <a href="settings.html" class="panel p-5 hover:border-[#80ae96] hover:shadow-md transition-all group block">
+        <div class="flex items-center justify-between mb-3">
+          <span class="p-2.5 rounded-xl bg-[#edf5f1] text-[#347d61] group-hover:scale-105 transition-transform">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line><line x1="1" y1="14" x2="7" y2="14"></line><line x1="9" y1="8" x2="15" y2="8"></line><line x1="17" y1="16" x2="23" y2="16"></line></svg>
+          </span>
+          <span class="text-xs text-[#347d61] font-semibold">Active &rarr;</span>
+        </div>
+        <h3 class="font-bold font-heading text-base text-[#172823]">Settings</h3>
+        <p class="text-xs text-[#78827e] mt-1">MSME 45-day default caps, statutory interest rates, and GSTIN setup.</p>
+      </a>
+    </div>
+  </div>
+
+  <footer class="text-center text-xs text-[#98a29d] py-8 border-t border-[#eaeeec]">
+    © 2026 FinPilot AI • Autonomous B2B Capital OS • Connected to MongoDB Atlas
+  </footer>
+
+</body>
+</html>

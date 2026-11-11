@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FinPilot AI — Organization Setup</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ["'DM Sans'", "sans-serif"],
+            heading: ["'Manrope'", "sans-serif"]
+          },
+          colors: {
+            brandGreen: {
+              50: "#F0F7F2",
+              100: "#EAF4EE",
+              200: "#DCEBDD",
+              500: "#27845F",
+              600: "#216B4D",
+              700: "#1B563D"
+            },
+            pageBg: "#F4F7F5",
+            headingDark: "#172B2A",
+            bodyText: "#526B5B",
+            mutedText: "#82918B",
+            inputBg: "#F9FBF9",
+            inputBorder: "#E7ECE9",
+            inputFocus: "#27845F",
+            stepUpcoming: "#DCE5DF"
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="min-h-full font-sans antialiased text-[#526B5B] bg-[#F4F7F5] selection:bg-[#27845F] selection:text-white">
+
+  <header
+    class="w-full bg-white/90 backdrop-blur-md border-b border-[#E7ECE9] px-6 py-2.5 flex flex-wrap items-center justify-between gap-3 sticky top-0 z-30">
+    <div class="flex items-center gap-2">
+      <span class="w-2 h-2 rounded-full bg-[#27845F] animate-pulse"></span>
+      <span class="text-xs font-semibold uppercase tracking-wider text-[#82918B]">Interactive State Preview</span>
+    </div>
+    <div class="flex flex-wrap items-center gap-1.5 p-1 bg-[#EAF4EE]/70 rounded-lg text-xs font-medium text-[#526B5B]">
+      <button onclick="setPreviewState('default')" id="btn-state-default"
+        class="px-3 py-1 rounded-md bg-[#27845F] text-white shadow-sm font-semibold transition">Default / Fill</button>
+      <button onclick="setPreviewState('focused')" id="btn-state-focused"
+        class="px-3 py-1 rounded-md hover:text-[#172B2A] transition">Focused Input</button>
+      <button onclick="setPreviewState('error')" id="btn-state-error"
+        class="px-3 py-1 rounded-md hover:text-[#172B2A] transition">Validation Error</button>
+      <button onclick="setPreviewState('submitting')" id="btn-state-submitting"
+        class="px-3 py-1 rounded-md hover:text-[#172B2A] transition">Submitting</button>
+      <button onclick="setPreviewState('success')" id="btn-state-success"
+        class="px-3 py-1 rounded-md hover:text-[#172B2A] transition">Success Modal</button>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+
+      <aside class="lg:col-span-5 space-y-8 bg-[#EAF4EE] p-6 sm:p-8 rounded-3xl border border-[#DCEBDD]">
+        <div>
+          <div class="flex items-center gap-3 mb-3">
+            <div
+              class="w-10 h-10 rounded-xl bg-[#27845F] text-white flex items-center justify-center shadow-md shadow-[#27845F]/20">
+              <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="6" width="20" height="12" rx="3" stroke="currentColor" />
+                <circle cx="16" cy="12" r="1.5" fill="currentColor" />
+                <path d="M6 10h4" stroke-linecap="round" />
+              </svg>
+            </div>
+            <div>
+              <span class="text-xl font-bold tracking-tight text-[#172B2A] leading-none">FinPilot <span
+                  class="text-[#27845F]">AI</span></span>
+              <span class="block text-[10px] font-semibold uppercase tracking-wider text-[#27845F] mt-0.5">Autonomous
+                Cashflow Engine</span>
+            </div>
+          </div>
+          <span
+            class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-[#F0F7F2] text-[#27845F] ring-1 ring-[#27845F]/20">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#27845F] animate-pulse"></span>
+            Built for Indian MSME Working Capital
+          </span>
+        </div>
+
+        <div>
+          <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#172B2A] leading-[1.15]">Set up your
+            organization</h1>
+          <p class="mt-3 text-sm sm:text-base text-[#526B5B] leading-relaxed">Create your high-trust business workspace
+            to reconcile ledgers, orchestrate smart payment nudges, and secure predictable liquidity.</p>
+        </div>
+
+        <div class="space-y-3.5">
+          <div
+            class="p-4 rounded-2xl bg-[#EAF4EE] border border-[#DCEBDD] flex items-start gap-3.5 hover:shadow-sm transition">
+            <div class="w-9 h-9 rounded-xl bg-[#DCEBDD] text-[#27845F] flex items-center justify-center flex-shrink-0">
+              <svg class="w-5 h-5 text-[#27845F]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+              </svg>
+            </div>
+            <div>
+              <h2 class="text-sm font-semibold text-[#172B2A]">Track outstanding invoices</h2>
+              <p class="text-xs text-[#526B5B] mt-1 leading-relaxed">Continuous zero-latency sync across TallyPrime,
+                Zoho Books, Busy, and GSTN e-Invoice portals.</p>
+            </div>
+          </div>
+          <div
+            class="p-4 rounded-2xl bg-[#EAF4EE] border border-[#DCEBDD] flex items-start gap-3.5 hover:shadow-sm transition">
+            <div class="w-9 h-9 rounded-xl bg-[#DCEBDD] text-[#27845F] flex items-center justify-center flex-shrink-0">
+              <svg class="w-5 h-5 text-[#27845F]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+            </div>
+            <div>
+              <h2 class="text-sm font-semibold text-[#172B2A]">Simplify payment follow-ups</h2>
+              <p class="text-xs text-[#526B5B] mt-1 leading-relaxed">Context-aware WhatsApp &amp; email follow-ups embed
+                dynamic Bharat BillPay &amp; instant UPI autopay links.</p>
+            </div>
+          </div>
+          <div
+            class="p-4 rounded-2xl bg-[#EAF4EE] border border-[#DCEBDD] flex items-start gap-3.5 hover:shadow-sm transition">
+            <div class="w-9 h-9 rounded-xl bg-[#DCEBDD] text-[#27845F] flex items-center justify-center flex-shrink-0">
+              <svg class="w-5 h-5 text-[#27845F]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+              </svg>
+            </div>
+            <div>
+              <h2 class="text-sm font-semibold text-[#172B2A]">Understand your cash flow</h2>
+              <p class="text-xs text-[#526B5B] mt-1 leading-relaxed">Predictive collection algorithms quantify DSO
+                variances and forecast 90-day cash positions.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-4 border-t border-[#DCEBDD]">
+          <div class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#82918B]">
+            <svg class="w-4 h-4 text-[#27845F]" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+              stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+            Compliance &amp; Security Standards
+          </div>
+          <p class="text-xs text-[#82918B] mt-1.5">256-bit bank-grade encryption &bull; RBI Fair Practices Framework
+            &bull; ISO 27001 &amp; SOC2 Type II Certified</p>
+        </div>
+      </aside>
+
+      <section
+        class="lg:col-span-7 bg-[#FFFFFF] rounded-3xl border border-[#E7ECE9] shadow-xl shadow-[#172B2A]/5 p-6 sm:p-8 lg:p-10 relative">
+
+        <div class="mb-8">
+          <div class="flex items-center justify-between text-xs font-semibold mb-2">
+            <span class="text-[#27845F] uppercase tracking-wider font-mono">Step 2 of 3</span>
+            <span class="text-[#82918B]">Organization Setup &bull; Next: Dashboard</span>
+          </div>
+          <div class="grid grid-cols-3 gap-2">
+            <div class="h-1.5 rounded-full bg-[#27845F]"></div>
+            <div class="h-1.5 rounded-full bg-[#27845F]"></div>
+            <div class="h-1.5 rounded-full bg-[#DCE5DF]"></div>
+          </div>
+          <div class="flex justify-between text-[11px] text-[#82918B] mt-2 font-medium">
+            <span class="text-[#27845F] font-semibold flex items-center gap-1">
+              <svg class="w-3 h-3 text-[#27845F]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+              Sign In (Done)
+            </span>
+            <span class="text-[#27845F] font-semibold">Org Setup (Active)</span>
+            <span class="text-[#82918B]">Step 3: Dashboard</span>
+          </div>
+        </div>
+
+        <div class="mb-7">
+          <h2 class="text-2xl font-bold tracking-tight text-[#172B2A]">Organization details</h2>
+          <p class="text-xs sm:text-sm text-[#82918B] mt-1">Tell us a little about your business entity to configure
+            your auto-reconciliation ledgers.</p>
+        </div>
+
+        <div id="error-banner"
+          class="hidden mb-6 p-4 rounded-2xl bg-rose-50 border border-rose-200 text-rose-800 text-xs items-start gap-3"
+          role="alert" aria-live="assertive">
+          <svg class="w-5 h-5 text-rose-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+            stroke-width="2">
+            <circle cx="12" cy="12" r="10" />
+            <line x1="12" y1="8" x2="12" y2="12" />
+            <line x1="12" y1="16" x2="12.01" y2="16" />
+          </svg>
+          <div>
+            <strong class="font-semibold block text-sm">Please check the required fields</strong>
+            <span>Provide a valid organization name, business email format, and 10-digit mobile number to
+              proceed.</span>
+          </div>
+        </div>
+
+        <form id="org-form" class="space-y-5" onsubmit="event.preventDefault(); handleFormSubmit();">
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <div class="flex items-center justify-between mb-1.5">
+                <label for="orgName" class="text-xs font-semibold text-[#172B2A]">Organization Name <span
+                    class="text-rose-500">*</span></label>
+                <span class="text-[11px] text-[#82918B]">Legal entity</span>
+              </div>
+              <div class="relative">
+                <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-[#27845F]">
+                  <svg class="w-4 h-4 text-[#27845F]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <rect x="4" y="2" width="16" height="20" rx="2" />
+                    <path d="M9 22v-4h6v4M8 6h.01M16 6h.01M8 10h.01M16 10h.01M8 14h.01M16 14h.01" />
+                  </svg>
+                </div>
+                <input type="text" id="orgName" name="orgName" value="Kalyan Forge Engineering Pvt Ltd"
+                  placeholder="e.g. Acme Tech Solutions Pvt Ltd"
+                  class="block w-full pl-10 pr-3.5 py-2.5 text-sm text-[#172B2A] bg-[#F9FBF9] border border-[#E7ECE9] rounded-xl focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#27845F]/20 focus:border-[#27845F] transition"
+                  required>
+              </div>
+              <p id="orgName-error" class="hidden mt-1 text-xs text-rose-600 font-medium">Organization name is required.
+              </p>
+            </div>
+            <div>
+              <div class="flex items-center justify-between mb-1.5">
+                <label for="businessEmail" class="text-xs font-semibold text-[#172B2A]">Business Email <span
+                    class="text-rose-500">*</span></label>
+                <span class="text-[11px] text-[#82918B]">For ledger receipts</span>
+              </div>
+              <div class="relative">
+                <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-[#27845F]">
+                  <svg class="w-4 h-4 text-[#27845F]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="4" />
+                    <path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.92 7.94" />
+                  </svg>
+                </div>
+                <input type="email" id="businessEmail" name="businessEmail" value="finance@kalyanforge.in"
+                  placeholder="billing@company.com"
+                  class="block w-full pl-10 pr-3.5 py-2.5 text-sm text-[#172B2A] bg-[#F9FBF9] border border-[#E7ECE9] rounded-xl focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#27845F]/20 focus:border-[#27845F] transition"
+                  required>
+              </div>
+              <p id="businessEmail-error" class="hidden mt-1 text-xs text-rose-600 font-medium">Enter a valid work
+                email.</p>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label for="phone" class="block text-xs font-semibold text-[#172B2A] mb-1.5">Phone Number <span
+                  class="text-rose-500">*</span></label>
+              <div
+                class="flex rounded-xl bg-[#F9FBF9] border border-[#E7ECE9] overflow-hidden focus-within:ring-2 focus-within:ring-[#27845F]/20 focus-within:border-[#27845F] transition">
+                <div
+                  class="flex items-center gap-1 px-3 bg-[#EAF4EE] border-r border-[#E7ECE9] text-xs font-semibold text-[#172B2A] select-none whitespace-nowrap">
+                  <span>&#127470;&#127475; +91</span>
+                </div>
+                <input type="tel" id="phone" name="phone" value="98234 11290" placeholder="98765 43210"
+                  class="block w-full px-3.5 py-2.5 text-sm text-[#172B2A] bg-transparent focus:outline-none" required>
+              </div>
+              <p id="phone-error" class="hidden mt-1 text-xs text-rose-600 font-medium">Enter a valid 10-digit mobile
+                number.</p>
+            </div>
+            <div>
+              <label for="businessStructure" class="block text-xs font-semibold text-[#172B2A] mb-1.5">Business
+                Structure <span class="text-rose-500">*</span></label>
+              <div class="relative">
+                <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-[#27845F]">
+                  <svg class="w-4 h-4 text-[#27845F]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="4" width="18" height="16" rx="2" />
+                    <path d="M7 8h10M7 12h10M7 16h6" />
+                  </svg>
+                </div>
+                <select id="businessStructure" name="businessStructure"
+                  class="block w-full pl-10 pr-10 py-2.5 text-sm text-[#172B2A] bg-[#F9FBF9] border border-[#E7ECE9] rounded-xl focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#27845F]/20 focus:border-[#27845F] transition appearance-none cursor-pointer">
+                  <option value="Sole Proprietorship">Sole Proprietorship</option>
+                  <option value="Partnership">Partnership</option>
+                  <option value="LLP">LLP</option>
+                  <option value="Private Limited Company" selected>Private Limited Company (Pvt Ltd)</option>
+                  <option value="Public Limited Company">Public Limited Company</option>
+                  <option value="Other">Other</option>
+                </select>
+                <div class="absolute inset-y-0 right-0 pr-3.5 flex items-center pointer-events-none text-[#82918B]"><svg
+                    class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                  </svg></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label for="industry" class="block text-xs font-semibold text-[#172B2A] mb-1.5">Industry Vertical <span
+                  class="text-rose-500">*</span></label>
+              <div class="relative">
+                <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-[#27845F]">
+                  <svg class="w-4 h-4 text-[#27845F]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                  </svg>
+                </div>
+                <select id="industry" name="industry"
+                  class="block w-full pl-10 pr-10 py-2.5 text-sm text-[#172B2A] bg-[#F9FBF9] border border-[#E7ECE9] rounded-xl focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#27845F]/20 focus:border-[#27845F] transition appearance-none cursor-pointer">
+                  <option value="Manufacturing" selected>Manufacturing &amp; Engineering</option>
+                  <option value="Retail">Retail</option>
+                  <option value="Wholesale">Wholesale / Distribution</option>
+                  <option value="IT">IT &amp; Software Services</option>
+                  <option value="Professional Services">Professional Services</option>
+                  <option value="Healthcare">Healthcare &amp; Pharma</option>
+                  <option value="Education">Education</option>
+                  <option value="Other">Other</option>
+                </select>
+                <div class="absolute inset-y-0 right-0 pr-3.5 flex items-center pointer-events-none text-[#82918B]"><svg
+                    class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                  </svg></div>
+              </div>
+            </div>
+            <div>
+              <label for="orgSize" class="block text-xs font-semibold text-[#172B2A] mb-1.5">Organization Size <span
+                  class="text-rose-500">*</span></label>
+              <div class="relative">
+                <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-[#27845F]">
+                  <svg class="w-4 h-4 text-[#27845F]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                  </svg>
+                </div>
+                <select id="orgSize" name="orgSize"
+                  class="block w-full pl-10 pr-10 py-2.5 text-sm text-[#172B2A] bg-[#F9FBF9] border border-[#E7ECE9] rounded-xl focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#27845F]/20 focus:border-[#27845F] transition appearance-none cursor-pointer">
+                  <option value="1-10">1 - 10 employees</option>
+                  <option value="11-50" selected>11 - 50 employees</option>
+                  <option value="51-200">51 - 200 employees</option>
+                  <option value="201+">201+ employees</option>
+                </select>
+                <div class="absolute inset-y-0 right-0 pr-3.5 flex items-center pointer-events-none text-[#82918B]"><svg
+                    class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                  </svg></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div>
+              <label for="country" class="block text-xs font-semibold text-[#172B2A] mb-1.5">Country <span
+                  class="text-rose-500">*</span></label>
+              <div class="relative">
+                <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-[#27845F]">
+                  <svg class="w-4 h-4 text-[#27845F]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10" />
+                    <line x1="2" y1="12" x2="22" y2="12" />
+                    <path
+                      d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                  </svg>
+                </div>
+                <select id="country" name="country"
+                  class="block w-full pl-10 pr-8 py-2.5 text-sm text-[#172B2A] bg-[#F9FBF9] border border-[#E7ECE9] rounded-xl focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#27845F]/20 focus:border-[#27845F] transition appearance-none cursor-pointer">
+                  <option value="India" selected>India</option>
+                </select>
+                <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-[#82918B]"><svg
+                    class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                  </svg></div>
+              </div>
+            </div>
+            <div>
+              <label for="state" class="block text-xs font-semibold text-[#172B2A] mb-1.5">State <span
+                  class="text-rose-500">*</span></label>
+              <div class="relative">
+                <select id="state" name="state"
+                  class="block w-full px-3.5 pr-8 py-2.5 text-sm text-[#172B2A] bg-[#F9FBF9] border border-[#E7ECE9] rounded-xl focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#27845F]/20 focus:border-[#27845F] transition appearance-none cursor-pointer">
+                  <option value="Maharashtra" selected>Maharashtra</option>
+                  <option value="Gujarat">Gujarat</option>
+                  <option value="Karnataka">Karnataka</option>
+                  <option value="Tamil Nadu">Tamil Nadu</option>
+                  <option value="Delhi NCR">Delhi NCR</option>
+                  <option value="Telangana">Telangana</option>
+                  <option value="Rajasthan">Rajasthan</option>
+                  <option value="Uttar Pradesh">Uttar Pradesh</option>
+                  <option value="Other">Other State / UT</option>
+                </select>
+                <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-[#82918B]"><svg
+                    class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                  </svg></div>
+              </div>
+            </div>
+            <div>
+              <label for="city" class="block text-xs font-semibold text-[#172B2A] mb-1.5">City <span
+                  class="text-rose-500">*</span></label>
+              <input type="text" id="city" name="city" value="Pune" placeholder="e.g. Pune"
+                class="block w-full px-3.5 py-2.5 text-sm text-[#172B2A] bg-[#F9FBF9] border border-[#E7ECE9] rounded-xl focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#27845F]/20 focus:border-[#27845F] transition"
+                required>
+            </div>
+          </div>
+
+          <div>
+            <div class="flex items-center justify-between mb-1.5">
+              <label for="website" class="text-xs font-semibold text-[#172B2A]">Business Website</label>
+              <span class="text-[11px] text-[#82918B]">Optional</span>
+            </div>
+            <div class="relative">
+              <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-[#27845F]">
+                <svg class="w-4 h-4 text-[#27845F]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+                </svg>
+              </div>
+              <input type="url" id="website" name="website" value="https://www.kalyanforge.in"
+                placeholder="https://yourcompany.com"
+                class="block w-full pl-10 pr-3.5 py-2.5 text-sm text-[#172B2A] bg-[#F9FBF9] border border-[#E7ECE9] rounded-xl focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#27845F]/20 focus:border-[#27845F] transition">
+            </div>
+          </div>
+
+          <div class="p-3.5 rounded-2xl bg-[#F0F7F2] border border-[#DCEBDD] flex items-start gap-3">
+            <div class="text-[#27845F] mt-0.5 flex-shrink-0">
+              <svg class="w-4 h-4 text-[#27845F]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                <path d="M7 11V7a5 5 0 0110 0v4" />
+              </svg>
+            </div>
+            <p class="text-xs text-[#526B5B] leading-relaxed">Your business data is stored under AES-256 encryption.
+              Only verified organization owners and appointed finance controllers can view ledger records.</p>
+          </div>
+
+          <div class="pt-3 flex flex-col sm:flex-row items-center gap-3">
+            <button type="submit" id="submit-btn"
+              class="w-full sm:flex-1 py-3 px-6 rounded-xl text-sm font-semibold text-white bg-[#27845F] hover:bg-[#216B4D] active:bg-[#1B563D] transition duration-150 flex items-center justify-center gap-2 shadow-md shadow-[#27845F]/20 disabled:opacity-75 disabled:cursor-not-allowed cursor-pointer">
+              <span id="btn-text" class="flex items-center gap-2">
+                Create Organization
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </span>
+              <span id="btn-spinner" class="hidden items-center gap-2">
+                <svg class="animate-spin h-4 w-4 text-white" fill="none" viewBox="0 0 24 24">
+                  <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                  <path class="opacity-75" fill="currentColor"
+                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+                  </path>
+                </svg>
+                Creating Workspace...
+              </span>
+            </button>
+            <a href="login.html"
+              class="w-full sm:w-auto py-3 px-5 rounded-xl text-sm font-semibold text-[#526B5B] bg-[#EAF4EE] hover:bg-[#DCE5DF] transition duration-150 flex items-center justify-center gap-1.5">
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+              </svg>
+              Back to Login
+            </a>
+          </div>
+
+        </form>
+
+        <div id="success-modal"
+          class="hidden absolute inset-0 bg-white/95 backdrop-blur-sm rounded-3xl z-20 p-8 flex-col items-center justify-center text-center">
+          <div
+            class="w-16 h-16 rounded-full bg-[#EAF4EE] text-[#27845F] flex items-center justify-center mb-4 ring-8 ring-[#F0F7F2]">
+            <svg class="w-8 h-8 text-[#27845F]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold text-[#172B2A] font-heading">Organization Configured!</h3>
+          <p class="text-sm text-[#526B5B] max-w-sm mt-2 mb-6">Your workspace has been initialized with statutory MSME limits and ledger reconciliation rules.</p>
+          <div class="flex gap-3">
+            <button onclick="window.location.href='dashboard.html'" class="px-6 py-2.5 rounded-xl text-xs font-semibold bg-[#27845F] text-white hover:bg-[#216B4D] transition flex items-center gap-2 cursor-pointer">
+              <span>Launch Dashboard</span>
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </button>
+            <button onclick="setPreviewState('default')" class="px-4 py-2.5 rounded-xl text-xs font-semibold bg-[#EAF4EE] text-[#526B5B] hover:bg-[#DCE5DF] transition cursor-pointer">Edit Details</button>
+          </div>
+        </div>
+
+      </section>
+    </div>
+  </main>
+
+  <script>
+    function setPreviewState(state) {
+      ['default', 'focused', 'error', 'submitting', 'success'].forEach(function (s) {
+        var b = document.getElementById('btn-state-' + s);
+        if (b) b.className = 'px-3 py-1 rounded-md transition hover:text-[#172B2A] text-[#526B5B]';
+      });
+      var a = document.getElementById('btn-state-' + state);
+      if (a) a.className = 'px-3 py-1 rounded-md bg-[#27845F] text-white shadow-sm font-semibold transition';
+
+      var on = document.getElementById('orgName');
+      var em = document.getElementById('businessEmail');
+      var ph = document.getElementById('phone');
+      var bn = document.getElementById('error-banner');
+      var oe = document.getElementById('orgName-error');
+      var ee = document.getElementById('businessEmail-error');
+      var pe = document.getElementById('phone-error');
+      var sb = document.getElementById('submit-btn');
+      var bt = document.getElementById('btn-text');
+      var bs = document.getElementById('btn-spinner');
+      var sm = document.getElementById('success-modal');
+
+      var base = 'block w-full pl-10 pr-3.5 py-2.5 text-sm text-[#172B2A] bg-[#F9FBF9] border border-[#E7ECE9] rounded-xl focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#27845F]/20 focus:border-[#27845F] transition';
+      var err = 'block w-full pl-10 pr-3.5 py-2.5 text-sm text-rose-900 bg-rose-50/60 border border-rose-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-rose-500 transition';
+
+      bn.classList.add('hidden'); bn.classList.remove('flex');
+      oe.classList.add('hidden'); ee.classList.add('hidden'); pe.classList.add('hidden');
+      sm.classList.add('hidden'); sm.classList.remove('flex');
+      sb.disabled = false;
+      bt.classList.remove('hidden');
+      bs.classList.add('hidden'); bs.classList.remove('flex');
+      on.className = base; em.className = base;
+
+      if (state === 'default') {
+        on.value = 'Kalyan Forge Engineering Pvt Ltd';
+        em.value = localStorage.getItem('finpilot_user_email') || 'finance@kalyanforge.in';
+        ph.value = '98234 11290';
+      } else if (state === 'focused') {
+        on.value = 'Kalyan Forge Engineering Pvt Ltd';
+        em.value = localStorage.getItem('finpilot_user_email') || 'finance@kalyanforge.in';
+        ph.value = '98234 11290';
+        on.focus();
+        on.classList.add('ring-2', 'ring-[#27845F]/20', 'bg-white', 'border-[#27845F]');
+      } else if (state === 'error') {
+        on.value = ''; em.value = 'finance-invalid-email'; ph.value = '1234';
+        bn.classList.remove('hidden'); bn.classList.add('flex');
+        oe.classList.remove('hidden'); ee.classList.remove('hidden'); pe.classList.remove('hidden');
+        on.className = err; em.className = err;
+      } else if (state === 'submitting') {
+        sb.disabled = true;
+        bt.classList.add('hidden');
+        bs.classList.remove('hidden'); bs.classList.add('flex');
+      } else if (state === 'success') {
+        sm.classList.remove('hidden'); sm.classList.add('flex');
+      }
+    }
+
+    function handleFormSubmit() {
+      const orgNameEl = document.getElementById('orgName');
+      const orgName = (orgNameEl && orgNameEl.value.trim()) || 'Kalyan Forge Engineering Pvt Ltd';
+
+      localStorage.setItem('finpilot_org_name', orgName);
+      localStorage.setItem('finpilot_org_role', 'owner account');
+      if (!localStorage.getItem('finpilot_org_id')) {
+        localStorage.setItem('finpilot_org_id', '65f1a2b3c4d5e6f7a8b9c0d1');
+      }
+
+      setPreviewState('submitting');
+      setTimeout(function() { 
+        window.location.href = 'dashboard.html'; 
+      }, 1200);
+    }
+
+    document.addEventListener('DOMContentLoaded', function () { setPreviewState('default'); });
+  </script>
+</body>
+
+</html>
